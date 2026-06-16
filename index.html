@@ -229,6 +229,45 @@
     .tox-val--mid { color:var(--orange); }
     .tox-val--nd { color:var(--text-dim); }
 
+    /* PHARMA INFOGRAPHIC */
+    .pharma-intro { max-width:980px; color:var(--text-mid); font-size:1.02rem; line-height:1.75; margin-bottom:22px; }
+    .pharma-summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-bottom:22px; }
+    .pharma-summary-item { background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018)),var(--bg-card); border:1px solid var(--line); border-radius:18px; padding:18px 18px 16px; box-shadow:0 14px 40px rgba(0,0,0,.28); }
+    .pharma-summary-num { display:block; font-family:var(--font-mono); font-size:clamp(1.8rem,4vw,2.8rem); color:var(--gold); line-height:1; letter-spacing:-.06em; margin-bottom:7px; }
+    .pharma-summary-label { display:block; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); line-height:1.45; }
+    .pharma-legend { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 26px; }
+    .pharma-pill { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.03); font-family:var(--font-mono); font-size:.72rem; color:var(--text-mid); letter-spacing:.04em; }
+    .pharma-pill::before { content:''; width:8px; height:8px; border-radius:50%; display:block; background:var(--gold); }
+    .pharma-pill--benz::before { background:#d6b85a; }
+    .pharma-pill--anes::before { background:#ff8178; }
+    .pharma-pill--support::before { background:#86cf9f; }
+    .pharma-block { margin-bottom:28px; padding:28px; border:1px solid var(--line); border-radius:24px; background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.018)),var(--bg-card); box-shadow:var(--shadow); }
+    .pharma-block + .pharma-block { margin-top:20px; }
+    .pharma-block-head { margin-bottom:18px; }
+    .pharma-block-title { font-family:var(--font-display); font-size:clamp(1.65rem,4vw,2.2rem); line-height:1.06; color:var(--text); margin-bottom:8px; }
+    .pharma-block-subtitle { font-size:1rem; color:var(--text-mid); line-height:1.7; max-width:900px; }
+    .pharma-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+    .pharma-card { position:relative; padding:20px 20px 18px; border-radius:20px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.025); box-shadow:0 12px 34px rgba(0,0,0,.22); overflow:hidden; }
+    .pharma-card::after { content:''; position:absolute; inset:auto 0 0 0; height:2px; background:linear-gradient(90deg,transparent,rgba(214,184,90,.55),transparent); opacity:.45; }
+    .pharma-card--critical::after { background:linear-gradient(90deg,transparent,rgba(230,57,70,.75),transparent); opacity:.8; }
+    .pharma-card--support::after { background:linear-gradient(90deg,transparent,rgba(134,207,159,.6),transparent); opacity:.7; }
+    .pharma-card-top { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; margin-bottom:10px; }
+    .pharma-name { font-family:var(--font-display); font-size:1.28rem; line-height:1.05; color:var(--text); margin:0; }
+    .pharma-tag { flex-shrink:0; padding:6px 9px; border-radius:999px; border:1px solid rgba(214,184,90,.35); font-family:var(--font-mono); font-size:.64rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); }
+    .pharma-tag--critical { border-color:rgba(230,57,70,.34); color:#ff8b84; }
+    .pharma-tag--support { border-color:rgba(134,207,159,.35); color:#b4edc2; }
+    .pharma-type { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); line-height:1.55; margin-bottom:14px; }
+    .pharma-big { font-family:var(--font-mono); font-size:clamp(1.7rem,4vw,2.5rem); line-height:1; color:var(--text); letter-spacing:-.06em; margin-bottom:12px; }
+    .pharma-big--critical { color:#ff8b84; }
+    .pharma-big--gold { color:var(--gold); }
+    .pharma-list { display:grid; gap:8px; }
+    .pharma-row { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; padding-top:8px; border-top:1px solid rgba(255,255,255,.06); }
+    .pharma-row:first-child { border-top:none; padding-top:0; }
+    .pharma-key { font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); flex:0 0 84px; line-height:1.45; }
+    .pharma-val { font-size:.96rem; color:var(--text-mid); text-align:right; line-height:1.55; flex:1; }
+    .pharma-note { margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,.08); font-size:.9rem; line-height:1.6; color:var(--text-mid); }
+    .pharma-note strong { color:var(--text); }
+
     /* REACTIONS */
     .reactions-filter { display:flex; gap:9px; flex-wrap:wrap; margin-bottom:30px; }
     .filter-btn { padding:9px 14px; font-family:var(--font-mono); font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:999px; color:var(--text-dim); cursor:pointer; transition:all .2s; }
@@ -530,6 +569,178 @@
       *,.fade-in,.timeline-item { transition:none !important; animation:none !important; }
     }
 
+
+    /* HOTFIX: simplify 911 block and make death light subtle */
+    body.death-focus {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214,184,90,0.08), transparent 30rem),
+        linear-gradient(180deg, #10100e 0%, var(--bg) 34rem, #050505 100%) !important;
+    }
+    body.death-focus::after { display:none !important; content:none !important; }
+    .timeline-item--death { isolation:isolate; overflow:visible; }
+    .timeline-item--death::after {
+      content:"";
+      position:absolute;
+      inset:-24px -16px;
+      z-index:-1;
+      pointer-events:none;
+      border-radius:calc(var(--radius) + 18px);
+      background:radial-gradient(ellipse at 50% 58%, rgba(214,184,90,.24) 0%, rgba(214,184,90,.10) 38%, transparent 72%);
+      filter:blur(20px);
+      opacity:0;
+      transition:opacity .6s ease;
+    }
+    body.death-focus .timeline-item--death::after { opacity:.55; }
+    body.death-focus .timeline-item--death {
+      border-color:rgba(214,184,90,.30) !important;
+      box-shadow:0 22px 70px rgba(0,0,0,.40), 0 0 52px rgba(214,184,90,.12) !important;
+    }
+
+    .call-transcript {
+      margin-top:24px !important;
+      padding:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      background:transparent !important;
+      box-shadow:none !important;
+    }
+    .call-header {
+      margin-bottom:14px !important;
+      padding:0 0 12px !important;
+      border-bottom:1px solid rgba(212,72,60,.26) !important;
+    }
+    .call-kicker { color:var(--red) !important; }
+    .call-duration { font-size:1.35rem !important; color:var(--red) !important; }
+    .call-meta {
+      gap:0 !important;
+      margin:0 0 14px !important;
+      display:block !important;
+    }
+    .call-meta span {
+      display:block !important;
+      padding:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      margin:5px 0 !important;
+      color:var(--text-dim) !important;
+      background:transparent !important;
+    }
+    .call-explain {
+      margin:12px 0 18px !important;
+      padding:0 0 0 14px !important;
+      border:0 !important;
+      border-left:2px solid rgba(214,184,90,.45) !important;
+      border-radius:0 !important;
+      background:transparent !important;
+      box-shadow:none !important;
+    }
+    .call-columns {
+      display:block !important;
+    }
+    .call-column {
+      max-height:none !important;
+      overflow:visible !important;
+      padding:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      background:transparent !important;
+      box-shadow:none !important;
+      margin-top:24px !important;
+    }
+    .call-column h4 {
+      position:static !important;
+      margin:0 0 14px !important;
+      padding:0 0 10px !important;
+      border:0 !important;
+      border-bottom:1px solid rgba(255,255,255,.10) !important;
+      background:transparent !important;
+      color:var(--gold) !important;
+    }
+    .call-column p {
+      margin:0 0 12px !important;
+      font-size:.98rem !important;
+      line-height:1.72 !important;
+    }
+    .call-note {
+      border:0 !important;
+      border-left:2px solid rgba(212,72,60,.42) !important;
+      padding:0 0 0 14px !important;
+      margin-top:20px !important;
+      background:transparent !important;
+    }
+    @media (min-width: 761px) {
+      .call-columns {
+        display:grid !important;
+        grid-template-columns:1fr 1fr !important;
+        gap:28px !important;
+      }
+      .call-column { margin-top:20px !important; }
+    }
+    @media (max-width:760px) {
+      .call-transcript { margin-left:0 !important; margin-right:0 !important; }
+      .call-header { display:block !important; }
+      .call-header h3 { font-size:1.55rem !important; }
+      .call-column p { font-size:.98rem !important; }
+    }
+
+
+    /* FINAL FIX: death card without spotlight; only the title leaves the mark */
+    .timeline-item--death::after,
+    body.death-focus .timeline-item--death::after {
+      display:none !important;
+      content:none !important;
+      opacity:0 !important;
+      background:none !important;
+      filter:none !important;
+    }
+    .timeline-item--death {
+      background:
+        linear-gradient(180deg, rgba(52,10,9,.24), rgba(255,255,255,.018)),
+        var(--bg-card) !important;
+      border-color:rgba(212,72,60,.34) !important;
+    }
+    body.death-focus .timeline-item--death {
+      border-color:rgba(212,72,60,.48) !important;
+      box-shadow:0 24px 72px rgba(0,0,0,.50) !important;
+    }
+    .timeline-item--death .timeline-event {
+      color:#ff5a50 !important;
+      text-shadow:
+        0 0 7px rgba(212,72,60,.42),
+        0 0 22px rgba(212,72,60,.28);
+      letter-spacing:.01em;
+    }
+    body.death-focus .timeline-item--death .timeline-event {
+      color:#ff6a60 !important;
+      text-shadow:
+        0 0 8px rgba(255,90,80,.55),
+        0 0 28px rgba(212,72,60,.42),
+        0 0 56px rgba(212,72,60,.20);
+    }
+    .timeline-item--death .timeline-event::after {
+      content:"";
+      display:block;
+      width:78px;
+      height:2px;
+      margin-top:12px;
+      background:linear-gradient(90deg, rgba(255,90,80,.95), rgba(255,90,80,0));
+      box-shadow:0 0 18px rgba(212,72,60,.45);
+    }
+
+
+    @media (max-width: 760px) {
+      .pharma-block { padding:22px 18px; }
+      .pharma-grid { grid-template-columns:1fr; }
+      .pharma-row { flex-direction:column; gap:4px; }
+      .pharma-key { flex:auto; }
+      .pharma-val { text-align:left; }
+      .pharma-summary { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .pharma-summary { grid-template-columns:1fr; }
+      .pharma-big { font-size:2rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -795,21 +1006,140 @@
       <hr class="divider" />
 
       <div class="section-header fade-in">
-        <span class="section-eyebrow">Токсикология</span>
-        <h2 class="section-title">Концентрации препаратов в теле</h2>
+        <span class="section-eyebrow">Фармакология</span>
+        <h2 class="section-title">Фармакологическая картина ночи</h2>
       </div>
-      <p style="font-size:0.77rem;color:var(--text-dim);margin-bottom:18px;font-family:var(--font-mono);">Dan Anderson, chief toxicologist LA Coroner · суд 6–7.10.2011 · Case 2009-04415</p>
-      <div class="tox-wrap fade-in">
-        <table class="tox-table">
-          <thead><tr><th>Препарат</th><th>Кровь (бедро)</th><th>Кровь (сердце)</th><th>Кровь (UCLA)</th><th>Печень</th><th>Терапевт. диапазон</th></tr></thead>
-          <tbody>
-            <tr><td><div class="tox-drug-name">Пропофол</div><div class="tox-drug-type">внутривенный анестетик · гипнотик</div></td><td><span class="tox-val tox-val--high">2.6 мкг/мл</span></td><td><span class="tox-val tox-val--high">3.2 мкг/мл</span></td><td><span class="tox-val tox-val--high">4.1 мкг/мл</span></td><td><span class="tox-val tox-val--high">6.2 мкг/г</span></td><td>2–4 мкг/мл (хирургия)</td></tr>
-            <tr><td><div class="tox-drug-name">Лидокаин</div><div class="tox-drug-type">местный анестетик</div></td><td><span class="tox-val tox-val--mid">0.84 мкг/мл</span></td><td><span class="tox-val">0.68</span></td><td><span class="tox-val">0.51</span></td><td><span class="tox-val">0.45 мкг/г</span></td><td>1.5–6 мкг/мл</td></tr>
-            <tr><td><div class="tox-drug-name">Лоразепам</div><div class="tox-drug-type">бензодиазепин · анксиолитик</div></td><td><span class="tox-val tox-val--mid">0.169 мкг/мл</span></td><td><span class="tox-val">0.162</span></td><td>—</td><td>—</td><td>0.1–0.2 мкг/мл</td></tr>
-            <tr><td><div class="tox-drug-name">Мидазолам</div><div class="tox-drug-type">бензодиазепин · седативное</div></td><td>—</td><td><span class="tox-val tox-val--mid">4.6 мкг/мл</span></td><td>—</td><td>—</td><td>0.05–0.15 мкг/мл</td></tr>
-            <tr><td><div class="tox-drug-name">Демерол (меперидин)</div><div class="tox-drug-type">опиоидный анальгетик</div></td><td><span class="tox-val tox-val--nd">НЕ ОБНАРУЖЕН</span></td><td><span class="tox-val tox-val--nd">—</span></td><td>—</td><td>—</td><td>—</td></tr>
-          </tbody>
-        </table>
+      <p class="pharma-intro fade-in">В последние часы жизни фигурируют две разные плоскости данных: <strong>реконструкция того, что вводилось ночью</strong>, и <strong>официальная токсикология</strong>, показывающая, что было обнаружено в организме после смерти. Ниже — визуальная карта препаратов, их типов, доз и ключевых концентраций.</p>
+
+      <div class="pharma-summary fade-in">
+        <div class="pharma-summary-item"><span class="pharma-summary-num">6</span><span class="pharma-summary-label">препаратов и веществ в реконструкции ночи</span></div>
+        <div class="pharma-summary-item"><span class="pharma-summary-num">3</span><span class="pharma-summary-label">бензодиазепина: диазепам, лоразепам, мидазолам</span></div>
+        <div class="pharma-summary-item"><span class="pharma-summary-num">2</span><span class="pharma-summary-label">анестетика: пропофол и лидокаин</span></div>
+        <div class="pharma-summary-item"><span class="pharma-summary-num">1</span><span class="pharma-summary-label">не обнаружен: Демерол (меперидин)</span></div>
+      </div>
+
+      <div class="pharma-legend fade-in">
+        <span class="pharma-pill pharma-pill--benz">Бензодиазепины</span>
+        <span class="pharma-pill pharma-pill--anes">Анестетики / гипнотики</span>
+        <span class="pharma-pill pharma-pill--support">Вспомогательные / сопутствующие</span>
+      </div>
+
+      <div class="pharma-block fade-in">
+        <div class="pharma-block-head">
+          <span class="section-eyebrow">Реконструкция ночи</span>
+          <h3 class="pharma-block-title">Что вводилось и когда</h3>
+          <p class="pharma-block-subtitle">По версии Конрада Мюррея, за ночь Майклу Джексону последовательно давались и вводились бензодиазепины, а утром — пропофол, который сам Джексон называл «молоком».</p>
+        </div>
+        <div class="pharma-grid">
+          <article class="pharma-card">
+            <div class="pharma-card-top"><h4 class="pharma-name">Диазепам</h4><span class="pharma-tag">Бензодиазепин</span></div>
+            <div class="pharma-type">анксиолитик · седативное · перорально</div>
+            <div class="pharma-big pharma-big--gold">10 мг</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~01:30</div></div>
+              <div class="pharma-row"><div class="pharma-key">Контекст</div><div class="pharma-val">после возвращения домой, на фоне IV-физраствора</div></div>
+            </div>
+          </article>
+
+          <article class="pharma-card">
+            <div class="pharma-card-top"><h4 class="pharma-name">Лоразепам</h4><span class="pharma-tag">Бензодиазепин</span></div>
+            <div class="pharma-type">анксиолитик · седативное · внутривенно</div>
+            <div class="pharma-big pharma-big--gold">2 мг × 2</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~02:00 и ~05:00</div></div>
+              <div class="pharma-row"><div class="pharma-key">Эффект</div><div class="pharma-val">по версии Мюррея — сон не наступил</div></div>
+            </div>
+          </article>
+
+          <article class="pharma-card">
+            <div class="pharma-card-top"><h4 class="pharma-name">Мидазолам</h4><span class="pharma-tag">Бензодиазепин</span></div>
+            <div class="pharma-type">короткодействующее седативное · внутривенно</div>
+            <div class="pharma-big pharma-big--gold">2 мг × 2</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~03:00 и ~07:30</div></div>
+              <div class="pharma-row"><div class="pharma-key">Эффект</div><div class="pharma-val">заснул примерно на 10 минут, затем проснулся; позже — без эффекта</div></div>
+            </div>
+          </article>
+
+          <article class="pharma-card pharma-card--critical">
+            <div class="pharma-card-top"><h4 class="pharma-name">Пропофол</h4><span class="pharma-tag pharma-tag--critical">Анестетик</span></div>
+            <div class="pharma-type">внутривенный анестетик · гипнотик</div>
+            <div class="pharma-big pharma-big--critical">25 мг</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~10:40, по версии Мюррея</div></div>
+              <div class="pharma-row"><div class="pharma-key">Контекст</div><div class="pharma-val">«Просто усыпи меня, иначе придётся отменить концерты»</div></div>
+            </div>
+            <div class="pharma-note"><strong>Ключевой момент:</strong> биллинг AT&amp;T показывает, что в 10:34–10:42 Мюррей был занят длительным телефонным разговором.</div>
+          </article>
+        </div>
+      </div>
+
+      <div class="pharma-block fade-in">
+        <div class="pharma-block-head">
+          <span class="section-eyebrow">Официальная токсикология</span>
+          <h3 class="pharma-block-title">Что было обнаружено в организме</h3>
+          <p class="pharma-block-subtitle">Данные токсикологии из отчёта коронера и показаний Dan Anderson на суде People v. Murray. Значения приведены с сохранением цифр, но в более читаемом визуальном виде.</p>
+        </div>
+        <div class="pharma-grid">
+          <article class="pharma-card pharma-card--critical">
+            <div class="pharma-card-top"><h4 class="pharma-name">Пропофол</h4><span class="pharma-tag pharma-tag--critical">Анестетик</span></div>
+            <div class="pharma-type">внутривенный анестетик · гипнотик</div>
+            <div class="pharma-big pharma-big--critical">2.6 мкг/мл</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">2.6 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">3.2 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">UCLA</div><div class="pharma-val">4.1 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">Печень</div><div class="pharma-val">6.2 мкг/г</div></div>
+              <div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">2–4 мкг/мл (хирургия)</div></div>
+            </div>
+          </article>
+
+          <article class="pharma-card pharma-card--support">
+            <div class="pharma-card-top"><h4 class="pharma-name">Лидокаин</h4><span class="pharma-tag pharma-tag--support">Сопутствующий</span></div>
+            <div class="pharma-type">местный анестетик</div>
+            <div class="pharma-big">0.84 мкг/мл</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">0.84 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">0.68 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">UCLA</div><div class="pharma-val">0.51 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">Печень</div><div class="pharma-val">0.45 мкг/г</div></div>
+              <div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">1.5–6 мкг/мл</div></div>
+            </div>
+          </article>
+
+          <article class="pharma-card">
+            <div class="pharma-card-top"><h4 class="pharma-name">Лоразепам</h4><span class="pharma-tag">Бензодиазепин</span></div>
+            <div class="pharma-type">анксиолитик · бензодиазепин</div>
+            <div class="pharma-big">0.169 мкг/мл</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">0.169 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">0.162 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">0.1–0.2 мкг/мл</div></div>
+            </div>
+          </article>
+
+          <article class="pharma-card">
+            <div class="pharma-card-top"><h4 class="pharma-name">Мидазолам</h4><span class="pharma-tag">Бензодиазепин</span></div>
+            <div class="pharma-type">седативное · бензодиазепин</div>
+            <div class="pharma-big">4.6 мкг/мл</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">4.6 мкг/мл</div></div>
+              <div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">0.05–0.15 мкг/мл</div></div>
+            </div>
+          </article>
+
+          <article class="pharma-card pharma-card--support">
+            <div class="pharma-card-top"><h4 class="pharma-name">Демерол (меперидин)</h4><span class="pharma-tag pharma-tag--support">Не обнаружен</span></div>
+            <div class="pharma-type">опиоидный анальгетик</div>
+            <div class="pharma-big">0</div>
+            <div class="pharma-list">
+              <div class="pharma-row"><div class="pharma-key">Статус</div><div class="pharma-val">в токсикологии не обнаружен</div></div>
+              <div class="pharma-row"><div class="pharma-key">Значение</div><div class="pharma-val">важно для оценки версии о недавнем введении Демерола</div></div>
+            </div>
+          </article>
+        </div>
+        <p style="font-size:.77rem;color:var(--text-dim);margin:18px 0 0;font-family:var(--font-mono);">Dan Anderson, chief toxicologist LA Coroner · суд 6–7.10.2011 · Case 2009-04415</p>
+      </div>
       </div>
     </div>
   </div>
