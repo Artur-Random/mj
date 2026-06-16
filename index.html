@@ -8,7 +8,7 @@
   <meta name="description" content="Мемориально-документальный проект Artur Random о Майкле Джексоне: последние 24 часа, контекст, первые 48 часов, реакция мира, обвинения и оправдание, наследие и корпус источников." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,7 +35,7 @@
       --text-mid:#cbc8c0;
       --text-dim:#908d87;
       --text-faint:#6f6b65;
-      --font-display:'Playfair Display',Georgia,serif;
+      --font-display:'Noto Serif Display',Georgia,serif;
       --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       --font-mono:'IBM Plex Mono','Courier New',monospace;
       --font-hand:'Caveat',cursive;
@@ -130,7 +130,7 @@
       box-shadow:none;
     }
     .hero-eyebrow { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--red-soft); margin-bottom:16px; }
-    .hero-title { font-family:var(--font-display); font-size:clamp(2.65rem,7vw,5.4rem); font-weight:900; line-height:.96; margin-bottom:18px; letter-spacing:-.03em; }
+    .hero-title { font-family:var(--font-display); font-size:clamp(2.65rem,7vw,5.4rem); font-weight:700; line-height:1.02; margin-bottom:18px; letter-spacing:-.015em; text-wrap:balance; }
     .hero-title em,.hero-title span { font-style:normal; color:var(--silver-soft); text-shadow:0 0 34px rgba(255,255,255,.08); text-decoration:none; }
     .hero-title--case span { display:block; font-family:var(--font-mono); font-size:clamp(2.35rem,10vw,7.2rem); letter-spacing:-.08em; color:var(--silver-soft); margin-top:6px; text-shadow:0 0 34px rgba(255,255,255,.08); text-decoration:none; }
     .hero-lead { max-width:820px; font-size:clamp(1.03rem,2.4vw,1.28rem); line-height:1.7; color:var(--text-mid); margin:0 0 28px; }
@@ -150,7 +150,7 @@
     /* HEADERS */
     .section-header { display:flex; align-items:baseline; gap:14px; margin-bottom:42px; border-top:1px solid rgba(255,255,255,.11); padding-top:28px; }
     .section-eyebrow { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-dim); }
-    .section-title { font-family:var(--font-display); font-size:clamp(1.65rem,4vw,2.55rem); font-weight:700; line-height:1.12; }
+    .section-title { font-family:var(--font-display); font-size:clamp(1.65rem,4vw,2.55rem); font-weight:700; line-height:1.14; letter-spacing:-.01em; text-wrap:balance; }
 
     /* TIMELINE */
     .timeline { position:relative; padding-left:66px; max-width:1040px; }
@@ -192,7 +192,7 @@
     .card-label { font-family:var(--font-mono); font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; line-height:1.45; }
     .card-title { font-family:var(--font-display); font-size:1.25rem; font-weight:700; color:var(--text); margin-bottom:9px; line-height:1.23; }
     .card-body { font-size:.99rem; color:var(--text-mid); line-height:1.68; }
-    .card-stat { font-family:var(--font-mono); font-size:clamp(1.7rem,4vw,2.45rem); font-weight:500; color:var(--gold); line-height:1; margin:10px 0 7px; letter-spacing:-.05em; }
+    .card-stat { font-family:var(--font-mono); font-size:clamp(1.7rem,4vw,2.45rem); font-weight:500; color:var(--silver-soft); line-height:1; margin:10px 0 7px; letter-spacing:-.05em; font-variant-numeric:tabular-nums; }
 
 
     /* EVIDENCE / PHARMA INFOGRAPHICS */
@@ -238,7 +238,7 @@
     /* METRICS / LEGACY */
     .metrics-hero,.legacy-panel { background:transparent; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; padding:34px 0; margin-bottom:28px; position:relative; overflow:hidden; box-shadow:none; }
     .metrics-hero::after { content:'MICHAEL 2026'; position:absolute; right:-18px; top:50%; transform:translateY(-50%) rotate(90deg); font-family:var(--font-display); font-size:3.8rem; font-weight:900; color:rgba(255,255,255,.055); white-space:nowrap; pointer-events:none; }
-    .metrics-big { font-family:var(--font-mono); font-size:clamp(2.4rem,8vw,5.2rem); font-weight:500; color:var(--silver-soft); line-height:.92; margin-bottom:8px; letter-spacing:-.07em; }
+    .metrics-big { font-family:var(--font-mono); font-size:clamp(2.4rem,8vw,5.2rem); font-weight:500; color:var(--silver-soft); line-height:.92; margin-bottom:8px; letter-spacing:-.07em; font-variant-numeric:tabular-nums; }
     .metrics-label { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:26px; }
     .metrics-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(155px,1fr)); gap:18px; }
     .metric-item { padding:14px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.03); }
@@ -294,7 +294,7 @@
 
     /* CORPUS */
     .corpus-total { margin:36px 0 22px; padding:34px 0; border-radius:0; border:0; border-top:1px solid rgba(255,255,255,.12); background:transparent; box-shadow:none; }
-    .corpus-total-number { font-family:var(--font-mono); font-size:clamp(4.4rem,24vw,11rem); line-height:.85; color:var(--silver-soft); letter-spacing:-.10em; }
+    .corpus-total-number { font-family:var(--font-mono); font-size:clamp(4.4rem,24vw,11rem); line-height:.85; color:var(--silver-soft); letter-spacing:-.10em; font-variant-numeric:tabular-nums; }
     .corpus-total-text { max-width:780px; margin-top:18px; font-size:clamp(1.05rem,3vw,1.34rem); line-height:1.55; color:var(--text-mid); }
     .corpus-columns { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:30px; }
     .corpus-group { padding:24px 0; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; background:transparent; box-shadow:none; }
@@ -302,7 +302,7 @@
     .corpus-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
     .corpus-card { padding:20px; min-height:160px; border-radius:20px; border:1px solid rgba(255,255,255,.085); background:rgba(255,255,255,.022); }
     .corpus-card--wide { grid-column:span 2; }
-    .corpus-number { font-family:var(--font-mono); font-size:clamp(2.4rem,7vw,4.2rem); line-height:.9; color:var(--text); letter-spacing:-.06em; margin-bottom:14px; }
+    .corpus-number { font-family:var(--font-mono); font-size:clamp(2.4rem,7vw,4.2rem); line-height:.9; color:var(--silver-soft); letter-spacing:-.06em; margin-bottom:14px; font-variant-numeric:tabular-nums; }
     .corpus-title { font-family:var(--font-display); font-size:1.18rem; line-height:1.18; color:var(--text); margin-bottom:8px; }
     .corpus-caption { font-size:.9rem; color:var(--text-dim); line-height:1.45; }
 
@@ -340,7 +340,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.76) 42%, rgba(0,0,0,.26) 68%, rgba(0,0,0,.90) 100%);
+      background: linear-gradient(90deg, rgba(0,0,0,.97) 0%, rgba(0,0,0,.72) 40%, rgba(0,0,0,.16) 64%, rgba(0,0,0,.52) 100%);
       z-index: 1;
       pointer-events: none;
     }
@@ -351,9 +351,9 @@
       width: min(48vw, 620px);
       max-height: 92vh;
       object-fit: contain;
-      opacity: .30;
-      filter: grayscale(1) contrast(1.12) brightness(.82);
-      mix-blend-mode: screen;
+      opacity: .56;
+      filter: grayscale(1) contrast(1.08) brightness(.90);
+      mix-blend-mode: normal;
       z-index: 0;
       pointer-events: none;
       -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 78%, transparent 100%);
@@ -374,11 +374,12 @@
     .home-title {
       font-family: var(--font-display);
       font-size: clamp(3.1rem, 10vw, 8.8rem);
-      font-weight: 900;
-      line-height: .88;
-      letter-spacing: -.06em;
+      font-weight: 700;
+      line-height: .94;
+      letter-spacing: -.03em;
       max-width: 820px;
       text-shadow: 0 0 60px rgba(255,255,255,.08);
+      text-wrap: balance;
     }
     .home-title span { color: var(--silver-soft); }
     .home-lead {
@@ -524,7 +525,7 @@
     .utility-nav {
       position: fixed;
       right: 18px;
-      bottom: 18px;
+      bottom: calc(18px + env(safe-area-inset-bottom, 0px));
       z-index: 1200;
       display: flex;
       gap: 8px;
@@ -554,6 +555,18 @@
       pointer-events: none;
     }
 
+    /* BACKGROUND AMBIENT ANIMATION */
+    @keyframes bgBreath {
+      0%, 100% { opacity: .76; }
+      50% { opacity: .64; }
+    }
+    body::after {
+      animation: bgBreath 14s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion:reduce) {
+      body::after { animation: none; }
+    }
+
     /* RESPONSIVE */
     @media (max-width:1000px) {
       .hero-meta { grid-template-columns:repeat(2,1fr); }
@@ -563,9 +576,9 @@
     @media (max-width:980px) {
       .author-grid { grid-template-columns:1fr; gap:36px; }
       .home-links-grid { grid-template-columns:1fr 1fr; }
-      .home-photo { width:min(64vw,520px); opacity:.20; right:-8vw; }
+      .home-photo { width:min(64vw,520px); opacity:.38; right:-6vw; }
       .home-hero::after {
-        background: linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.88) 100%);
+        background: linear-gradient(90deg, rgba(0,0,0,.97) 0%, rgba(0,0,0,.72) 54%, rgba(0,0,0,.68) 100%);
       }
     }
     @media (max-width:768px) {
@@ -580,7 +593,7 @@
       .hero-meta-item { padding-top:12px; }
       .home-hero { min-height:auto; padding:76px 0 62px; }
       .home-title { font-size:clamp(3rem,18vw,5rem); }
-      .home-photo { width:86vw; right:-26vw; bottom:0; opacity:.15; }
+      .home-photo { width:72vw; right:-14vw; bottom:0; opacity:.32; }
       .home-section { padding:58px 0; }
       .home-links-grid { grid-template-columns:1fr; }
       .home-link-card { min-height:auto; }
@@ -602,7 +615,7 @@
       .corpus-card--wide { grid-column:span 1; }
       .section-header { display:block; }
       .section-eyebrow { display:block; margin-bottom:8px; }
-      .utility-nav { right:12px; bottom:12px; }
+      .utility-nav { right:12px; bottom:calc(68px + env(safe-area-inset-bottom, 0px)); }
       .utility-nav button { font-size:.62rem; padding:8px 10px; }
     }
     @media (prefers-reduced-motion:reduce) {
@@ -942,8 +955,11 @@
         <button class="filter-btn" onclick="filterReactions('uk',this)">Великобритания</button>
         <button class="filter-btn" onclick="filterReactions('ru',this)">Россия</button>
         <button class="filter-btn" onclick="filterReactions('ua',this)">Украина</button>
-        <button class="filter-btn" onclick="filterReactions('world',this)">Мир</button>
-        <button class="filter-btn" onclick="filterReactions('silent',this)">Промолчали</button>
+        <button class="filter-btn" onclick="filterReactions('fr',this)">Франция</button>
+        <button class="filter-btn" onclick="filterReactions('va',this)">Ватикан</button>
+        <button class="filter-btn" onclick="filterReactions('jp',this)">Япония</button>
+        <button class="filter-btn" onclick="filterReactions('br',this)">Бразилия</button>
+        <button class="filter-btn" onclick="filterReactions('by',this)">Беларусь</button>
       </div>
       <div class="reactions-grid" id="reactionsGrid">
 
@@ -1057,27 +1073,27 @@
           <div class="reaction-source">BBC, 25.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="fr">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Николя Саркози</div><div class="reaction-role">Президент Франции</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">Узнал «с большим волнением». Назвал «человеком, который многое дал музыке и танцу», отметил «универсальность» артиста</div>
           <div class="reaction-source">Французские СМИ, 26.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="va">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">L'Osservatore Romano</div><div class="reaction-role">Официальная газета Ватикана</div><div class="reaction-date">26–27.06.2009</div></div></div>
           <div class="reaction-quote-en">"Ma sarà morto davvero?"</div>
           <div class="reaction-quote-ru">«Неужели он действительно умер?» — заголовок некролога. Рассматривали как поп-икону, сравнивали с мифом Элвиса.</div>
           <div class="reaction-source">L'Osservatore Romano, 26.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="jp">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ёити Масудзоэ</div><div class="reaction-role">Министр здравоохранения Японии</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-en">"He was a superstar. It is an extremely tragic loss. He gave people around the world dreams and hope."</div>
           <div class="reaction-quote-ru">«Он был суперзвездой. Невероятно трагическая потеря. Он подарил людям мира мечты и надежду.»</div>
           <div class="reaction-source">Японские СМИ, 26.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="br">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Жилберту Жил</div><div class="reaction-role">Музыкант · экс-министр культуры Бразилии</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"It makes me very sad to see such a great and incredible talent leave us so soon. I'll miss the King of Pop."</div>
           <div class="reaction-quote-ru">«Мне очень грустно видеть как такой великий талант покидает нас так рано.»</div>
@@ -1150,27 +1166,27 @@
           <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
         </div>
 
-        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
-          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Дмитрий Медведев</div><div class="reaction-role">Президент России</div></div></div>
-          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+        <div class="reaction-card" data-country="ru">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Дмитрий Медведев</div><div class="reaction-role">Президент России</div></div></div>
+          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
           <div class="reaction-source">Консенсус 5 исследовательских отчётов deep research</div>
         </div>
 
-        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
-          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Виктор Ющенко</div><div class="reaction-role">Президент Украины</div></div></div>
-          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+        <div class="reaction-card" data-country="ua">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Виктор Ющенко</div><div class="reaction-role">Президент Украины</div></div></div>
+          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
           <div class="reaction-source">Консенсус исследовательских отчётов</div>
         </div>
 
-        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
-          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Александр Лукашенко</div><div class="reaction-role">Президент Беларуси</div></div></div>
-          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+        <div class="reaction-card" data-country="by">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Александр Лукашенко</div><div class="reaction-role">Президент Беларуси</div></div></div>
+          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
           <div class="reaction-source">Консенсус исследовательских отчётов</div>
         </div>
 
-        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
-          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Королева Елизавета II</div><div class="reaction-role">Великобритания</div></div></div>
-          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+        <div class="reaction-card" data-country="uk">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Королева Елизавета II</div><div class="reaction-role">Великобритания</div></div></div>
+          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
           <div class="reaction-source">Консенсус исследовательских отчётов</div>
         </div>
 
@@ -1194,7 +1210,8 @@
 
       <div class="legal-box legal-box--innocence">
         <div class="legal-box-title">Принцип раздела</div>
-        <p>Этот раздел не относится к делу о смерти Майкла Джексона 2009 года. Обвинения рассматриваются как обвинения, а не как установленные факты. В 2005 году Майкл Джексон был оправдан по всем пунктам уголовного дела. Задача раздела — отделить судебные итоги, документы и проверяемые факты от слухов, медийных интерпретаций и сенсационной подачи.</p>
+        <p>Этот раздел не относится к расследованию смерти Майкла Джексона 2009 года. Он фиксирует отдельный биографический и репутационный контекст: обвинения 1993 года, уголовный процесс 2005 года, оправдательный вердикт присяжных и последующие медийные обвинения, появившиеся после смерти Майкла Джексона.</p>
+        <p style="margin-top:12px;">Важно: утверждения в этом разделе не подаются как установленные факты. В 2005 году Майкл Джексон был оправдан по всем пунктам уголовного обвинения. Задача раздела — отделить судебные итоги, документы и проверяемые факты от слухов, медийных интерпретаций и сенсационной подачи.</p>
       </div>
 
       <div class="case-outcome case-outcome--acquitted">
@@ -1454,19 +1471,28 @@
   }
 
   function initMemorialBackground() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const root = document.documentElement;
-    const update = () => {
+    let scrollT = 0;
+    let startTime = performance.now();
+    const updateScroll = () => {
       const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-      const t = window.scrollY / max;
-      root.style.setProperty('--spot1-x', (12 + Math.sin(t * 5.0) * 8).toFixed(2) + '%');
-      root.style.setProperty('--spot1-y', (18 + Math.cos(t * 4.0) * 10).toFixed(2) + '%');
-      root.style.setProperty('--spot2-x', (84 + Math.sin(t * 4.6 + 1.4) * 7).toFixed(2) + '%');
-      root.style.setProperty('--spot2-y', (40 + Math.cos(t * 5.2 + 1.1) * 12).toFixed(2) + '%');
-      root.style.setProperty('--spot3-x', (52 + Math.sin(t * 3.2 + 2.2) * 12).toFixed(2) + '%');
-      root.style.setProperty('--spot3-y', (82 + Math.cos(t * 3.7 + 2.0) * 8).toFixed(2) + '%');
+      scrollT = window.scrollY / max;
     };
-    window.addEventListener('scroll', update, { passive:true });
-    update();
+    window.addEventListener('scroll', updateScroll, { passive:true });
+    const tick = (now) => {
+      const elapsed = (now - startTime) / 60000; // 60s cycle
+      const st = scrollT;
+      const tt = elapsed * Math.PI * 2;
+      root.style.setProperty('--spot1-x', (12 + Math.sin(st * 5.0 + tt * 0.7) * 8).toFixed(2) + '%');
+      root.style.setProperty('--spot1-y', (18 + Math.cos(st * 4.0 + tt * 0.5) * 10).toFixed(2) + '%');
+      root.style.setProperty('--spot2-x', (84 + Math.sin(st * 4.6 + tt * 0.6 + 1.4) * 7).toFixed(2) + '%');
+      root.style.setProperty('--spot2-y', (40 + Math.cos(st * 5.2 + tt * 0.4 + 1.1) * 12).toFixed(2) + '%');
+      root.style.setProperty('--spot3-x', (52 + Math.sin(st * 3.2 + tt * 0.8 + 2.2) * 12).toFixed(2) + '%');
+      root.style.setProperty('--spot3-y', (82 + Math.cos(st * 3.7 + tt * 0.55 + 2.0) * 8).toFixed(2) + '%');
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
 
   function toggleMenu() {
@@ -1531,8 +1557,11 @@
       uk: { flag:'🇬🇧', name:'Великобритания' },
       ru: { flag:'🇷🇺', name:'Россия' },
       ua: { flag:'🇺🇦', name:'Украина' },
-      world: { flag:'🌍', name:'Мир' },
-      silent: { flag:'—', name:'Официального заявления не найдено' }
+      fr: { flag:'🇫🇷', name:'Франция' },
+      va: { flag:'✝', name:'Ватикан' },
+      jp: { flag:'🇯🇵', name:'Япония' },
+      br: { flag:'🇧🇷', name:'Бразилия' },
+      by: { flag:'🇧🇾', name:'Беларусь' }
     };
     document.querySelectorAll('.reaction-card').forEach(card => {
       const info = card.querySelector('.reaction-info');
