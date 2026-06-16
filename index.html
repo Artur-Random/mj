@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
   <title>Дело 2009-04415 — Последние 24 часа Майкла Джексона</title>
   <meta name="description" content="Независимая реконструкция последних суток Майкла Джексона, первых следственных действий, мировой реакции, обвинений и наследия в цифрах." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -204,27 +205,6 @@
     .call-note { margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,.10); font-size:.95rem; line-height:1.65; color:var(--text-mid); }
     .call-note strong { color:var(--text); }
 
-    .call-toggle { display:none; gap:8px; margin:0 0 16px; }
-    .call-toggle button {
-      flex:1;
-      cursor:pointer;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:999px;
-      background:rgba(255,255,255,.035);
-      color:var(--text-mid);
-      padding:10px 12px;
-      font-family:var(--font-mono);
-      font-size:.74rem;
-      letter-spacing:.09em;
-      text-transform:uppercase;
-      transition:background .2s,border-color .2s,color .2s;
-    }
-    .call-toggle button.active {
-      border-color:rgba(214,184,90,.42);
-      background:rgba(214,184,90,.10);
-      color:var(--gold-soft);
-    }
-
     /* CARDS */
     .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(295px,1fr)); gap:16px; background:transparent; border:none; margin-bottom:46px; }
     .card { background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018)),var(--bg-card); padding:24px; border:1px solid var(--line); border-radius:20px; box-shadow:0 18px 55px rgba(0,0,0,.31); transition:transform .22s,border-color .22s,background .22s; }
@@ -352,23 +332,146 @@
     .footer-bottom { border-top:1px solid var(--line); padding:18px 0; text-align:center; font-family:var(--font-mono); font-size:.72rem; color:var(--text-dim); letter-spacing:.08em; margin-top:38px; }
 
 
-    /* MOBILE / LONG STRING SAFETY */
+
+    /* FINAL MOBILE / VISUAL FIXES */
+    a[x-apple-data-detectors],
+    a[x-apple-data-detectors]:hover,
+    a[x-apple-data-detectors]:active,
+    a[x-apple-data-detectors]:visited {
+      color: inherit !important;
+      text-decoration: none !important;
+      -webkit-text-decoration-color: transparent !important;
+      text-decoration-color: transparent !important;
+      font: inherit !important;
+    }
+    .hero-title--case span,
+    .hero-meta-item .value,
+    .timeline-time,
+    .card-stat,
+    .metrics-big,
+    .m-num,
+    .corpus-total-number,
+    .corpus-number {
+      -webkit-user-select: text;
+      text-decoration: none !important;
+    }
+    body::before {
+      z-index: 900;
+      opacity: .075;
+      background-image:
+        radial-gradient(circle at 22% 28%, rgba(255,255,255,.78) 0 1px, transparent 1.2px),
+        radial-gradient(circle at 72% 62%, rgba(214,184,90,.62) 0 .9px, transparent 1.15px),
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 37px 37px, 53px 53px, 100% 6px;
+      mix-blend-mode: screen;
+    }
+    .hero {
+      isolation: isolate;
+      border-bottom: 0 !important;
+      overflow: visible;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .hero > .container { position: relative; z-index: 1; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -34px 0 -96px;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(214,184,90,.13), transparent 28rem),
+        radial-gradient(circle at 82% 20%, rgba(95,136,184,.09), transparent 30rem),
+        linear-gradient(180deg, rgba(255,255,255,.035) 0%, rgba(255,255,255,.016) 45%, rgba(7,7,7,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 100%);
+    }
+    .hero--appendix::before {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(214,184,90,.12), transparent 30rem),
+        radial-gradient(circle at 82% 18%, rgba(95,136,184,.12), transparent 32rem),
+        linear-gradient(180deg, rgba(19,22,27,.84) 0%, rgba(7,7,7,0) 100%);
+    }
+    .hero--metrics::before {
+      background:
+        radial-gradient(circle at 20% 15%, rgba(214,184,90,.15), transparent 32rem),
+        radial-gradient(circle at 82% 18%, rgba(95,136,184,.16), transparent 34rem),
+        linear-gradient(180deg, rgba(20,22,29,.84) 0%, rgba(7,7,7,0) 100%);
+    }
+    .hero--corpus::before {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214,184,90,.15), transparent 32rem),
+        linear-gradient(180deg, rgba(23,21,17,.84) 0%, rgba(7,7,7,0) 100%);
+    }
+    body.death-focus { background: inherit; }
+    body.death-focus::after { display: none; }
+    .timeline-item--death { isolation: isolate; overflow: visible; }
+    .timeline-item--death::after {
+      content: '';
+      position: absolute;
+      inset: -70px -40px;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0;
+      background:
+        radial-gradient(ellipse at 50% 52%, rgba(255,255,255,.28) 0%, rgba(214,184,90,.18) 20%, rgba(212,72,60,.09) 36%, transparent 68%);
+      filter: blur(18px);
+      transition: opacity .7s ease;
+    }
+    body.death-focus .timeline-item--death::after { opacity: 1; }
+    body.death-focus .timeline-item--death {
+      border-color: rgba(255,255,255,.34);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.10),
+        0 34px 110px rgba(0,0,0,.60),
+        0 0 95px rgba(255,255,255,.12);
+    }
+    .call-transcript {
+      border-radius: 18px;
+      border: 1px solid rgba(212,72,60,.35);
+      border-left: 3px solid rgba(212,72,60,.72);
+      background: linear-gradient(180deg, rgba(212,72,60,.075), rgba(255,255,255,.018)), var(--bg-card);
+      box-shadow: 0 18px 52px rgba(0,0,0,.34);
+    }
+    .call-meta span {
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--text-dim);
+    }
+    .call-explain {
+      border: 0;
+      border-left: 2px solid rgba(214,184,90,.45);
+      border-radius: 0;
+      background: rgba(255,255,255,.03);
+      padding: 12px 14px;
+    }
+    .call-column {
+      border: 0;
+      border-radius: 12px;
+      background: rgba(0,0,0,.30);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.055);
+    }
+    .call-column h4 {
+      position: static;
+      margin: 0 0 12px;
+      padding: 0 0 10px;
+      background: transparent;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
     .timeline-source,
     .hero-subtitle,
     .card-label,
     .reaction-role,
     .reaction-date,
-    .corpus-caption,
-    .request-date,
     .reaction-source,
+    .request-date,
+    .corpus-caption,
     .footer-text,
     .legal-box p,
     .call-meta span,
-    .hero-meta-item .value,
-    .quote-author {
-      overflow-wrap:anywhere;
-      word-break:normal;
-    }
+    .hero-meta-item .value { overflow-wrap: anywhere; word-break: normal; }
 
     /* RESPONSIVE */
     @media (max-width:1000px) {
@@ -385,10 +488,10 @@
       .nav-burger { display:flex; }
       .hero { padding:56px 0 42px; }
       .hero-meta { grid-template-columns:1fr; }
-      .timeline { padding-left:0; }
-      .timeline::before { display:none; }
-      .timeline-item::before { display:none; }
-      .timeline-item { padding:20px; margin-bottom:18px; }
+      .timeline { padding-left:28px; }
+      .timeline::before { display:block; left:9px; width:2px; }
+      .timeline-item::before { display:block; left:-25px; top:26px; width:12px; height:12px; }
+      .timeline-item { padding:20px; margin-bottom:20px; }
       .timeline-time { font-size:.82rem; }
       .timeline-detail,.card-body,.question-known,.legal-box p { font-size:1rem; }
       .reactions-grid,.cards-grid { grid-template-columns:1fr; }
@@ -404,12 +507,13 @@
       .section-eyebrow { display:block; margin-bottom:8px; }
     }
 
+
     @media (max-width:760px) {
       .call-header { flex-direction:column; }
-      .call-toggle { display:flex; }
       .call-columns { grid-template-columns:1fr; }
-      .call-column { display:none; max-height:none; }
-      .call-column.active { display:block; }
+      .call-column { max-height:none; }
+      .call-transcript { padding:18px 16px; margin-left:-2px; margin-right:-2px; }
+      .call-duration { font-size:1.45rem; }
     }
 
     @media (max-width:430px) {
@@ -417,7 +521,10 @@
       .corpus-total { padding:26px 22px; }
       .corpus-total-number { font-size:clamp(3.4rem,18vw,6rem); letter-spacing:-.08em; }
       .corpus-number { font-size:clamp(2.15rem,14vw,3.6rem); }
+      .reaction-quote-en { font-size:.98rem; line-height:1.68; }
+      .reaction-quote-ru { font-size:1rem; line-height:1.68; }
     }
+
 
     @media (prefers-reduced-motion:reduce) {
       *,.fade-in,.timeline-item { transition:none !important; animation:none !important; }
@@ -597,13 +704,8 @@
               <strong>Примечание:</strong> фраза <em>Fire paramedic 33</em> в контексте Лос-Анджелеса означает служебное представление диспетчера пожарно-медицинской линии 911. В переводе ниже она передана как «Пожарно-медицинская служба 33».
             </div>
 
-            <div class="call-toggle" role="tablist" aria-label="Переключатель расшифровки звонка 911">
-              <button type="button" data-call-target="ru" class="active" onclick="switchCallPanel('ru', this)">Перевод</button>
-              <button type="button" data-call-target="en" onclick="switchCallPanel('en', this)">Original</button>
-            </div>
-
             <div class="call-columns">
-              <div class="call-column" data-call-panel="en">
+              <div class="call-column">
                 <h4>Original transcript</h4>
                 <p><strong>911 Operator:</strong> Fire paramedic 33. What is the address of your emergency?</p>
                 <p><strong>Caller:</strong> Yes sir. I need… I need an ambulance as soon as possible, sir.</p>
@@ -634,7 +736,7 @@
                 <p><strong>Operator:</strong> OK. OK, we’re on our way. We’re less than a mile away and we’ll be there shortly. Thank you, sir. Thank you. OK sir, call us back if you need help. Thank you. Yes sir. Yes sir.</p>
               </div>
 
-              <div class="call-column active" data-call-panel="ru">
+              <div class="call-column">
                 <h4>Русский перевод</h4>
                 <p><strong>Оператор 911:</strong> Пожарно-медицинская служба 33. Какой адрес чрезвычайной ситуации?</p>
                 <p><strong>Звонивший:</strong> Да, сэр. Мне нужна… мне нужна скорая как можно скорее, сэр.</p>
@@ -950,7 +1052,7 @@
         <div class="reaction-card" data-country="family">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Джермейн Джексон</div><div class="reaction-role">Брат · пресс-конференция UCLA</div><div class="reaction-date">25.06.2009 · ~17:00–18:00 PDT</div></div></div>
           <div class="reaction-quote-en">"My brother, the legendary King of Pop, Michael Jackson, has left us. His personal physician did everything possible to save him. ... May Allah be with you, Michael, always."</div>
-          <div class="reaction-quote-ru">«Мой брат, легендарный Король поп-музыки, Майкл Джексон, покинул нас.»</div>
+          <div class="reaction-quote-ru">«Мой брат, легендарный Король поп-музыки Майкл Джексон, покинул нас. Его личный врач сделал всё возможное, чтобы спасти его. … Да будет Аллах с тобой, Майкл, всегда.»</div>
           <div class="reaction-source">UCLA newsroom · newsroom.ucla.edu</div>
         </div>
 
@@ -970,77 +1072,77 @@
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Куинси Джонс</div><div class="reaction-role">Продюсер · Thriller, Off the Wall, Bad</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"I am absolutely devastated at this tragic and unexpected news. ... Today, I lost my little brother."</div>
-          <div class="reaction-quote-ru">«Я абсолютно опустошён. Сегодня я потерял моего младшего брата.»</div>
+          <div class="reaction-quote-ru">«Я абсолютно опустошён этой трагической и неожиданной новостью. … Сегодня я потерял своего младшего брата.»</div>
           <div class="reaction-source">Rolling Stone, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Дайана Росс</div><div class="reaction-role">Певица · близкий друг</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"I can't stop crying. This is so sudden and shocking. I just don't have words."</div>
-          <div class="reaction-quote-ru">«Я не могу перестать плакать. Это так внезапно и шокирует.»</div>
+          <div class="reaction-quote-ru">«Я не могу перестать плакать. Это так внезапно и шокирует. У меня просто нет слов.»</div>
           <div class="reaction-source">Rolling Stone, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Элизабет Тейлор</div><div class="reaction-role">Актриса · ближайшая подруга</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">Initially "too devastated to make a statement." Later: "My life feels so empty. I don't think anyone knew how much we loved each other."</div>
-          <div class="reaction-quote-ru">Изначально «слишком опустошена, чтобы говорить». Позже: «Моя жизнь кажется пустой.»</div>
+          <div class="reaction-quote-ru">Изначально была «слишком опустошена, чтобы сделать заявление». Позже: «Моя жизнь кажется такой пустой. Не думаю, что кто-либо знал, как сильно мы любили друг друга.»</div>
           <div class="reaction-source">СМИ · Twitter 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Мадонна</div><div class="reaction-role">Певица</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"I can't stop crying over the sad news. The world has lost one of the greats, but his music will live on forever."</div>
-          <div class="reaction-quote-ru">«Мир потерял одного из великих, но его музыка будет жить вечно.»</div>
+          <div class="reaction-quote-ru">«Я не могу перестать плакать из-за этой печальной новости. Мир потерял одного из великих, но его музыка будет жить вечно.»</div>
           <div class="reaction-source">vz.ru · 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ашер</div><div class="reaction-role">Певец · ученик Джексона</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"I would not be the artist, performer, and philanthropist I am today without the influence of Michael."</div>
-          <div class="reaction-quote-ru">«Без влияния Майкла я бы никогда не стал тем артистом, которым являюсь сегодня.»</div>
+          <div class="reaction-quote-ru">«Без влияния Майкла я не был бы тем артистом, исполнителем и филантропом, которым являюсь сегодня.»</div>
           <div class="reaction-source">BBC News, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Стиви Уандер</div><div class="reaction-role">Певец · близкий друг</div><div class="reaction-date">25.06 → 07.07.2009</div></div></div>
           <div class="reaction-quote-en">Representative 25.06: "Stevie is not available for any comment. He is emotionally distraught and chose to be quiet." Staples Center memorial 07.07: "God must have needed him far more."</div>
-          <div class="reaction-quote-ru">Представитель: «Стиви сломлен и решил молчать.» Мемориал 7 июля: «Должно быть, Богу он был нужен намного больше.»</div>
+          <div class="reaction-quote-ru">Представитель 25 июня: «Стиви недоступен для комментариев. Он эмоционально потрясён и решил молчать». Мемориал 7 июля: «Должно быть, Богу он был нужен гораздо больше».</div>
           <div class="reaction-source">СМИ · Staples Center Memorial 07.07.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Брук Шилдс</div><div class="reaction-role">Актриса · подруга с детства</div><div class="reaction-date">07.07.2009 · мемориал</div></div></div>
           <div class="reaction-quote-en">"To the outside world Michael was a genius. To those who knew him personally, he was caring, funny, honest, pure, and non-judgmental... We need to look up and see him sitting on the crescent moon, smiling."</div>
-          <div class="reaction-quote-ru">«Для внешнего мира Майкл был гением. Для тех кто его знал — заботливым, смешным и честным. Нам нужно посмотреть вверх и увидеть его на полумесяце.»</div>
+          <div class="reaction-quote-ru">«Для внешнего мира Майкл был гением. Для тех, кто знал его лично, он был заботливым, смешным, честным, чистым и неосуждающим… Нам нужно поднять взгляд и увидеть его сидящим на полумесяце и улыбающимся.»</div>
           <div class="reaction-source">Staples Center Memorial, 07.07.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Барак Обама</div><div class="reaction-role">Президент США</div><div class="reaction-date">03.07.2009</div></div></div>
           <div class="reaction-quote-en">"spectacular performer... I grew up on Michael Jackson's music... greatest entertainers"</div>
-          <div class="reaction-quote-ru">«Блестящий артист. Я вырос на его музыке.»</div>
+          <div class="reaction-quote-ru">«Выдающийся исполнитель… Я вырос на музыке Майкла Джексона… один из величайших артистов.»</div>
           <div class="reaction-source">AP · 03.07.2009 · vz.ru/news/2009/7/3/303664</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Арнольд Шварценеггер</div><div class="reaction-role">Губернатор Калифорнии</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"a great artist who never stopped pushing the boundaries of creativity"</div>
-          <div class="reaction-quote-ru">«Великий артист, никогда не переставал раздвигать границы творчества»</div>
+          <div class="reaction-quote-ru">«Великий артист, который никогда не переставал раздвигать границы творчества.»</div>
           <div class="reaction-source">Rolling Stone, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Гордон Браун</div><div class="reaction-role">Премьер-министр Великобритании</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-en">"This is very sad news for the millions of Michael Jackson fans in Britain and around the world. The prime minister's thoughts are with Michael Jackson's family at this time."</div>
-          <div class="reaction-quote-ru">«Очень печальная новость для миллионов поклонников. Мысли премьер-министра с семьёй Джексона.»</div>
+          <div class="reaction-quote-ru">«Это очень печальная новость для миллионов поклонников Майкла Джексона в Британии и во всём мире. Мысли премьер-министра сейчас с семьёй Майкла Джексона.»</div>
           <div class="reaction-source">Reuters · Guardian · BBC, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Пол Маккартни</div><div class="reaction-role">Музыкант · Beatles</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"It's so sad and shocking. I feel privileged to have hung out and worked with Michael. He was a massively talented boy man with a gentle soul."</div>
-          <div class="reaction-quote-ru">«Так грустно и шокирует. Он был невероятно талантливым человеком с нежной душой.»</div>
+          <div class="reaction-quote-ru">«Это так грустно и шокирует. Я считаю привилегией то, что проводил время и работал с Майклом. Он был невероятно талантливым мальчиком-мужчиной с нежной душой.»</div>
           <div class="reaction-source">beatlesbible.com, 26.06.2009</div>
         </div>
 
@@ -1053,34 +1155,34 @@
         <div class="reaction-card" data-country="uk">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ури Геллер</div><div class="reaction-role">Друг Джексона</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"I am absolutely devastated, very very sad. I am praying that his soul is now in heaven."</div>
-          <div class="reaction-quote-ru">«Я просто опустошён, очень грустен. Молюсь чтобы его душа была на небесах.»</div>
+          <div class="reaction-quote-ru">«Я абсолютно опустошён, мне очень, очень грустно. Я молюсь, чтобы его душа сейчас была на небесах.»</div>
           <div class="reaction-source">BBC, 25.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="fr" data-region="world">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Николя Саркози</div><div class="reaction-role">Президент Франции</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">Узнал «с большим волнением». Назвал «человеком, который многое дал музыке и танцу», отметил «универсальность» артиста</div>
           <div class="reaction-source">Французские СМИ, 26.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="va" data-region="world">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">L'Osservatore Romano</div><div class="reaction-role">Официальная газета Ватикана</div><div class="reaction-date">26–27.06.2009</div></div></div>
           <div class="reaction-quote-en">"Ma sarà morto davvero?"</div>
           <div class="reaction-quote-ru">«Неужели он действительно умер?» — заголовок некролога. Рассматривали как поп-икону, сравнивали с мифом Элвиса.</div>
           <div class="reaction-source">L'Osservatore Romano, 26.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="jp" data-region="world">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ёити Масудзоэ</div><div class="reaction-role">Министр здравоохранения Японии</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-en">"He was a superstar. It is an extremely tragic loss. He gave people around the world dreams and hope."</div>
-          <div class="reaction-quote-ru">«Он был суперзвездой. Невероятно трагическая потеря. Он подарил людям мира мечты и надежду.»</div>
+          <div class="reaction-quote-ru">«Он был суперзвездой. Это чрезвычайно трагическая потеря. Он подарил людям по всему миру мечты и надежду.»</div>
           <div class="reaction-source">Японские СМИ, 26.06.2009</div>
         </div>
 
-        <div class="reaction-card" data-country="world">
+        <div class="reaction-card" data-country="br" data-region="world">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Жилберту Жил</div><div class="reaction-role">Музыкант · экс-министр культуры Бразилии</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"It makes me very sad to see such a great and incredible talent leave us so soon. I'll miss the King of Pop."</div>
-          <div class="reaction-quote-ru">«Мне очень грустно видеть как такой великий талант покидает нас так рано.»</div>
+          <div class="reaction-quote-ru">«Мне очень грустно видеть, как такой великий и невероятный талант покидает нас так рано. Я буду скучать по Королю поп-музыки.»</div>
           <div class="reaction-source">Бразильские СМИ, 26.06.2009</div>
         </div>
 
@@ -1213,7 +1315,7 @@
       <div class="case-panel active" id="case1993">
         <div class="cards-grid" style="margin-bottom:28px;">
           <div class="card"><div class="card-label">Тип дела</div><div class="card-title">Гражданское (уголовное закрыто)</div><div class="card-body">Уголовных обвинений не предъявлено. Мировое соглашение ~$23 млн, январь 1994. Инициировано командой Джексона.</div></div>
-          <div class="card"><div class="card-label">Обвинитель</div><div class="card-title">Джордан Чандлер, 13 лет</div><div class="card-body">Никогда не давал показаний в уголовном суде. Джордан Чандлер умер в 2009 году.</div></div>
+          <div class="card"><div class="card-label">Обвинитель</div><div class="card-title">Джордан Чандлер, 13 лет</div><div class="card-body">Никогда не давал показаний в уголовном суде. Уголовных обвинений по делу 1993 года предъявлено не было.</div></div>
           <div class="card"><div class="card-label">Ключевой документ</div><div class="card-title">Declaration of J. Chandler, 28.12.1993</div><div class="card-body">Юридическая декларация под угрозой уголовной ответственности. Детально описывает постепенную эскалацию.</div></div>
         </div>
         <div class="questions-list">
@@ -1335,133 +1437,36 @@
   <div class="section">
     <div class="container">
       <div class="hero hero--corpus" style="padding:60px 0 42px;border:none;">
-        <p class="hero-eyebrow">Методология · обновляемый корпус</p>
+        <p class="hero-eyebrow">Методология · единый корпус</p>
         <h1 class="hero-title">Корпус<br><span>источников</span></h1>
-        <p class="hero-lead">Не архивный каталог, а статистическая витрина проделанной работы: источниковые группы, судебные массивы, медицинские документы, следственные данные, медиа, метрики наследия и активные государственные запросы.</p>
+        <p class="hero-lead">Единая статистическая витрина изученных источников: судебные документы, следственные материалы, ФБР, медицина, медиа, метрики наследия, дополнительные материалы по обвинениям и активные государственные запросы.</p>
         <p class="project-signature">Artur Random</p>
       </div>
 
       <div class="corpus-total">
         <div class="corpus-total-number" data-corpus-total>55+</div>
-        <div class="corpus-total-text">источников и источниковых групп в общем реестре расследования. Главный принцип раздела: только числа и категории, без длинных списков документов.</div>
+        <div class="corpus-total-text">источников и источниковых групп в общем реестре расследования. Категории сведены в один список, без разделения на «дело о смерти» и дополнительные биографические контексты.</div>
       </div>
 
-      <div class="corpus-columns" id="corpusColumns" data-static="true">
+      <div class="corpus-columns" id="corpusColumns">
         <section class="corpus-group">
-          <h2 class="corpus-group-title">Общий реестр расследования</h2>
+          <h2 class="corpus-group-title">Единый список категорий</h2>
           <div class="corpus-grid">
-            <article class="corpus-card corpus-card--wide">
-              <div class="corpus-number">55+</div>
-              <div class="corpus-title">Всего</div>
-              <div class="corpus-caption">источников и источниковых групп по делу 2009-04415, реакции мира, метрикам наследия и дополнительным контекстам</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">100 000+</div>
-              <div class="corpus-title">строк судебного текста</div>
-              <div class="corpus-caption">полная расшифровка процесса People v. Murray: врачи, парамедики, токсикологи, коронер, LAPD и свидетели последней ночи</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">100+</div>
-              <div class="corpus-title">стенограмм и протокольных файлов</div>
-              <div class="corpus-caption">один процесс, разобранный построчно: препараты, звонки, 911, UCLA, токсикология и действия следствия</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">51</div>
-              <div class="corpus-title">страница отчёта коронера</div>
-              <div class="corpus-caption">официальная медицинская основа дела 2009-04415: причина смерти, токсикология, улики и цепочка хранения</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">68</div>
-              <div class="corpus-title">страниц апелляционного решения</div>
-              <div class="corpus-caption">судебная реконструкция хронологии 25 июня 2009 года, аргументов сторон и доказательств против Конрада Мюррея</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">8</div>
-              <div class="corpus-title">первичных судебных документов</div>
-              <div class="corpus-caption">отчёт коронера, апелляции, стенограмма Murray, ордер, допрос, свидетельство о смерти</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">5</div>
-              <div class="corpus-title">полицейских и следственных материалов</div>
-              <div class="corpus-caption">LAPD Items, вещдоки, 911, биллинг iPhone Мюррея, квитанции FedEx</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">8</div>
-              <div class="corpus-title">файлов ФБР</div>
-              <div class="corpus-caption">архивные материалы 1992–2004 годов: проверки, экспертизы, международные эпизоды и документы</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">3</div>
-              <div class="corpus-title">медицинских документа</div>
-              <div class="corpus-caption">forensic analysis, записи Арнольда Кляйна, рецепты Конрада Мюррея</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">20</div>
-              <div class="corpus-title">верифицированных медиаисточников</div>
-              <div class="corpus-caption">первая волна новостей, реакции мира, архивные публикации, российские, украинские, японские и международные материалы</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">4</div>
-              <div class="corpus-title">ресурса для поиска и проверки</div>
-              <div class="corpus-caption">CaseMine, Internet Archive / Wayback Machine, homicide.latimes.com, «Кинобизнес сегодня»</div>
-            </article>
-          </div>
-        </section>
-
-        <section class="corpus-group">
-          <h2 class="corpus-group-title">Дополнительный корпус: обвинения и оправдание</h2>
-          <div class="corpus-grid">
-            <article class="corpus-card corpus-card--wide">
-              <div class="corpus-number">89</div>
-              <div class="corpus-title">Всего</div>
-              <div class="corpus-caption">отдельный биографический и репутационный корпус, вынесенный за пределы дела о смерти</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">60</div>
-              <div class="corpus-title">судебных стенограмм</div>
-              <div class="corpus-caption">уголовный процесс 2005 года</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">3</div>
-              <div class="corpus-title">первичных правовых документа</div>
-              <div class="corpus-caption">аффидевит, иск, постановление суда</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">8</div>
-              <div class="corpus-title">файлов ФБР</div>
-              <div class="corpus-caption">архивные материалы 1992–2004 годов</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">3</div>
-              <div class="corpus-title">листа чертежей Неверленда</div>
-              <div class="corpus-caption">строительные чертежи главной железнодорожной станции Неверленда, 1993 год</div>
-            </article>
-            <article class="corpus-card corpus-card--wide">
-              <div class="corpus-number">15</div>
-              <div class="corpus-title">аналитических, медийных и справочных материалов</div>
-              <div class="corpus-caption">статьи, карты, фотоматериалы и дополнительные разборы</div>
-            </article>
-          </div>
-        </section>
-
-        <section class="corpus-group">
-          <h2 class="corpus-group-title">Активные государственные запросы</h2>
-          <div class="corpus-grid">
-            <article class="corpus-card corpus-card--wide">
-              <div class="corpus-number">2</div>
-              <div class="corpus-title">Всего</div>
-              <div class="corpus-caption">расследование не закрыто: часть документов ещё ожидается</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">1</div>
-              <div class="corpus-title">CPRA-запрос</div>
-              <div class="corpus-caption">LA County Department of Medical Examiner · дело 2009-04415</div>
-            </article>
-            <article class="corpus-card">
-              <div class="corpus-number">1</div>
-              <div class="corpus-title">FOIA-запрос</div>
-              <div class="corpus-caption">Drug Enforcement Administration · Applied Pharmacy Services, DEA-регистрация Мюррея, другие врачи</div>
-            </article>
+            <article class="corpus-card corpus-card--wide"><div class="corpus-number">100 000+</div><div class="corpus-title">строк судебного текста</div><div class="corpus-caption">полная расшифровка процесса People v. Murray: врачи, парамедики, токсикологи, коронер, LAPD и свидетели последней ночи</div></article>
+            <article class="corpus-card"><div class="corpus-number">100+</div><div class="corpus-title">стенограмм и протокольных файлов</div><div class="corpus-caption">один процесс, разобранный построчно: препараты, звонки, 911, UCLA, токсикология и действия следствия</div></article>
+            <article class="corpus-card"><div class="corpus-number">51</div><div class="corpus-title">страница отчёта коронера</div><div class="corpus-caption">официальная медицинская основа дела 2009-04415: причина смерти, токсикология, улики и цепочка хранения</div></article>
+            <article class="corpus-card"><div class="corpus-number">68</div><div class="corpus-title">страниц апелляционного решения</div><div class="corpus-caption">судебная реконструкция хронологии 25 июня 2009 года, аргументов сторон и доказательств против Конрада Мюррея</div></article>
+            <article class="corpus-card"><div class="corpus-number">8</div><div class="corpus-title">первичных судебных документов</div><div class="corpus-caption">отчёт коронера, апелляционные решения, стенограмма Murray, ордер, допрос, свидетельство о смерти и поправка коронера</div></article>
+            <article class="corpus-card"><div class="corpus-number">5</div><div class="corpus-title">полицейских и следственных материалов</div><div class="corpus-caption">LAPD Items, вещдоки, запись 911, биллинг iPhone Мюррея и квитанции FedEx</div></article>
+            <article class="corpus-card"><div class="corpus-number">8</div><div class="corpus-title">файлов ФБР</div><div class="corpus-caption">единый архивный блок 1992–2004 годов: проверки, экспертизы, международные эпизоды и документы</div></article>
+            <article class="corpus-card"><div class="corpus-number">3</div><div class="corpus-title">медицинских документа</div><div class="corpus-caption">forensic analysis, записи Арнольда Кляйна и рецепты Конрада Мюррея</div></article>
+            <article class="corpus-card"><div class="corpus-number">60</div><div class="corpus-title">судебных стенограмм 2005 года</div><div class="corpus-caption">уголовный процесс People v. Jackson, посчитанный по принципу: одна дата заседания — одна стенограмма</div></article>
+            <article class="corpus-card"><div class="corpus-number">3</div><div class="corpus-title">первичных правовых документа</div><div class="corpus-caption">аффидевит, иск и судебное постановление по дополнительному блоку обвинений и оправдания</div></article>
+            <article class="corpus-card"><div class="corpus-number">3</div><div class="corpus-title">листа чертежей Неверленда</div><div class="corpus-caption">строительные чертежи главной железнодорожной станции Неверленда, 1993 год</div></article>
+            <article class="corpus-card"><div class="corpus-number">15</div><div class="corpus-title">аналитических, медийных и справочных материалов</div><div class="corpus-caption">статьи, карты, фотоматериалы и дополнительные разборы по репутационному контексту</div></article>
+            <article class="corpus-card"><div class="corpus-number">20</div><div class="corpus-title">верифицированных медиаисточников</div><div class="corpus-caption">первая волна новостей, реакции мира, архивные публикации, российские, украинские, японские и международные материалы</div></article>
+            <article class="corpus-card"><div class="corpus-number">4</div><div class="corpus-title">ресурса для поиска и проверки</div><div class="corpus-caption">CaseMine, Internet Archive / Wayback Machine, homicide.latimes.com и «Кинобизнес сегодня»</div></article>
+            <article class="corpus-card"><div class="corpus-number">2</div><div class="corpus-title">активных государственных запроса</div><div class="corpus-caption">CPRA в LA County Department of Medical Examiner и FOIA в Drug Enforcement Administration</div></article>
           </div>
         </section>
       </div>
@@ -1498,76 +1503,33 @@
   const sourceCorpus = {
     updatedAt: '16.06.2026',
     displayTotal: '55+',
-
-    registry: {
-      title: 'Общий реестр расследования',
-      total: '55+',
-      caption: 'источников и источниковых групп по делу 2009-04415, реакции мира, метрикам наследия и дополнительным контекстам',
-      categories: [
-        { count: '100 000+', title: 'строк судебного текста', caption: 'полная расшифровка процесса People v. Murray: врачи, парамедики, токсикологи, коронер, LAPD и свидетели последней ночи' },
-        { count: '100+', title: 'стенограмм и протокольных файлов', caption: 'один процесс, разобранный построчно: препараты, звонки, 911, UCLA, токсикология и действия следствия' },
-        { count: 51, title: 'страница отчёта коронера', caption: 'официальная медицинская основа дела 2009-04415: причина смерти, токсикология, улики и цепочка хранения' },
-        { count: 68, title: 'страниц апелляционного решения', caption: 'судебная реконструкция хронологии 25 июня 2009 года, аргументов сторон и доказательств против Конрада Мюррея' },
-        { count: 8, title: 'первичных судебных документов', caption: 'отчёт коронера, апелляции, стенограмма Murray, ордер, допрос, свидетельство о смерти' },
-        { count: 5, title: 'полицейских и следственных материалов', caption: 'LAPD Items, вещдоки, 911, биллинг iPhone Мюррея, квитанции FedEx' },
-        { count: 8, title: 'файлов ФБР', caption: 'архивные материалы 1992–2004 годов: проверки, экспертизы, международные эпизоды и документы' },
-        { count: 3, title: 'медицинских документа', caption: 'forensic analysis, записи Арнольда Кляйна, рецепты Конрада Мюррея' },
-        { count: 20, title: 'верифицированных медиаисточников', caption: 'первая волна новостей, реакции мира, архивные публикации, российские, украинские, японские и международные материалы' },
-        { count: 4, title: 'ресурса для поиска и проверки', caption: 'CaseMine, Internet Archive / Wayback Machine, homicide.latimes.com, «Кинобизнес сегодня»' }
-      ]
-    },
-
-    allegationsContext: {
-      title: 'Дополнительный корпус: обвинения и оправдание',
-      total: 89,
-      caption: 'отдельный биографический и репутационный корпус, вынесенный за пределы дела о смерти',
-      categories: [
-        { count: 60, title: 'судебных стенограмм', caption: 'уголовный процесс 2005 года' },
-        { count: 3, title: 'первичных правовых документа', caption: 'аффидевит, иск, постановление суда' },
-        { count: 8, title: 'файлов ФБР', caption: 'архивные материалы 1992–2004 годов' },
-        { count: 3, title: 'листа чертежей Неверленда', caption: 'строительные чертежи главной железнодорожной станции Неверленда, 1993 год' },
-        { count: 15, title: 'аналитических, медийных и справочных материалов', caption: 'статьи, карты, фотоматериалы и дополнительные разборы' }
-      ]
-    },
-
-    activeRequests: {
-      title: 'Активные государственные запросы',
-      total: 2,
-      caption: 'расследование не закрыто: часть документов ещё ожидается',
-      categories: [
-        { count: 1, title: 'CPRA-запрос', caption: 'LA County Department of Medical Examiner · дело 2009-04415' },
-        { count: 1, title: 'FOIA-запрос', caption: 'Drug Enforcement Administration · Applied Pharmacy Services, DEA-регистрация Мюррея, другие врачи' }
-      ]
-    }
+    title: 'Единый список категорий',
+    total: '55+',
+    caption: 'источников и источниковых групп в общем реестре расследования',
+    categories: [
+      { count: '100 000+', title: 'строк судебного текста', caption: 'полная расшифровка процесса People v. Murray: врачи, парамедики, токсикологи, коронер, LAPD и свидетели последней ночи' },
+      { count: '100+', title: 'стенограмм и протокольных файлов', caption: 'один процесс, разобранный построчно: препараты, звонки, 911, UCLA, токсикология и действия следствия' },
+      { count: 51, title: 'страница отчёта коронера', caption: 'официальная медицинская основа дела 2009-04415: причина смерти, токсикология, улики и цепочка хранения' },
+      { count: 68, title: 'страниц апелляционного решения', caption: 'судебная реконструкция хронологии 25 июня 2009 года, аргументов сторон и доказательств против Конрада Мюррея' },
+      { count: 8, title: 'первичных судебных документов', caption: 'отчёт коронера, апелляционные решения, стенограмма Murray, ордер, допрос, свидетельство о смерти и поправка коронера' },
+      { count: 5, title: 'полицейских и следственных материалов', caption: 'LAPD Items, вещдоки, запись 911, биллинг iPhone Мюррея и квитанции FedEx' },
+      { count: 8, title: 'файлов ФБР', caption: 'единый архивный блок 1992–2004 годов: проверки, экспертизы, международные эпизоды и документы' },
+      { count: 3, title: 'медицинских документа', caption: 'forensic analysis, записи Арнольда Кляйна и рецепты Конрада Мюррея' },
+      { count: 60, title: 'судебных стенограмм 2005 года', caption: 'уголовный процесс People v. Jackson, посчитанный по принципу: одна дата заседания — одна стенограмма' },
+      { count: 3, title: 'первичных правовых документа', caption: 'аффидевит, иск и судебное постановление по дополнительному блоку обвинений и оправдания' },
+      { count: 3, title: 'листа чертежей Неверленда', caption: 'строительные чертежи главной железнодорожной станции Неверленда, 1993 год' },
+      { count: 15, title: 'аналитических, медийных и справочных материалов', caption: 'статьи, карты, фотоматериалы и дополнительные разборы по репутационному контексту' },
+      { count: 20, title: 'верифицированных медиаисточников', caption: 'первая волна новостей, реакции мира, архивные публикации, российские, украинские, японские и международные материалы' },
+      { count: 4, title: 'ресурса для поиска и проверки', caption: 'CaseMine, Internet Archive / Wayback Machine, homicide.latimes.com и «Кинобизнес сегодня»' },
+      { count: 2, title: 'активных государственных запроса', caption: 'CPRA в LA County Department of Medical Examiner и FOIA в Drug Enforcement Administration' }
+    ]
   };
 
   function fmtCount(n) { return n === null || n === undefined ? '—' : String(n); }
 
   function renderCorpus() {
-    const root = document.getElementById('corpusColumns');
-    if (!root || root.dataset.static === 'true') return;
-    const groups = [sourceCorpus.registry, sourceCorpus.allegationsContext, sourceCorpus.activeRequests];
     const totalEl = document.querySelector('[data-corpus-total]');
     if (totalEl) totalEl.textContent = sourceCorpus.displayTotal;
-    root.innerHTML = groups.map(group => `
-      <section class="corpus-group">
-        <h2 class="corpus-group-title">${group.title}</h2>
-        <div class="corpus-grid">
-          <article class="corpus-card corpus-card--wide">
-            <div class="corpus-number">${fmtCount(group.total)}</div>
-            <div class="corpus-title">Всего</div>
-            <div class="corpus-caption">${group.caption}</div>
-          </article>
-          ${group.categories.map(item => `
-            <article class="corpus-card">
-              <div class="corpus-number">${fmtCount(item.count)}</div>
-              <div class="corpus-title">${item.title}</div>
-              <div class="corpus-caption">${item.caption}</div>
-            </article>
-          `).join('')}
-        </div>
-      </section>
-    `).join('');
   }
 
   function showTab(tabId, el) {
@@ -1598,7 +1560,7 @@
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.reaction-card').forEach(c => {
-      c.style.display = (country === 'all' || c.dataset.country === country) ? '' : 'none';
+      c.style.display = (country === 'all' || c.dataset.country === country || (country === 'world' && c.dataset.region === 'world')) ? '' : 'none';
     });
   }
 
@@ -1617,7 +1579,7 @@
         const tab1Active = document.getElementById('tab1')?.classList.contains('active');
         document.body.classList.toggle('death-focus', entry.isIntersecting && tab1Active);
       });
-    }, { threshold: 0.52 });
+    }, { threshold: 0.65, rootMargin: '-32% 0px -32% 0px' });
     observer.observe(deathItem);
   }
 
@@ -1643,6 +1605,10 @@
       family: { flag:'◇', name:'Семья' },
       usa: { flag:'🇺🇸', name:'США' },
       uk: { flag:'🇬🇧', name:'Великобритания' },
+      fr: { flag:'🇫🇷', name:'Франция' },
+      va: { flag:'🇻🇦', name:'Ватикан' },
+      jp: { flag:'🇯🇵', name:'Япония' },
+      br: { flag:'🇧🇷', name:'Бразилия' },
       ru: { flag:'🇷🇺', name:'Россия' },
       ua: { flag:'🇺🇦', name:'Украина' },
       world: { flag:'🌍', name:'Мир' },
@@ -1657,18 +1623,6 @@
       node.innerHTML = `<span class="flag">${item.flag}</span><span>${item.name}</span>`;
       const date = info.querySelector('.reaction-date');
       if (date) info.insertBefore(node, date); else info.appendChild(node);
-    });
-  }
-
-
-  function switchCallPanel(target, btn) {
-    const wrap = btn?.closest('.call-transcript');
-    if (!wrap) return;
-    wrap.querySelectorAll('.call-toggle button').forEach(b => {
-      b.classList.toggle('active', b.dataset.callTarget === target);
-    });
-    wrap.querySelectorAll('[data-call-panel]').forEach(panel => {
-      panel.classList.toggle('active', panel.dataset.callPanel === target);
     });
   }
 
