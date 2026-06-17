@@ -143,9 +143,7 @@
     .verdict-badge { display:inline-flex; align-items:center; gap:9px; background:transparent; border:1px solid rgba(212,72,60,.55); border-radius:999px; padding:8px 16px; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.11em; text-transform:uppercase; color:#ff857d; margin-top:22px; box-shadow:none; }
     .verdict-badge::before { content:''; width:7px; height:7px; background:var(--red); border-radius:50%; animation:pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.82)} }
-    .hero--appendix { background:radial-gradient(circle at 18% 12%, rgba(214,184,90,.12), transparent 32rem), radial-gradient(circle at 82% 18%, rgba(95,136,184,.13), transparent 35rem), linear-gradient(180deg,#13161b 0%, #070707 100%) !important; }
-    .hero--metrics { background:radial-gradient(circle at 20% 15%, rgba(214,184,90,.16), transparent 36rem), radial-gradient(circle at 82% 18%, rgba(95,136,184,.18), transparent 38rem), linear-gradient(180deg,#14161d 0%, #070707 100%) !important; }
-    .hero--corpus { background:radial-gradient(circle at 50% 0%, rgba(214,184,90,.16), transparent 35rem), linear-gradient(180deg,#171511 0%, #070707 100%) !important; }
+    .hero--appendix, .hero--metrics, .hero--corpus { background: transparent; }
 
     /* HEADERS */
     .section-header { display:flex; align-items:baseline; gap:14px; margin-bottom:42px; border-top:1px solid rgba(255,255,255,.11); padding-top:28px; }
