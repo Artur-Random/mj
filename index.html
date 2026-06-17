@@ -21,6 +21,28 @@
   <meta name="twitter:description" content="Мемориально-документальный проект Artur Random о Майкле Джексоне: последние 24 часа, контекст, первые 48 часов, реакция мира, обвинения и оправдание, наследие и корпус источников." />
   <meta name="twitter:image"       content="https://artur-random.github.io/mj/image/og-preview.webp" />
 
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109921721','ym');
+    ym(109921721,'init',{
+      ssr: true,
+      webvisor: true,
+      clickmap: true,
+      ecommerce: 'dataLayer',
+      referrer: document.referrer,
+      url: location.href,
+      accurateTrackBounce: true,
+      trackLinks: true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109921721" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -657,7 +679,119 @@
       *,.fade-in,.timeline-item { transition:none !important; animation:none !important; }
     }
 
-    /* 911 TRANSCRIPT TOGGLE */
+    /* COOKIE BANNER */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cookie-banner p {
+      flex: 1;
+      font-size: .82rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .cookie-banner a { color: var(--gold); text-decoration: underline; cursor: pointer; }
+    .cookie-btn {
+      flex-shrink: 0;
+      appearance: none;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .cookie-btn:hover { background: rgba(214,184,90,.1); }
+
+    /* POLICY MODAL */
+    .policy-modal {
+      display: none;
+      opacity: 0;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,.85);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: opacity .25s;
+    }
+    .policy-modal.open {
+      display: flex;
+      opacity: 1;
+    }
+    .policy-inner {
+      position: relative;
+      max-width: 800px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      background: var(--bg-deep, #030303);
+      border: 1px solid var(--line);
+      border-radius: var(--radius, 20px);
+      padding: 36px 32px 32px;
+    }
+    .policy-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.14);
+      background: transparent;
+      color: var(--text-mid);
+      font-size: 1.1rem;
+      line-height: 1;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, color .2s;
+    }
+    .policy-close:hover { border-color: var(--gold); color: var(--gold); }
+    .policy-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-right: 36px;
+      line-height: 1.2;
+    }
+    .policy-inner h3 {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin: 22px 0 8px;
+    }
+    .policy-inner p {
+      font-size: .88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .policy-inner a { color: var(--gold); text-decoration: underline; }
+    @media (max-width: 600px) {
+      .policy-inner { padding: 28px 18px 24px; }
+      .cookie-banner { gap: 12px; }
+    }
+
+  </style>
     .call-toggle {
       appearance: none;
       border: 1px solid rgba(212,72,60,.28);
@@ -1443,6 +1577,7 @@
       <div>
         <div class="footer-col-title">Проект</div>
         <p class="footer-text">Независимая реконструкция последних суток Майкла Джексона, первых следственных действий и мировой реакции на его смерть.</p>
+        <a href="#" id="openPolicyBtn" onclick="openPolicy();return false;" style="display:block;margin-top:12px;color:var(--text-dim);text-decoration:underline;font-size:.8rem;">Политика конфиденциальности и cookies</a>
       </div>
       <div>
         <div class="footer-col-title">Материалы</div>
@@ -1458,6 +1593,31 @@
     <div class="container">© 2026 · Artur Random · Дело 2009-04415</div>
   </div>
 </footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Этот мемориальный проект использует файлы cookie и Яндекс Метрику для сбора обезличенной статистики посещений. Продолжая работу с сайтом, вы соглашаетесь с нашей <a id="openPolicyBannerBtn" tabindex="0">Политикой конфиденциальности</a>.</p>
+  <button class="cookie-btn" id="cookieAcceptBtn" type="button">Понятно</button>
+</div>
+
+<!-- POLICY MODAL -->
+<div class="policy-modal" id="policyModal" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+  <div class="policy-inner">
+    <button class="policy-close" id="policyCloseBtn" type="button" aria-label="Закрыть">✕</button>
+    <h2 id="policyTitle">Политика конфиденциальности и использования cookies</h2>
+    <h3>1. О проекте</h3>
+    <p>Настоящий мемориально-документальный проект создан и поддерживается автором под псевдонимом Artur Random.</p>
+    <h3>2. Какие данные собираются</h3>
+    <p>Сайт не собирает имена, адреса электронной почты, номера телефонов и иные прямые идентификаторы. Форм регистрации на сайте нет.</p>
+    <p>При посещении сайта с помощью сервиса Яндекс Метрика автоматически обрабатываются: файлы cookie, анонимный идентификатор браузера (ClientID), данные об устройстве, ОС, разрешении экрана, источник перехода, время на сайте, а также записи сессий через Вебвизор (свайпы, клики).</p>
+    <h3>3. Яндекс Метрика</h3>
+    <p>На сайте установлен счётчик Яндекс Метрика № 109921721. Обработка данных Яндексом регулируется <a href="https://yandex.ru/legal/metrica_termsofuse/ru" target="_blank" rel="noopener">Условиями использования</a> и <a href="https://yandex.ru/legal/confidential/ru" target="_blank" rel="noopener">Политикой конфиденциальности Яндекса</a>.</p>
+    <h3>4. Управление cookies</h3>
+    <p>Вы вправе отключить cookies в настройках браузера. Это не повлияет на доступность содержимого сайта. Инструкции доступны на официальных сайтах поддержки: Google Chrome, Safari, Firefox, Яндекс Браузер. Также вы можете использовать расширение «Блокировщик Яндекс.Метрики».</p>
+    <h3>5. Согласие</h3>
+    <p>Обработка осуществляется на основании Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных». Продолжая использование сайта, посетитель выражает согласие с настоящей политикой.</p>
+  </div>
+</div>
 
 <script>
   const sourceCorpus = {
@@ -1692,6 +1852,61 @@
       var first = document.querySelector('.nav-tabs a[data-tab="home"]');
       if (first) first.classList.add('active');
     }
+
+    /* COOKIE BANNER */
+    var cookieBanner = document.getElementById('cookieBanner');
+    if (cookieBanner) {
+      if (localStorage.getItem('cookieAccepted')) {
+        cookieBanner.style.display = 'none';
+      }
+      var acceptBtn = document.getElementById('cookieAcceptBtn');
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+          localStorage.setItem('cookieAccepted', '1');
+          cookieBanner.style.display = 'none';
+        });
+      }
+      var bannerPolicyLink = document.getElementById('openPolicyBannerBtn');
+      if (bannerPolicyLink) {
+        bannerPolicyLink.addEventListener('click', openPolicy);
+        bannerPolicyLink.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') openPolicy();
+        });
+      }
+    }
+  });
+
+  /* POLICY MODAL */
+  function openPolicy() {
+    var modal = document.getElementById('policyModal');
+    if (!modal) return;
+    modal.style.display = 'flex';
+    requestAnimationFrame(function() { modal.style.opacity = '1'; });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePolicy() {
+    var modal = document.getElementById('policyModal');
+    if (!modal) return;
+    modal.style.opacity = '0';
+    setTimeout(function() { modal.style.display = 'none'; }, 260);
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.getElementById('policyCloseBtn');
+    if (closeBtn) closeBtn.addEventListener('click', closePolicy);
+
+    var modal = document.getElementById('policyModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closePolicy();
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePolicy();
+    });
   });
 </script>
 </body>
