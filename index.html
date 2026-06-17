@@ -45,7 +45,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=Titillium+Web:wght@300;400;600;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=Share+Tech&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -74,7 +74,7 @@
       --text-faint:#6f6b65;
       --font-display:'PT Serif',Georgia,serif;
       --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-      --font-mono:'Titillium Web','Inter',system-ui,sans-serif;
+      --font-mono:'Share Tech','Inter',system-ui,sans-serif;
       --font-hand:'Caveat',cursive;
       --radius:22px;
       --shadow:0 24px 70px rgba(0,0,0,0.38);
@@ -278,7 +278,6 @@
 
     /* METRICS / LEGACY */
     .metrics-hero,.legacy-panel { background:transparent; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; padding:34px 0; margin-bottom:28px; position:relative; overflow:hidden; box-shadow:none; }
-    .metrics-hero::after { content:'MICHAEL 2026'; position:absolute; right:-18px; top:50%; transform:translateY(-50%) rotate(90deg); font-family:var(--font-display); font-size:3.8rem; font-weight:900; color:rgba(255,255,255,.055); white-space:nowrap; pointer-events:none; }
     .metrics-big { font-family:var(--font-mono); font-size:clamp(2.4rem,8vw,5.2rem); font-weight:500; color:var(--silver-soft); line-height:.92; margin-bottom:8px; letter-spacing:-.07em; font-variant-numeric:tabular-nums; }
     .metrics-label { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:26px; }
     .metrics-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(155px,1fr)); gap:18px; }
@@ -670,7 +669,6 @@
       .request-item { grid-template-columns:1fr; }
       .rating-split { grid-template-columns:1fr; }
       .metrics-row { grid-template-columns:1fr 1fr; }
-      .metrics-hero::after { display:none; }
       .trend-bar-item { grid-template-columns:1fr; gap:8px; }
       .trend-bar-val { text-align:left; }
       .corpus-grid { grid-template-columns:1fr; }
