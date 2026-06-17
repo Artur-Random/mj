@@ -226,13 +226,14 @@
     .reaction-avatar { width:46px; height:46px; border-radius:50%; background:var(--bg-raised); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:.55rem; color:var(--text-dim); flex-shrink:0; overflow:hidden; text-transform:uppercase; }
     .reaction-avatar img { width:100%; height:100%; object-fit:cover; }
     .reaction-info { flex:1; }
-    .reaction-name { font-family:var(--font-display); font-size:1.16rem; font-weight:700; color:var(--text); line-height:1.16; }
+    .reaction-name { font-family:var(--font-body); font-size:1.06rem; font-weight:600; color:var(--text); line-height:1.24; }
     .reaction-role { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); margin-top:4px; line-height:1.45; }
     .reaction-date { font-family:var(--font-mono); font-size:.73rem; color:var(--gold); margin-top:5px; }
     .reaction-country { display:inline-flex; align-items:center; gap:7px; margin-top:6px; font-family:var(--font-mono); font-size:.72rem; color:var(--gold-soft); letter-spacing:.06em; text-transform:uppercase; }
     .reaction-country .flag { font-size:1rem; line-height:1; }
     .reaction-quote-en { font-family:var(--font-mono); font-size:.9rem; color:var(--text); line-height:1.72; border-left:3px solid var(--gold-dim); padding-left:14px; margin-bottom:8px; }
     .reaction-quote-ru { font-family:var(--font-body); font-size:.94rem; color:var(--text-mid); font-style:normal; border-left:3px solid var(--line); padding-left:14px; line-height:1.65; }
+    .reaction-avatar { display: none; }
     .reaction-source { font-family:var(--font-mono); font-size:.74rem; color:var(--text-dim); margin-top:12px; line-height:1.55; text-transform:uppercase; letter-spacing:.04em; }
 
     /* METRICS / LEGACY */
@@ -555,6 +556,26 @@
       pointer-events: none;
     }
 
+    /* MOBILE PHOTO BLOCK */
+    .home-photo-block { display: none; }
+    @media (max-width: 768px) {
+      .home-photo-block {
+        display: block;
+        padding: 32px 0 4px;
+        text-align: center;
+      }
+      .home-photo-block img {
+        display: block;
+        margin: 0 auto;
+        width: 74%;
+        max-width: 290px;
+        filter: grayscale(1) contrast(1.08) brightness(.90);
+        opacity: .70;
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 68%, transparent 100%);
+        mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 68%, transparent 100%);
+      }
+    }
+
     /* BACKGROUND AMBIENT ANIMATION */
     @keyframes bgBreath {
       0%, 100% { opacity: .76; }
@@ -593,7 +614,7 @@
       .hero-meta-item { padding-top:12px; }
       .home-hero { min-height:auto; padding:76px 0 62px; }
       .home-title { font-size:clamp(3rem,18vw,5rem); }
-      .home-photo { width:72vw; right:-14vw; bottom:0; opacity:.32; }
+      .home-photo { display: none; }
       .home-section { padding:58px 0; }
       .home-links-grid { grid-template-columns:1fr; }
       .home-link-card { min-height:auto; }
@@ -663,6 +684,9 @@
       <p class="home-lead">Память, личный авторский взгляд и документальная реконструкция последних суток Майкла Джексона.</p>
       <a class="home-scroll" href="#author" onclick="document.getElementById('author').scrollIntoView({behavior:'smooth'});return false;">Читать от автора</a>
     </div>
+  </div>
+  <div class="home-photo-block" aria-hidden="true">
+    <img src="image/MJackson.png" alt="Майкл Джексон" loading="eager" />
   </div>
   <div class="home-section" id="author">
     <div class="container"><div class="author-grid">
@@ -947,7 +971,7 @@
         <div class="card"><div class="card-label">26 июня · 12:02 МСК</div><div class="card-title">Первый канал, РИА Новости, Lenta.ru</div><div class="card-body">Первый канал выпустил новость с видеообращением Джермейна. РИА Новости — около полуночи МСК с пометкой «Срочно». Стихийный мемориал у посольства США на Новинском бульваре.</div></div>
       </div>
 
-      <div class="section-header fade-in"><span class="section-eyebrow">Реакции · 44 верифицированных высказывания</span><h2 class="section-title">Что сказал мир</h2></div>
+      <div class="section-header fade-in"><span class="section-eyebrow">Реакции · 40 верифицированных высказываний</span><h2 class="section-title">Что сказал мир</h2></div>
       <div class="reactions-filter">
         <button class="filter-btn active" onclick="filterReactions('all',this)">Все</button>
         <button class="filter-btn" onclick="filterReactions('family',this)">Семья</button>
@@ -959,14 +983,13 @@
         <button class="filter-btn" onclick="filterReactions('va',this)">Ватикан</button>
         <button class="filter-btn" onclick="filterReactions('jp',this)">Япония</button>
         <button class="filter-btn" onclick="filterReactions('br',this)">Бразилия</button>
-        <button class="filter-btn" onclick="filterReactions('by',this)">Беларусь</button>
       </div>
       <div class="reactions-grid" id="reactionsGrid">
 
         <div class="reaction-card" data-country="family">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Джермейн Джексон</div><div class="reaction-role">Брат · пресс-конференция UCLA</div><div class="reaction-date">25.06.2009 · ~17:00–18:00 PDT</div></div></div>
           <div class="reaction-quote-en">"My brother, the legendary King of Pop, Michael Jackson, has left us. His personal physician did everything possible to save him. ... May Allah be with you, Michael, always."</div>
-          <div class="reaction-quote-ru">«Мой брат, легендарный Король поп-музыки, Майкл Джексон, покинул нас.»</div>
+          <div class="reaction-quote-ru">«Мой брат, легендарный Король поп-музыки, Майкл Джексон, покинул нас. Его личный врач сделал всё возможное, чтобы спасти его. … Да пребудет с тобой Аллах, Майкл, всегда.»</div>
           <div class="reaction-source">UCLA newsroom · newsroom.ucla.edu</div>
         </div>
 
@@ -1000,7 +1023,7 @@
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Элизабет Тейлор</div><div class="reaction-role">Актриса · ближайшая подруга</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">Initially "too devastated to make a statement." Later: "My life feels so empty. I don't think anyone knew how much we loved each other."</div>
-          <div class="reaction-quote-ru">Изначально «слишком опустошена, чтобы говорить». Позже: «Моя жизнь кажется пустой.»</div>
+          <div class="reaction-quote-ru">Изначально «слишком опустошена, чтобы говорить». Позже: «Моя жизнь кажется пустой. Я не думаю, что кто-то знал, как сильно мы любили друг друга.»</div>
           <div class="reaction-source">СМИ · Twitter 2009</div>
         </div>
 
@@ -1014,7 +1037,7 @@
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ашер</div><div class="reaction-role">Певец · ученик Джексона</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"I would not be the artist, performer, and philanthropist I am today without the influence of Michael."</div>
-          <div class="reaction-quote-ru">«Без влияния Майкла я бы никогда не стал тем артистом, которым являюсь сегодня.»</div>
+          <div class="reaction-quote-ru">«Без влияния Майкла я бы никогда не стал тем артистом, исполнителем и филантропом, которым являюсь сегодня.»</div>
           <div class="reaction-source">BBC News, 26.06.2009</div>
         </div>
 
@@ -1034,8 +1057,8 @@
 
         <div class="reaction-card" data-country="usa">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Барак Обама</div><div class="reaction-role">Президент США</div><div class="reaction-date">03.07.2009</div></div></div>
-          <div class="reaction-quote-en">"spectacular performer... I grew up on Michael Jackson's music... greatest entertainers"</div>
-          <div class="reaction-quote-ru">«Блестящий артист. Я вырос на его музыке.»</div>
+          <div class="reaction-quote-en">"… a spectacular performer. I grew up on Michael Jackson's music. He was one of the greatest entertainers of our time."</div>
+          <div class="reaction-quote-ru">«…Блестящий артист. Я вырос на музыке Майкла Джексона. Он был одним из величайших артистов нашего времени.»</div>
           <div class="reaction-source">AP · 03.07.2009 · vz.ru/news/2009/7/3/303664</div>
         </div>
 
@@ -1049,14 +1072,14 @@
         <div class="reaction-card" data-country="uk">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Гордон Браун</div><div class="reaction-role">Премьер-министр Великобритании</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-en">"This is very sad news for the millions of Michael Jackson fans in Britain and around the world. The prime minister's thoughts are with Michael Jackson's family at this time."</div>
-          <div class="reaction-quote-ru">«Очень печальная новость для миллионов поклонников. Мысли премьер-министра с семьёй Джексона.»</div>
+          <div class="reaction-quote-ru">«Это очень печальная новость для миллионов поклонников Майкла Джексона в Британии и во всём мире. Мысли премьер-министра в это время с семьёй Майкла Джексона.»</div>
           <div class="reaction-source">Reuters · Guardian · BBC, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
           <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Пол Маккартни</div><div class="reaction-role">Музыкант · Beatles</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"It's so sad and shocking. I feel privileged to have hung out and worked with Michael. He was a massively talented boy man with a gentle soul."</div>
-          <div class="reaction-quote-ru">«Так грустно и шокирует. Он был невероятно талантливым человеком с нежной душой.»</div>
+          <div class="reaction-quote-ru">«Это так грустно и шокирующе. Я чувствую себя привилегированным за то, что общался и работал с Майклом. Он был невероятно талантливым ребёнком-взрослым с нежной душой.»</div>
           <div class="reaction-source">beatlesbible.com, 26.06.2009</div>
         </div>
 
@@ -1166,29 +1189,13 @@
           <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
         </div>
 
-        <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Дмитрий Медведев</div><div class="reaction-role">Президент России</div></div></div>
-          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
-          <div class="reaction-source">Консенсус 5 исследовательских отчётов deep research</div>
-        </div>
 
-        <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Виктор Ющенко</div><div class="reaction-role">Президент Украины</div></div></div>
-          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
-          <div class="reaction-source">Консенсус исследовательских отчётов</div>
-        </div>
 
-        <div class="reaction-card" data-country="by">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Александр Лукашенко</div><div class="reaction-role">Президент Беларуси</div></div></div>
-          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
-          <div class="reaction-source">Консенсус исследовательских отчётов</div>
-        </div>
 
-        <div class="reaction-card" data-country="uk">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Королева Елизавета II</div><div class="reaction-role">Великобритания</div></div></div>
-          <div class="reaction-quote-ru" style="color:var(--text-dim);">Официальных публичных заявлений не зафиксировано</div>
-          <div class="reaction-source">Консенсус исследовательских отчётов</div>
-        </div>
+
+
+
+
 
       </div><!-- /reactions-grid -->
 
@@ -1291,12 +1298,12 @@
         <div class="metrics-big">$934 009 960</div>
         <div class="metrics-label">Мировые кассовые сборы · the-numbers.com · 16.06.2026</div>
         <div class="metrics-row">
-          <div class="metric-item"><div class="m-num">$362.8M</div><div class="m-label">США (Lionsgate)</div></div>
-          <div class="metric-item"><div class="m-num">$571.2M</div><div class="m-label">Международные сборы</div></div>
+          <div class="metric-item"><div class="m-num">$362,8 млн</div><div class="m-label">США (Lionsgate)</div></div>
+          <div class="metric-item"><div class="m-num">$571,2 млн</div><div class="m-label">Международные сборы</div></div>
           <div class="metric-item"><div class="m-num">6.0×</div><div class="m-label">Окупаемость ($155M бюджет)</div></div>
           <div class="metric-item"><div class="m-num">127 мин</div><div class="m-label">Хронометраж · PG-13</div></div>
           <div class="metric-item"><div class="m-num">3 955</div><div class="m-label">Залов открытие (США)</div></div>
-          <div class="metric-item"><div class="m-num">~$1B</div><div class="m-label">Прогноз с Японией</div></div>
+          <div class="metric-item"><div class="m-num">~$1 млрд</div><div class="m-label">Прогноз с Японией</div></div>
         </div>
       </div>
 
@@ -1327,7 +1334,7 @@
       <div class="cards-grid fade-in">
         <div class="card"><div class="card-label">Spotify · 14.06.2026 (скрин)</div><div class="card-stat">112 121 656</div><div class="card-body">Слушателей в месяц. Billie Jean: 2 918 807 193 прослуш. Beat It: 1 907 272 539. Chicago: 738 368 311.</div></div>
         <div class="card"><div class="card-label">Яндекс Музыка · 14.06.2026 (скрин)</div><div class="card-stat">4 306 205</div><div class="card-body">Слушателей в месяц. Рост +1 563 837 за 28 дней. Billie Jean — 16-е место в чарте.</div></div>
-        <div class="card"><div class="card-label">Songstats · все платформы (скрин)</div><div class="card-stat">43.1B</div><div class="card-body">Стримов всего. 198M подписчиков. 70.1B просмотров видео. 181M Shazam. Billie Jean: популярность 99%.</div></div>
+        <div class="card"><div class="card-label">Songstats · все платформы (скрин)</div><div class="card-stat">43,1 млрд</div><div class="card-body">Стримов всего. 198 млн подписчиков. 70,1 млрд просмотров видео. 181 млн Shazam. Billie Jean: популярность 99%.</div></div>
       </div>
 
       <div class="section-header fade-in"><span class="section-eyebrow">Яндекс Вордстат · май–июнь 2026</span><h2 class="section-title">Поисковое цунами</h2></div>
