@@ -45,7 +45,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -72,7 +72,7 @@
       --text-mid:#cbc8c0;
       --text-dim:#908d87;
       --text-faint:#6f6b65;
-      --font-display:'Noto Serif Display',Georgia,serif;
+      --font-display:'PT Serif',Georgia,serif;
       --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       --font-mono:'IBM Plex Mono','Courier New',monospace;
       --font-hand:'Caveat',cursive;
@@ -674,6 +674,39 @@
       .section-eyebrow { display:block; margin-bottom:8px; }
       .utility-nav { right:12px; bottom:calc(68px + env(safe-area-inset-bottom, 0px)); }
       .utility-nav button { font-size:.62rem; padding:8px 10px; }
+
+      /* Mobile nav — unified color, left-accent active indicator */
+      .nav-tabs.open li a {
+        padding: 13px 18px 13px 22px;
+        margin: 0;
+        border-bottom: none;
+        border-left: 2px solid transparent;
+        border-radius: 0;
+        color: var(--text-dim);
+        background: transparent;
+      }
+      .nav-tabs.open li a:hover {
+        color: var(--text-mid);
+        background: rgba(255,255,255,.035);
+        border-left-color: rgba(255,255,255,.12);
+        border-bottom: none;
+      }
+      .nav-tabs.open li a.active {
+        color: var(--silver-soft);
+        background: rgba(255,255,255,.055);
+        border-left: 2px solid var(--silver);
+        border-bottom: none;
+      }
+      .nav-tabs.open .nav-tab--appendix {
+        color: var(--text-dim) !important;
+      }
+      .nav-tabs.open .nav-tab--appendix.active {
+        color: var(--silver-soft) !important;
+        background: rgba(255,255,255,.055);
+        border-left: 2px solid var(--silver);
+        border-bottom: none;
+        border-bottom-color: transparent !important;
+      }
     }
     @media (prefers-reduced-motion:reduce) {
       *,.fade-in,.timeline-item { transition:none !important; animation:none !important; }
