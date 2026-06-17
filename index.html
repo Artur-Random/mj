@@ -1725,6 +1725,10 @@
     document.getElementById('navTabs').classList.toggle('open');
   }
 
+  function closeMenu() {
+    document.getElementById('navTabs').classList.remove('open');
+  }
+
   function showCase(id, el) {
     document.querySelectorAll('.case-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
@@ -1905,7 +1909,12 @@
     }
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closePolicy();
+      if (e.key === 'Escape') { closePolicy(); closeMenu(); }
+    });
+
+    document.addEventListener('click', function(e) {
+      var nav = document.querySelector('.nav');
+      if (nav && !nav.contains(e.target)) closeMenu();
     });
   });
 </script>
