@@ -1684,6 +1684,7 @@
     window.scrollTo({top:0,behavior:'smooth'});
     document.body.classList.remove('death-focus');
     document.body.classList.toggle('home-active', tabId === 'home');
+    if (typeof updateUtilityNav === 'function') updateUtilityNav();
     if (tabId === 'tab6') setTimeout(animBars, 250);
     if (tabId === 'tab7') renderCorpus();
     var hash = TAB_HASHES[tabId];
@@ -1758,16 +1759,18 @@
     document.querySelectorAll('.timeline-item, .fade-in').forEach(el => io.observe(el));
   }
 
-  function initUtilityNav() {
+  function updateUtilityNav() {
     const nav = document.getElementById('utilityNav');
     if (!nav) return;
-    const update = () => {
-      const show = window.scrollY > 300;
-      nav.style.opacity = show ? '1' : '0';
-      nav.style.pointerEvents = show ? '' : 'none';
-    };
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    const onHome = document.body.classList.contains('home-active');
+    const show = !onHome && window.scrollY > 300;
+    nav.style.opacity = show ? '1' : '0';
+    nav.style.pointerEvents = show ? '' : 'none';
+  }
+
+  function initUtilityNav() {
+    window.addEventListener('scroll', updateUtilityNav, { passive: true });
+    updateUtilityNav();
   }
 
   function initDeathFocus() {
