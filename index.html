@@ -872,6 +872,39 @@
       margin-top: 8px;
     }
 
+    /* SYNERGY TIMELINE */
+    .synergy-timeline { display:flex; flex-direction:column; gap:0; margin:24px 0 18px; }
+    .synergy-zone { border-radius:10px; padding:18px 20px; border:1px solid transparent; }
+    .synergy-zone--benzo { border-color:rgba(95,136,184,.28); background:rgba(95,136,184,.05); }
+    .synergy-zone--propofol { border-color:rgba(255,107,97,.32); background:rgba(255,107,97,.05); }
+    .synergy-zone--gap { border-color:rgba(230,163,74,.30); background:rgba(230,163,74,.05); }
+    .synergy-zone--crisis { border-color:rgba(255,107,97,.32); background:rgba(255,107,97,.05); }
+    .synergy-zone-label { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.13em; text-transform:uppercase; font-weight:600; margin-bottom:4px; }
+    .synergy-zone--benzo .synergy-zone-label { color:var(--blue); }
+    .synergy-zone--propofol .synergy-zone-label { color:var(--red-soft); }
+    .synergy-zone--gap .synergy-zone-label { color:var(--orange); }
+    .synergy-zone--crisis .synergy-zone-label { color:var(--red-soft); }
+    .synergy-zone-time { font-family:var(--font-mono); font-size:.78rem; color:var(--text-dim); margin-bottom:8px; }
+    .synergy-zone-desc { font-size:.88rem; color:var(--text-mid); line-height:1.65; }
+    .synergy-arrow { text-align:center; padding:6px 0; color:var(--text-faint); font-size:1rem; line-height:1; }
+
+    /* APPELLATE QUOTES */
+    .appellate-quotes { display:flex; flex-direction:column; max-width:900px; margin-top:8px; }
+    .aq-item { border-top:1px solid var(--line); padding:22px 0; }
+    .aq-item--critical { padding-left:14px; border-left:3px solid rgba(212,72,60,.5); }
+    .aq-theme { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+    .aq-item--critical .aq-theme { color:var(--red-soft); }
+    .aq-finding { font-size:1rem; color:var(--text); line-height:1.74; margin-bottom:8px; }
+    .aq-source { font-family:var(--font-mono); font-size:.72rem; color:var(--text-faint); }
+
+    @media (max-width:760px) {
+      .synergy-zone { padding:14px 16px; }
+      .synergy-zone-desc { font-size:.84rem; }
+      .aq-item { padding:18px 0; }
+      .aq-item--critical { padding-left:12px; }
+      .aq-finding { font-size:.94rem; }
+    }
+
   </style>
 
 </head>
@@ -974,6 +1007,35 @@
       <hr class="divider" />
       <div class="section-header fade-in"><span class="section-eyebrow">Фармакология</span><h2 class="section-title">Фармакологическая картина ночи</h2></div><div class="pharma-summary fade-in"><div class="pharma-summary-item"><span class="pharma-summary-num">6</span><span class="pharma-summary-label">препаратов и веществ в реконструкции ночи</span></div><div class="pharma-summary-item"><span class="pharma-summary-num">3</span><span class="pharma-summary-label">бензодиазепина: диазепам, лоразепам, мидазолам</span></div><div class="pharma-summary-item"><span class="pharma-summary-num">2</span><span class="pharma-summary-label">анестетика / сопутствующих: пропофол и лидокаин</span></div><div class="pharma-summary-item"><span class="pharma-summary-num">0</span><span class="pharma-summary-label">Демерол / меперидин не обнаружен</span></div></div>
       <div class="pharma-block fade-in"><h3 class="pharma-block-title">Что вводилось и когда</h3><p class="pharma-block-subtitle">Данные основаны на версии Конрада Мюррея из полицейского допроса.</p><div class="pharma-grid"><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Диазепам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">длительного действия · перорально</div><div class="pharma-big pharma-big--gold">10 мг</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~01:30</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Лоразепам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">средней продолжительности · IV</div><div class="pharma-big pharma-big--gold">2 мг × 2</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~02:00 и ~05:00</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Мидазолам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">быстродействующее седативное · IV</div><div class="pharma-big pharma-big--gold">2 мг × 2</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~03:00 и ~07:30</div></div></div></article><article class="pharma-card pharma-card--critical"><div class="pharma-card-top"><h4 class="pharma-name">Пропофол</h4><span class="pharma-tag pharma-tag--critical">Анестетик</span></div><div class="pharma-type">внутривенный анестетик · гипнотик</div><div class="pharma-big pharma-big--critical">25 мг</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~10:40, по версии Мюррея</div></div><div class="pharma-row"><div class="pharma-key">Связка</div><div class="pharma-val">с лидокаином</div></div></div></article></div></div>
+      <div class="pharma-block fade-in">
+        <h3 class="pharma-block-title">Окно опасности: синергия и отсутствие мониторинга</h3>
+        <div class="synergy-timeline">
+          <div class="synergy-zone synergy-zone--benzo">
+            <div class="synergy-zone-label">Зона накопления бензодиазепинов</div>
+            <div class="synergy-zone-time">01:30 → 07:30</div>
+            <div class="synergy-zone-desc">Три препарата последовательно угнетают ЦНС до полного выведения предыдущего; суммарный эффект нарастает.</div>
+          </div>
+          <div class="synergy-arrow">↓</div>
+          <div class="synergy-zone synergy-zone--propofol">
+            <div class="synergy-zone-label">Критический момент: добавление пропофола</div>
+            <div class="synergy-zone-time">~10:40</div>
+            <div class="synergy-zone-desc">Пропофол на фоне накопленных бензодиазепинов — синергетическое угнетение дыхательного центра. Версия самовведения Джексоном «основана на предположениях» — апелляционный суд B237677.</div>
+          </div>
+          <div class="synergy-arrow">↓</div>
+          <div class="synergy-zone synergy-zone--gap">
+            <div class="synergy-zone-label">Окно отсутствия мониторинга</div>
+            <div class="synergy-zone-time">10:34 → ~11:56</div>
+            <div class="synergy-zone-desc">Мюррей совершал звонки (AT&T/Sprint billing); пульсоксиметр без звуковой сигнализации; капнограф отсутствовал.</div>
+          </div>
+          <div class="synergy-arrow">↓</div>
+          <div class="synergy-zone synergy-zone--crisis">
+            <div class="synergy-zone-label">Обнаружение кризиса</div>
+            <div class="synergy-zone-time">~11:56–12:20</div>
+            <div class="synergy-zone-desc">СЛР одной рукой на мягкой поверхности; до звонка 911 — распоряжение убрать флаконы.</div>
+          </div>
+        </div>
+        <p style="font-size:.77rem;color:var(--text-dim);margin:18px 0 0;font-family:var(--font-mono);">Dr. Steven Shafer, эксперт обвинения · People v. Murray · апелляция B237677</p>
+      </div>
       <div class="pharma-block fade-in"><h3 class="pharma-block-title">Что показала токсикология</h3><p class="pharma-block-subtitle">Данные токсикологии из отчёта коронера и показаний Dan Anderson.</p><div class="pharma-grid"><article class="pharma-card pharma-card--critical"><div class="pharma-card-top"><h4 class="pharma-name">Пропофол</h4><span class="pharma-tag pharma-tag--critical">Ключевой</span></div><div class="pharma-type">внутривенный анестетик · гипнотик</div><div class="pharma-big pharma-big--critical">2.6 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">2.6 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">3.2 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">UCLA</div><div class="pharma-val">4.1 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Печень</div><div class="pharma-val">6.2 мкг/г</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">2–4 мкг/мл (хирургия)</div></div></div></article><article class="pharma-card pharma-card--support"><div class="pharma-card-top"><h4 class="pharma-name">Лидокаин</h4><span class="pharma-tag pharma-tag--support">Сопутствующий</span></div><div class="pharma-type">местный анестетик</div><div class="pharma-big">0.84 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">0.84 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">0.68 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">UCLA</div><div class="pharma-val">0.51 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Печень</div><div class="pharma-val">0.45 мкг/г</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">1.5–6 мкг/мл</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Лоразепам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">анксиолитик / седативное</div><div class="pharma-big">0.169 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">0.169 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">0.162 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">0.1–0.2 мкг/мл</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Мидазолам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">седативное</div><div class="pharma-big">4.6 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">4.6 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">0.05–0.15 мкг/мл</div></div></div></article><article class="pharma-card pharma-card--support"><div class="pharma-card-top"><h4 class="pharma-name">Демерол (меперидин)</h4><span class="pharma-tag pharma-tag--support">Не обнаружен</span></div><div class="pharma-type">опиоидный анальгетик</div><div class="pharma-big">0</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Статус</div><div class="pharma-val">в токсикологии не обнаружен</div></div></div></article></div><p style="font-size:.77rem;color:var(--text-dim);margin:18px 0 0;font-family:var(--font-mono);">Dan Anderson, chief toxicologist LA Coroner · суд 6–7.10.2011 · Case 2009-04415</p></div>
     </div>
   </div>
@@ -1161,9 +1223,9 @@
             <div class="request-org">LA County Department of Medical Examiner</div>
             <div class="request-desc">CPRA-запрос (Закон Калифорнии о публичных записях)</div>
             <div class="request-detail">Дело №2009-04415 · Дополнительные материалы аутопсии, записи коронера, цепочка хранения вещдоков</div>
-            <div class="request-date">Подан: 4 июня 2026 · info@me.lacounty.gov · Срок: ~14 июня 2026</div>
+            <div class="request-date">Подан: 4 июня 2026 · info@me.lacounty.gov · <strong style="color:var(--gold);">Документы идентифицированы — ожидается оплата зарубежным запросителем</strong></div>
           </div>
-          <div class="status-pill status-pill--waiting">Ожидание</div>
+          <div class="status-pill" style="background:rgba(214,184,90,.13);color:var(--gold-soft);border:1px solid rgba(214,184,90,.42);">Оплата</div>
         </div>
         <div class="request-item">
           <div>
@@ -1507,6 +1569,41 @@
         </div>
       </div>
 
+      <hr class="divider" style="margin:52px 0 44px;" />
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Апелляция B237677 · People v. Murray · 15.01.2014</span>
+        <h2 class="section-title">Что сказал суд: формулировки приговора</h2>
+      </div>
+      <p class="fade-in" style="font-size:.95rem;color:var(--text-mid);line-height:1.72;max-width:760px;margin-bottom:32px;">Суд подтвердил приговор единогласно 15 января 2014 года. 68 страниц. Ниже — официальные выводы суда, не интерпретации.</p>
+      <div class="appellate-quotes fade-in">
+        <div class="aq-item">
+          <div class="aq-theme">Стандарт уголовной халатности</div>
+          <div class="aq-finding">Действия Мюррея составляли грубую халатность, а не врачебную ошибку; критерий — отклонение от стандарта разумной помощи в степени, создающей высокий риск смерти.</div>
+          <div class="aq-source">B237677 · стр. 18–24</div>
+        </div>
+        <div class="aq-item aq-item--critical">
+          <div class="aq-theme">Самовведение пропофола — отклонено</div>
+          <div class="aq-finding">Версия защиты «основана на предположениях» и не подкреплена доказательствами; довод отклонён как несостоятельный.</div>
+          <div class="aq-source">B237677 · стр. 31–35</div>
+        </div>
+        <div class="aq-item aq-item--critical">
+          <div class="aq-theme">Дезинформация медицинской команды UCLA</div>
+          <div class="aq-finding">Мюррей не сообщил о пропофоле ни парамедикам, ни в UCLA; это существенно затруднило реанимацию.</div>
+          <div class="aq-source">B237677 · стр. 26–28</div>
+        </div>
+        <div class="aq-item">
+          <div class="aq-theme">Отсутствие надлежащего оборудования</div>
+          <div class="aq-finding">Пропофол применялся без капнографа, без монитора с сигнализацией, без реанимационного оборудования, без ассистента.</div>
+          <div class="aq-source">B237677 · стр. 20–22</div>
+        </div>
+        <div class="aq-item">
+          <div class="aq-theme">Причинно-следственная связь</div>
+          <div class="aq-finding">Прямая связь между действиями Мюррея и смертью установлена; наркотическая зависимость Джексона не исключала ответственности Мюррея.</div>
+          <div class="aq-source">B237677 · стр. 36–42</div>
+        </div>
+      </div>
+      <p class="fade-in" style="font-size:.72rem;color:var(--text-faint);font-family:var(--font-mono);margin-top:20px;line-height:1.6;">People v. Conrad Robert Murray · Cal. App. 2d · B237677 · Filed January 15, 2014 · Affirmed unanimously</p>
+
     </div>
   </div>
 </section><!-- /tab5 -->
@@ -1627,7 +1724,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container">© 2026 · Artur Random · Дело 2009-04415</div>
+    <div class="container">© 2026 · Artur Random · Дело 2009-04415 · <span style="color:var(--text-faint);font-size:.82em;">Обновлено: 20 июня 2026</span></div>
   </div>
 </footer>
 
