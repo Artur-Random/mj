@@ -948,6 +948,32 @@
       }
     }
 
+    .card-nums {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px 10px;
+      padding: 14px 0 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .card-num-item { display: flex; flex-direction: column; gap: 4px; }
+    .card-num-val {
+      font-family: var(--font-mono);
+      font-size: 1.06rem;
+      color: var(--silver-soft);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+    .card-num-val--accent { color: var(--gold); }
+    .card-num-label {
+      font-family: var(--font-mono);
+      font-size: .63rem;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      line-height: 1.35;
+    }
+
     .market-bar-cell {
       width: 120px;
       padding-right: 18px !important;
@@ -1703,10 +1729,44 @@
       </div>
 
       <div class="cards-grid fade-in">
-        <div class="card"><div class="card-label">Россия · ЕАИС · 25.06.2026</div><div class="card-stat">1 431 235 511 ₽</div><div class="card-body">#5 в российском прокате 2026 года. Единственный иностранный фильм в топ-5. 1&nbsp;423 кинотеатра · 132&nbsp;249 сеансов · 2&nbsp;625&nbsp;046 зрителей. Старт 28 мая. Наработка: 10&nbsp;822&nbsp;₽/сеанс.</div></div>
-        <div class="card"><div class="card-label">Украина · Box Office Mojo · 25.06.2026</div><div class="card-stat">$2 040 718</div><div class="card-body">Премьера 22 апреля 2026. Дистрибьютор: B&amp;H Film Distribution.</div></div>
-        <div class="card"><div class="card-label">Беларусь · оценка</div><div class="card-stat">~$610 000</div><div class="card-body">Расчётная оценка по агрегированным данным. Премьера 28 мая 2026.</div></div>
-        <div class="card"><div class="card-label">Япония · Box Office Mojo · 25.06.2026</div><div class="card-stat">$7 451 162</div><div class="card-body">Старт 12 июня 2026 (позже остальных рынков). Открытие: 672&nbsp;056 зрителей за первые 3 дня.</div></div>
+        <div class="card">
+          <div class="card-label">Россия · ЕАИС · 25.06.2026</div>
+          <div class="card-stat">1 431 235 511 ₽</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">1&nbsp;423</span><span class="card-num-label">кинотеатра</span></div>
+            <div class="card-num-item"><span class="card-num-val">132&nbsp;249</span><span class="card-num-label">сеансов</span></div>
+            <div class="card-num-item"><span class="card-num-val">2&nbsp;625&nbsp;046</span><span class="card-num-label">зрителей</span></div>
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">10&nbsp;822 ₽</span><span class="card-num-label">наработка/сеанс</span></div>
+          </div>
+          <div class="card-body">#5 в российском прокате 2026. Единственный иностранный фильм в топ-5. Старт 28 мая.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Украина · Box Office Mojo · 25.06.2026</div>
+          <div class="card-stat">$2 040 718</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">22.04</span><span class="card-num-label">старт</span></div>
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">#1</span><span class="card-num-label">в Украине · 2026</span></div>
+          </div>
+          <div class="card-body">Дистрибьютор: B&amp;H Film Distribution.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Беларусь · оценка</div>
+          <div class="card-stat">~$610 000</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">28.05</span><span class="card-num-label">старт</span></div>
+          </div>
+          <div class="card-body">Расчётная оценка по агрегированным данным.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Япония · Box Office Mojo · 25.06.2026</div>
+          <div class="card-stat">$7 451 162</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">672&nbsp;056</span><span class="card-num-label">зрителей</span></div>
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">3 дня</span><span class="card-num-label">за открытие</span></div>
+            <div class="card-num-item"><span class="card-num-val">12.06</span><span class="card-num-label">старт</span></div>
+          </div>
+          <div class="card-body">Позже остальных рынков.</div>
+        </div>
       </div>
 
       <div class="section-header fade-in" style="margin-top:44px;">
@@ -1726,21 +1786,21 @@
             <tr><td><span class="tox-val">1</span></td><td><span class="tox-drug-name">🇺🇸 США / Канада</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val tox-val--high">$367 915 197</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill market-bar-fill--top" data-w="100.0"></div></div></td></tr>
             <tr><td><span class="tox-val">2</span></td><td><span class="tox-drug-name">🇬🇧 Великобритания</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$69 886 157</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="19.0"></div></div></td></tr>
             <tr><td><span class="tox-val">3</span></td><td><span class="tox-drug-name">🇫🇷 Франция</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$55 415 453</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="15.1"></div></div></td></tr>
-            <tr><td><span class="tox-val">4</span></td><td><span class="tox-drug-name">🇩🇪 Германия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 10.04</span></td><td><span class="tox-val">$35 631 740</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="9.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">4</span></td><td><span class="tox-drug-name">🇩🇪 Германия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$35 631 740</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="9.7"></div></div></td></tr>
             <tr><td><span class="tox-val">5</span></td><td><span class="tox-drug-name">🇧🇷 Бразилия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$33 666 799</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="9.2"></div></div></td></tr>
-            <tr><td><span class="tox-val">6</span></td><td><span class="tox-drug-name">🇦🇺 Австралия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 22.04</span></td><td><span class="tox-val">$31 873 731</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">6</span></td><td><span class="tox-drug-name">🇦🇺 Австралия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$31 873 731</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.7"></div></div></td></tr>
             <tr><td><span class="tox-val">7</span></td><td><span class="tox-drug-name">🇲🇽 Мексика</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$31 864 530</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.7"></div></div></td></tr>
             <tr><td><span class="tox-val">8</span></td><td><span class="tox-drug-name">🇮🇹 Италия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$29 448 041</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">9</span></td><td><span class="tox-drug-name">🇪🇸 Испания</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 22.04</span></td><td><span class="tox-val">$27 176 163</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="7.4"></div></div></td></tr>
+            <tr><td><span class="tox-val">9</span></td><td><span class="tox-drug-name">🇪🇸 Испания</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$27 176 163</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="7.4"></div></div></td></tr>
             <tr><td><span class="tox-val">10</span></td><td><span class="tox-drug-name">🇷🇺 Россия / СНГ</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 28.05</span></td><td><span class="tox-val">$15 444 903</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.2"></div></div></td></tr>
-            <tr><td><span class="tox-val">11</span></td><td><span class="tox-drug-name">🇨🇴 Колумбия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 22.04</span></td><td><span class="tox-val">$14 737 106</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">11</span></td><td><span class="tox-drug-name">🇨🇴 Колумбия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$14 737 106</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.0"></div></div></td></tr>
             <tr><td><span class="tox-val">12</span></td><td><span class="tox-drug-name">🇳🇱 Нидерланды</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$14 699 954</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">13</span></td><td><span class="tox-drug-name">🇰🇷 Южная Корея</span></td><td><span class="tox-val">$11 625 724</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="3.2"></div></div></td></tr>
+            <tr><td><span class="tox-val">13</span></td><td><span class="tox-drug-name">🇰🇷 Южная Корея</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 13.05</span></td><td><span class="tox-val">$11 625 724</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="3.2"></div></div></td></tr>
             <tr><td><span class="tox-val">14</span></td><td><span class="tox-drug-name">🇸🇦 Саудовская Аравия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 22.04</span></td><td><span class="tox-val">$11 183 744</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="3.0"></div></div></td></tr>
             <tr><td><span class="tox-val">15</span></td><td><span class="tox-drug-name">🇨🇳 Китай</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$10 393 890</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.8"></div></div></td></tr>
-            <tr><td><span class="tox-val">16</span></td><td><span class="tox-drug-name">🇦🇪 ОАЭ</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 22.04</span></td><td><span class="tox-val">$10 099 948</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">16</span></td><td><span class="tox-drug-name">🇦🇪 ОАЭ</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$10 099 948</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.7"></div></div></td></tr>
             <tr><td><span class="tox-val">17</span></td><td><span class="tox-drug-name">🇵🇪 Перу</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$10 079 590</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.7"></div></div></td></tr>
-            <tr><td><span class="tox-val">18</span></td><td><span class="tox-drug-name">🇮🇳 Индия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$8 496 819</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.3"></div></div></td></tr>
+            <tr><td><span class="tox-val">18</span></td><td><span class="tox-drug-name">🇮🇳 Индия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 25.04</span></td><td><span class="tox-val">$8 496 819</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.3"></div></div></td></tr>
             <tr><td><span class="tox-val">19</span></td><td><span class="tox-drug-name">🇯🇵 Япония</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 12.06</span></td><td><span class="tox-val">$7 451 162</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.0"></div></div></td></tr>
           </tbody>
         </table>
@@ -1764,9 +1824,38 @@
 
       <div class="section-header fade-in" style="margin-top:44px;"><span class="section-eyebrow">Стриминг · 24.06.2026</span><h2 class="section-title">Цифры наследия</h2></div>
       <div class="cards-grid fade-in">
-        <div class="card"><div class="card-label">Spotify · 24.06.2026 · Kworb</div><div class="card-stat">109 998 489</div><div class="card-body">Ежемесячных слушателей. Billie Jean: 2,96 млрд стримов (4,45 млн/сут, 4-е место в мире). Beat It: 1,93 млрд (3,29 млн/сут, 13-е место). Chicago: 763 млн (2,61 млн/сут — аномальный рост). Альбом Thriller: 3-е место в мировом чарте альбомов.</div></div>
-        <div class="card"><div class="card-label">Яндекс Музыка · 24.06.2026</div><div class="card-stat">5 603 941</div><div class="card-body">Ежемесячных слушателей. Прирост за 28 дней: +2 689 862 (почти двукратный рост). Billie Jean — 13-е место в общем чарте. Apple Music РФ: Billie Jean — 7-е, Beat It — 9-е. Альбом Thriller — 2-е место среди всех альбомов в Apple Music России.</div></div>
-        <div class="card"><div class="card-label">Songstats · все платформы · 24.06.2026</div><div class="card-stat">43,1 млрд</div><div class="card-body">Стримов всего. Global Digital Artist Ranking: 2-е место в мире (6 960 очков) — выше Дрейка, Арианы Гранде и Тейлор Свифт. 198 млн подписчиков. 70,1 млрд просмотров. Охват плейлистов: 1,04 млрд чел.</div></div>
+        <div class="card">
+          <div class="card-label">Spotify · 24.06.2026 · Kworb</div>
+          <div class="card-stat">109 998 489</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">2,96 млрд</span><span class="card-num-label">Billie Jean · #4 в мире</span></div>
+            <div class="card-num-item"><span class="card-num-val">1,93 млрд</span><span class="card-num-label">Beat It · #13 в мире</span></div>
+            <div class="card-num-item"><span class="card-num-val">763 млн</span><span class="card-num-label">Chicago · аном. рост</span></div>
+            <div class="card-num-item"><span class="card-num-val">#3</span><span class="card-num-label">Thriller · альбомы мира</span></div>
+          </div>
+          <div class="card-body">Ежемесячных слушателей.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Яндекс Музыка · 24.06.2026</div>
+          <div class="card-stat">5 603 941</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">+2 689 862</span><span class="card-num-label">прирост за 28 дней</span></div>
+            <div class="card-num-item"><span class="card-num-val">#13</span><span class="card-num-label">Billie Jean · общий чарт</span></div>
+            <div class="card-num-item"><span class="card-num-val">#2</span><span class="card-num-label">Thriller · Apple Music РФ</span></div>
+          </div>
+          <div class="card-body">Ежемесячных слушателей. Почти двукратный рост.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Songstats · все платформы · 24.06.2026</div>
+          <div class="card-stat">43,1 млрд</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">#2</span><span class="card-num-label">в мире · 6&nbsp;960 очков</span></div>
+            <div class="card-num-item"><span class="card-num-val">198 млн</span><span class="card-num-label">подписчиков</span></div>
+            <div class="card-num-item"><span class="card-num-val">70,1 млрд</span><span class="card-num-label">просмотров видео</span></div>
+            <div class="card-num-item"><span class="card-num-val">1,04 млрд</span><span class="card-num-label">охват плейлистов</span></div>
+          </div>
+          <div class="card-body">Стримов всего. Выше Дрейка, Арианы Гранде и Тейлор Свифт.</div>
+        </div>
       </div>
 
       <div class="section-header fade-in" style="margin-top:44px;">
@@ -1774,9 +1863,41 @@
         <h2 class="section-title">22 миллиарда просмотров</h2>
       </div>
       <div class="cards-grid fade-in">
-        <div class="card"><div class="card-label">Канал · верифицировано платформой</div><div class="card-stat">22 180 226 875</div><div class="card-body">Суммарных просмотров. 39,1 млн подписчиков. Канал зарегистрирован 22 июня 2005 — 21 год на платформе. Суточные просмотры: 18,7 млн.</div></div>
-        <div class="card"><div class="card-label">«Клуб миллиардников» · 5 клипов</div><div class="card-stat">5 клипов</div><div class="card-body">Billie Jean: 2,2 млрд (+1,93 млн/сут). Beat It 4K: 1,4 млрд (+1,90 млн/сут). They Don't Care About Us: 1,3 млрд. Smooth Criminal: 1,2 млрд (+1,42 млн/сут — резкий скачок). Thriller 4K: 1,1 млрд.</div></div>
-        <div class="card"><div class="card-label">На подходе к миллиарду</div><div class="card-stat">Rock With You: 499M</div><div class="card-body">Remember the Time: 689 млн. Bad: 588 млн. Black or White: 563 млн. The Way You Make Me Feel: 555 млн. Earth Song: 552 млн. Don't Stop: 542 млн. You Are Not Alone: 435 млн.</div></div>
+        <div class="card">
+          <div class="card-label">Канал · верифицировано платформой</div>
+          <div class="card-stat">22 180 226 875</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">39,1 млн</span><span class="card-num-label">подписчиков</span></div>
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">18,7 млн</span><span class="card-num-label">просмотров/сутки</span></div>
+            <div class="card-num-item"><span class="card-num-val">21 год</span><span class="card-num-label">на платформе</span></div>
+          </div>
+          <div class="card-body">Суммарных просмотров. Канал с 22 июня 2005.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">«Клуб миллиардников»</div>
+          <div class="card-stat">5 клипов</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">2,2 млрд</span><span class="card-num-label">Billie Jean</span></div>
+            <div class="card-num-item"><span class="card-num-val">1,4 млрд</span><span class="card-num-label">Beat It 4K</span></div>
+            <div class="card-num-item"><span class="card-num-val">1,3 млрд</span><span class="card-num-label">They Don't Care</span></div>
+            <div class="card-num-item"><span class="card-num-val">1,2 млрд</span><span class="card-num-label">Smooth Criminal ↑</span></div>
+            <div class="card-num-item"><span class="card-num-val">1,1 млрд</span><span class="card-num-label">Thriller 4K</span></div>
+          </div>
+          <div class="card-body">+1,42 млн/сут у Smooth Criminal — резкий скачок.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">На подходе к миллиарду · 7 клипов</div>
+          <div class="card-stat">Rock With You: 499M</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">689 млн</span><span class="card-num-label">Remember the Time</span></div>
+            <div class="card-num-item"><span class="card-num-val">588 млн</span><span class="card-num-label">Bad</span></div>
+            <div class="card-num-item"><span class="card-num-val">563 млн</span><span class="card-num-label">Black or White</span></div>
+            <div class="card-num-item"><span class="card-num-val">555 млн</span><span class="card-num-label">The Way You Make Me Feel</span></div>
+            <div class="card-num-item"><span class="card-num-val">552 млн</span><span class="card-num-label">Earth Song</span></div>
+            <div class="card-num-item"><span class="card-num-val">542 млн</span><span class="card-num-label">Don't Stop</span></div>
+            <div class="card-num-item"><span class="card-num-val">435 млн</span><span class="card-num-label">You Are Not Alone</span></div>
+          </div>
+        </div>
       </div>
 
       <div class="section-header fade-in"><span class="section-eyebrow">Яндекс Вордстат · 26.04–23.06.2026 · суммарно 7 109 330 запросов</span><h2 class="section-title">Поисковое цунами</h2></div>
@@ -1797,9 +1918,36 @@
         <h2 class="section-title">Просмотры энциклопедических статей</h2>
       </div>
       <div class="cards-grid fade-in">
-        <div class="card"><div class="card-label">Английский раздел</div><div class="card-stat">9 412 050</div><div class="card-body">Суммарно за период. Среднее: 104 578/день. Медиана: 90 660. Пик: 339 354 просмотра — 26 апреля 2026 (синхронно с украинским — старт промо).</div></div>
-        <div class="card"><div class="card-label">Русский раздел</div><div class="card-stat">1 124 144</div><div class="card-body">Среднее: 12 490/день. Медиана: 7 478. Пик: 41 146 — 14 июня 2026. Паттерн запаздывания RU-аудитории относительно EN на ~7 недель.</div></div>
-        <div class="card"><div class="card-label">Украинский раздел</div><div class="card-stat">106 922</div><div class="card-body">Среднее: 1 188/день. Медиана: 1 173. Пик: 5 069 — 26 апреля 2026 (синхронно с английским).</div></div>
+        <div class="card">
+          <div class="card-label">Английский раздел</div>
+          <div class="card-stat">9 412 050</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">104&nbsp;578</span><span class="card-num-label">среднее/день</span></div>
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">339&nbsp;354</span><span class="card-num-label">пик · 26 апр 2026</span></div>
+            <div class="card-num-item"><span class="card-num-val">90&nbsp;660</span><span class="card-num-label">медиана/день</span></div>
+          </div>
+          <div class="card-body">Суммарно за период. Пик синхронен с украинским разделом — старт промо.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Русский раздел</div>
+          <div class="card-stat">1 124 144</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">12&nbsp;490</span><span class="card-num-label">среднее/день</span></div>
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">41&nbsp;146</span><span class="card-num-label">пик · 14 июня 2026</span></div>
+            <div class="card-num-item"><span class="card-num-val">~7 нед.</span><span class="card-num-label">запаздывание vs EN</span></div>
+          </div>
+          <div class="card-body">Суммарно за период.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Украинский раздел</div>
+          <div class="card-stat">106 922</div>
+          <div class="card-nums">
+            <div class="card-num-item"><span class="card-num-val">1&nbsp;188</span><span class="card-num-label">среднее/день</span></div>
+            <div class="card-num-item"><span class="card-num-val card-num-val--accent">5&nbsp;069</span><span class="card-num-label">пик · 26 апр 2026</span></div>
+            <div class="card-num-item"><span class="card-num-val">1&nbsp;173</span><span class="card-num-label">медиана/день</span></div>
+          </div>
+          <div class="card-body">Суммарно за период. Пик синхронен с английским разделом.</div>
+        </div>
       </div>
 
       <div class="section-header fade-in" style="margin-top:44px;">
