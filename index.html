@@ -905,6 +905,73 @@
       .aq-finding { font-size:.94rem; }
     }
 
+    .footer-counter-block {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-left: 14px;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      letter-spacing: .06em;
+      color: var(--text-faint);
+      vertical-align: baseline;
+    }
+    .footer-counter-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+    .footer-counter-val {
+      color: var(--gold);
+      font-size: .92rem;
+      letter-spacing: -.01em;
+      font-variant-numeric: tabular-nums;
+    }
+    .footer-counter-label {
+      font-size: .68rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-right: 2px;
+    }
+    .footer-counter-sep {
+      color: var(--line);
+    }
+    @media (max-width: 600px) {
+      .footer-counter-block {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 0;
+        margin-top: 8px;
+        gap: 8px;
+      }
+    }
+
+    .market-bar-cell {
+      width: 120px;
+      padding-right: 18px !important;
+    }
+    .market-bar-track {
+      height: 3px;
+      background: rgba(255,255,255,.07);
+      border-radius: 999px;
+      overflow: hidden;
+      width: 100%;
+    }
+    .market-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+      transition: width .6s cubic-bezier(.4,0,.2,1);
+      width: 0;
+    }
+    .market-bar-fill--top {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    @media (max-width: 600px) {
+      .market-bar-cell { display: none; }
+    }
+
   </style>
 
 </head>
@@ -1651,29 +1718,29 @@
             <tr>
               <th>#</th>
               <th>Рынок</th>
-              <th>Сборы</th>
+              <th>Сборы</th><th class="market-bar-cell"></th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><span class="tox-val">1</span></td><td><span class="tox-drug-name">🇺🇸 США / Канада</span></td><td><span class="tox-val tox-val--high">$367 915 197</span></td></tr>
-            <tr><td><span class="tox-val">2</span></td><td><span class="tox-drug-name">🇬🇧 Великобритания</span></td><td><span class="tox-val">$69 886 157</span></td></tr>
-            <tr><td><span class="tox-val">3</span></td><td><span class="tox-drug-name">🇫🇷 Франция</span></td><td><span class="tox-val">$55 415 453</span></td></tr>
-            <tr><td><span class="tox-val">4</span></td><td><span class="tox-drug-name">🇩🇪 Германия</span></td><td><span class="tox-val">$35 631 740</span></td></tr>
-            <tr><td><span class="tox-val">5</span></td><td><span class="tox-drug-name">🇧🇷 Бразилия</span></td><td><span class="tox-val">$33 666 799</span></td></tr>
-            <tr><td><span class="tox-val">6</span></td><td><span class="tox-drug-name">🇦🇺 Австралия</span></td><td><span class="tox-val">$31 873 731</span></td></tr>
-            <tr><td><span class="tox-val">7</span></td><td><span class="tox-drug-name">🇲🇽 Мексика</span></td><td><span class="tox-val">$31 864 530</span></td></tr>
-            <tr><td><span class="tox-val">8</span></td><td><span class="tox-drug-name">🇮🇹 Италия</span></td><td><span class="tox-val">$29 448 041</span></td></tr>
-            <tr><td><span class="tox-val">9</span></td><td><span class="tox-drug-name">🇪🇸 Испания</span></td><td><span class="tox-val">$27 176 163</span></td></tr>
-            <tr><td><span class="tox-val">10</span></td><td><span class="tox-drug-name">🇷🇺 Россия / СНГ</span></td><td><span class="tox-val">$15 444 903</span></td></tr>
-            <tr><td><span class="tox-val">11</span></td><td><span class="tox-drug-name">🇨🇴 Колумбия</span></td><td><span class="tox-val">$14 737 106</span></td></tr>
-            <tr><td><span class="tox-val">12</span></td><td><span class="tox-drug-name">🇳🇱 Нидерланды</span></td><td><span class="tox-val">$14 699 954</span></td></tr>
-            <tr><td><span class="tox-val">13</span></td><td><span class="tox-drug-name">🇰🇷 Южная Корея</span></td><td><span class="tox-val">$11 625 724</span></td></tr>
-            <tr><td><span class="tox-val">14</span></td><td><span class="tox-drug-name">🇸🇦 Саудовская Аравия</span></td><td><span class="tox-val">$11 183 744</span></td></tr>
-            <tr><td><span class="tox-val">15</span></td><td><span class="tox-drug-name">🇨🇳 Китай</span></td><td><span class="tox-val">$10 393 890</span></td></tr>
-            <tr><td><span class="tox-val">16</span></td><td><span class="tox-drug-name">🇦🇪 ОАЭ</span></td><td><span class="tox-val">$10 099 948</span></td></tr>
-            <tr><td><span class="tox-val">17</span></td><td><span class="tox-drug-name">🇵🇪 Перу</span></td><td><span class="tox-val">$10 079 590</span></td></tr>
-            <tr><td><span class="tox-val">18</span></td><td><span class="tox-drug-name">🇮🇳 Индия</span></td><td><span class="tox-val">$8 496 819</span></td></tr>
-            <tr><td><span class="tox-val">19</span></td><td><span class="tox-drug-name">🇯🇵 Япония</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 12.06</span></td><td><span class="tox-val">$7 451 162</span></td></tr>
+            <tr><td><span class="tox-val">1</span></td><td><span class="tox-drug-name">🇺🇸 США / Канада</span></td><td><span class="tox-val tox-val--high">$367 915 197</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill market-bar-fill--top" data-w="100.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">2</span></td><td><span class="tox-drug-name">🇬🇧 Великобритания</span></td><td><span class="tox-val">$69 886 157</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="19.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">3</span></td><td><span class="tox-drug-name">🇫🇷 Франция</span></td><td><span class="tox-val">$55 415 453</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="15.1"></div></div></td></tr>
+            <tr><td><span class="tox-val">4</span></td><td><span class="tox-drug-name">🇩🇪 Германия</span></td><td><span class="tox-val">$35 631 740</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="9.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">5</span></td><td><span class="tox-drug-name">🇧🇷 Бразилия</span></td><td><span class="tox-val">$33 666 799</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="9.2"></div></div></td></tr>
+            <tr><td><span class="tox-val">6</span></td><td><span class="tox-drug-name">🇦🇺 Австралия</span></td><td><span class="tox-val">$31 873 731</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">7</span></td><td><span class="tox-drug-name">🇲🇽 Мексика</span></td><td><span class="tox-val">$31 864 530</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">8</span></td><td><span class="tox-drug-name">🇮🇹 Италия</span></td><td><span class="tox-val">$29 448 041</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">9</span></td><td><span class="tox-drug-name">🇪🇸 Испания</span></td><td><span class="tox-val">$27 176 163</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="7.4"></div></div></td></tr>
+            <tr><td><span class="tox-val">10</span></td><td><span class="tox-drug-name">🇷🇺 Россия / СНГ</span></td><td><span class="tox-val">$15 444 903</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.2"></div></div></td></tr>
+            <tr><td><span class="tox-val">11</span></td><td><span class="tox-drug-name">🇨🇴 Колумбия</span></td><td><span class="tox-val">$14 737 106</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">12</span></td><td><span class="tox-drug-name">🇳🇱 Нидерланды</span></td><td><span class="tox-val">$14 699 954</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">13</span></td><td><span class="tox-drug-name">🇰🇷 Южная Корея</span></td><td><span class="tox-val">$11 625 724</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="3.2"></div></div></td></tr>
+            <tr><td><span class="tox-val">14</span></td><td><span class="tox-drug-name">🇸🇦 Саудовская Аравия</span></td><td><span class="tox-val">$11 183 744</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="3.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">15</span></td><td><span class="tox-drug-name">🇨🇳 Китай</span></td><td><span class="tox-val">$10 393 890</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.8"></div></div></td></tr>
+            <tr><td><span class="tox-val">16</span></td><td><span class="tox-drug-name">🇦🇪 ОАЭ</span></td><td><span class="tox-val">$10 099 948</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">17</span></td><td><span class="tox-drug-name">🇵🇪 Перу</span></td><td><span class="tox-val">$10 079 590</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.7"></div></div></td></tr>
+            <tr><td><span class="tox-val">18</span></td><td><span class="tox-drug-name">🇮🇳 Индия</span></td><td><span class="tox-val">$8 496 819</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.3"></div></div></td></tr>
+            <tr><td><span class="tox-val">19</span></td><td><span class="tox-drug-name">🇯🇵 Япония</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 12.06</span></td><td><span class="tox-val">$7 451 162</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.0"></div></div></td></tr>
           </tbody>
         </table>
       </div>
@@ -1796,7 +1863,22 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container">© 2026 · Artur Random · Дело 2009-04415 · <span style="color:var(--text-faint);font-size:.82em;">Обновлено: 25 июня 2026</span></div>
+    <div class="container">
+      © 2026 · Artur Random · Дело 2009-04415 ·
+      <span style="color:var(--text-faint);font-size:.82em;">Обновлено: 25 июня 2026</span>
+      <span class="footer-counter-block">
+        <span class="footer-counter-item">
+          <span class="footer-counter-label">с момента смерти</span>
+          <span class="footer-counter-val" id="fcYears">—</span>
+          <span class="footer-counter-unit">лет</span>
+        </span>
+        <span class="footer-counter-sep">·</span>
+        <span class="footer-counter-item">
+          <span class="footer-counter-val" id="fcDays">—</span>
+          <span class="footer-counter-unit">дней</span>
+        </span>
+      </span>
+    </div>
   </div>
 </footer>
 
@@ -2144,6 +2226,44 @@
       if (nav && !nav.contains(e.target)) closeMenu();
     });
   });
+
+  (function() {
+    var DEATH = new Date(Date.UTC(2009, 5, 25, 21, 26, 0));
+    function updateFooterCounter() {
+      var now = new Date();
+      var diffMs = now - DEATH;
+      var msInYear = 365.25 * 24 * 60 * 60 * 1000;
+      var years = diffMs / msInYear;
+      var yearsStr = years.toFixed(2);
+      var days = Math.floor(diffMs / (24 * 60 * 60 * 1000));
+      var daysStr = days.toLocaleString('ru-RU');
+      var elY = document.getElementById('fcYears');
+      var elD = document.getElementById('fcDays');
+      if (elY) elY.textContent = yearsStr;
+      if (elD) elD.textContent = daysStr;
+    }
+    updateFooterCounter();
+    setInterval(updateFooterCounter, 36000);
+  })();
+
+  (function() {
+    function animMarketBars() {
+      document.querySelectorAll('.market-bar-fill').forEach(function(el) {
+        el.style.width = (el.dataset.w || '0') + '%';
+      });
+    }
+    var _origShowTab = window.showTab;
+    if (typeof _origShowTab === 'function') {
+      window.showTab = function(tabId, el) {
+        _origShowTab(tabId, el);
+        if (tabId === 'tab6') setTimeout(animMarketBars, 400);
+      };
+    }
+    if (document.getElementById('tab6') &&
+        document.getElementById('tab6').classList.contains('active')) {
+      setTimeout(animMarketBars, 600);
+    }
+  })();
 </script>
 </body>
 </html>
