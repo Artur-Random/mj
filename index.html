@@ -2234,7 +2234,7 @@
       var diffMs = now - DEATH;
       var msInYear = 365.25 * 24 * 60 * 60 * 1000;
       var years = diffMs / msInYear;
-      var yearsStr = years.toFixed(2);
+      var yearsStr = years.toFixed(1);
       var days = Math.floor(diffMs / (24 * 60 * 60 * 1000));
       var daysStr = days.toLocaleString('ru-RU');
       var elY = document.getElementById('fcYears');
