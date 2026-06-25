@@ -1006,6 +1006,20 @@
       .tox-table td:nth-child(3) { text-align: right; white-space: nowrap; padding-right: 4px; font-family: var(--font-mono); }
     }
 
+    #marketTable .tox-drug-name { font-size: .85rem; font-weight: 600; }
+    #marketTable td:nth-child(3) .tox-val { font-size: 1rem; }
+
+    .mkt-chart { padding: 4px 0 8px; display: flex; flex-direction: column; gap: 8px; }
+    .mkt-chart-row { display: grid; grid-template-columns: 130px 1fr 62px; align-items: center; gap: 10px; }
+    .mkt-chart-label { font-family: var(--font-mono); font-size: .79rem; color: var(--text-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mkt-chart-track { height: 5px; }
+    .mkt-chart-val { font-family: var(--font-mono); font-size: .77rem; color: var(--text-mid); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    @media (max-width: 480px) {
+      .mkt-chart-row { grid-template-columns: 96px 1fr 50px; gap: 7px; }
+      .mkt-chart-label { font-size: .72rem; }
+      .mkt-chart-val { font-size: .7rem; }
+    }
+
   </style>
 
 </head>
@@ -1781,7 +1795,7 @@
         <h2 class="section-title">Топ-19 рынков мира</h2>
       </div>
       <div class="tox-wrap fade-in" style="margin-bottom:32px;">
-        <table class="tox-table">
+        <table class="tox-table" id="marketTable">
           <thead>
             <tr>
               <th>#</th>
@@ -1811,6 +1825,28 @@
             <tr><td><span class="tox-val">19</span></td><td><span class="tox-drug-name">🇯🇵 Япония</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 12.06</span></td><td><span class="tox-val">$7 451 162</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.0"></div></div></td></tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="mkt-chart fade-in">
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇺🇸 США / Канада</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill market-bar-fill--top" data-w="100.0"></div></div><div class="mkt-chart-val">$367,9M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇬🇧 Великобритания</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="19.0"></div></div><div class="mkt-chart-val">$69,9M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇫🇷 Франция</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="15.1"></div></div><div class="mkt-chart-val">$55,4M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇩🇪 Германия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="9.7"></div></div><div class="mkt-chart-val">$35,6M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇧🇷 Бразилия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="9.2"></div></div><div class="mkt-chart-val">$33,7M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇦🇺 Австралия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="8.7"></div></div><div class="mkt-chart-val">$31,9M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇲🇽 Мексика</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="8.7"></div></div><div class="mkt-chart-val">$31,9M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇮🇹 Италия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="8.0"></div></div><div class="mkt-chart-val">$29,4M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇪🇸 Испания</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="7.4"></div></div><div class="mkt-chart-val">$27,2M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇷🇺 Россия / СНГ</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="4.2"></div></div><div class="mkt-chart-val">$15,4M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇨🇴 Колумбия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="4.0"></div></div><div class="mkt-chart-val">$14,7M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇳🇱 Нидерланды</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="4.0"></div></div><div class="mkt-chart-val">$14,7M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇰🇷 Юж. Корея</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="3.2"></div></div><div class="mkt-chart-val">$11,6M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇸🇦 Саудовская Ар.</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="3.0"></div></div><div class="mkt-chart-val">$11,2M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇨🇳 Китай</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.8"></div></div><div class="mkt-chart-val">$10,4M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇦🇪 ОАЭ</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.7"></div></div><div class="mkt-chart-val">$10,1M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇵🇪 Перу</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.7"></div></div><div class="mkt-chart-val">$10,1M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇮🇳 Индия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.3"></div></div><div class="mkt-chart-val">$8,5M</div></div>
+        <div class="mkt-chart-row"><div class="mkt-chart-label">🇯🇵 Япония</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.0"></div></div><div class="mkt-chart-val">$7,5M</div></div>
       </div>
 
       <div class="section-header fade-in"><span class="section-eyebrow">Критики vs Зрители</span><h2 class="section-title">Полярность оценок</h2></div>
