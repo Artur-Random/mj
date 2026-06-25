@@ -1009,12 +1009,13 @@
     #marketTable .tox-drug-name { font-size: .85rem; font-weight: 600; }
     #marketTable td:nth-child(3) .tox-val { font-size: 1rem; }
 
-    .mkt-chart { padding: 4px 0 8px; display: flex; flex-direction: column; gap: 8px; }
+    .mkt-chart { display: none; }
     .mkt-chart-row { display: grid; grid-template-columns: 130px 1fr 62px; align-items: center; gap: 10px; }
     .mkt-chart-label { font-family: var(--font-mono); font-size: .79rem; color: var(--text-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .mkt-chart-track { height: 5px; }
     .mkt-chart-val { font-family: var(--font-mono); font-size: .77rem; color: var(--text-mid); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
+      .mkt-chart { padding: 4px 0 8px; display: flex; flex-direction: column; gap: 8px; }
       .mkt-chart-row { grid-template-columns: 96px 1fr 50px; gap: 7px; }
       .mkt-chart-label { font-size: .72rem; }
       .mkt-chart-val { font-size: .7rem; }
