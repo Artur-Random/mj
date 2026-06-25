@@ -975,51 +975,18 @@
       line-height: 1.45;
     }
 
-    .market-bar-cell {
-      width: 120px;
-      padding-right: 18px !important;
-    }
-    .market-bar-track {
-      height: 3px;
-      background: rgba(255,255,255,.07);
-      border-radius: 999px;
-      overflow: hidden;
-      width: 100%;
-    }
-    .market-bar-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--gold-dim), var(--gold));
-      transition: width .6s cubic-bezier(.4,0,.2,1);
-      width: 0;
-    }
-    .market-bar-fill--top {
-      background: linear-gradient(90deg, var(--red), var(--gold));
-    }
     @media (max-width: 600px) {
-      .market-bar-cell { display: none; }
       .tox-wrap { overflow-x: visible; border-radius: 12px; }
       .tox-table { min-width: 0; font-size: .8rem; }
       .tox-table thead { display: none; }
       .tox-table td { padding: 9px 6px; white-space: normal; }
       .tox-table td:first-child { width: 20px; padding-left: 4px; white-space: nowrap; }
-      .tox-table td:nth-child(3) { text-align: right; white-space: nowrap; padding-right: 4px; font-family: var(--font-mono); }
+      #marketTable td:nth-child(3) { text-align: right; white-space: nowrap; padding-right: 4px; font-family: var(--font-mono); }
     }
 
     #marketTable .tox-drug-name { font-size: .85rem; font-weight: 600; }
     #marketTable td:nth-child(3) .tox-val { font-size: 1rem; }
-
-    .mkt-chart { display: none; }
-    .mkt-chart-row { display: grid; grid-template-columns: 130px 1fr 62px; align-items: center; gap: 10px; }
-    .mkt-chart-label { font-family: var(--font-mono); font-size: .79rem; color: var(--text-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .mkt-chart-track { height: 5px; }
-    .mkt-chart-val { font-family: var(--font-mono); font-size: .77rem; color: var(--text-mid); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-    @media (max-width: 600px) {
-      .mkt-chart { padding: 4px 0 8px; display: flex; flex-direction: column; gap: 8px; }
-      .mkt-chart-row { grid-template-columns: 96px 1fr 50px; gap: 7px; }
-      .mkt-chart-label { font-size: .72rem; }
-      .mkt-chart-val { font-size: .7rem; }
-    }
+    #decadesTable td:nth-child(3) { white-space: normal; font-size: .82rem; }
 
   </style>
 
@@ -1801,54 +1768,33 @@
             <tr>
               <th>#</th>
               <th>Рынок</th>
-              <th>Сборы</th><th class="market-bar-cell"></th>
+              <th>Сборы</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><span class="tox-val">1</span></td><td><span class="tox-drug-name">🇺🇸 США / Канада</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val tox-val--high">$367 915 197</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill market-bar-fill--top" data-w="100.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">2</span></td><td><span class="tox-drug-name">🇬🇧 Великобритания</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$69 886 157</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="19.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">3</span></td><td><span class="tox-drug-name">🇫🇷 Франция</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$55 415 453</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="15.1"></div></div></td></tr>
-            <tr><td><span class="tox-val">4</span></td><td><span class="tox-drug-name">🇩🇪 Германия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$35 631 740</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="9.7"></div></div></td></tr>
-            <tr><td><span class="tox-val">5</span></td><td><span class="tox-drug-name">🇧🇷 Бразилия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$33 666 799</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="9.2"></div></div></td></tr>
-            <tr><td><span class="tox-val">6</span></td><td><span class="tox-drug-name">🇦🇺 Австралия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$31 873 731</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.7"></div></div></td></tr>
-            <tr><td><span class="tox-val">7</span></td><td><span class="tox-drug-name">🇲🇽 Мексика</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$31 864 530</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.7"></div></div></td></tr>
-            <tr><td><span class="tox-val">8</span></td><td><span class="tox-drug-name">🇮🇹 Италия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$29 448 041</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="8.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">9</span></td><td><span class="tox-drug-name">🇪🇸 Испания</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$27 176 163</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="7.4"></div></div></td></tr>
-            <tr><td><span class="tox-val">10</span></td><td><span class="tox-drug-name">🇷🇺 Россия / СНГ</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 28.05</span></td><td><span class="tox-val">$15 444 903</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.2"></div></div></td></tr>
-            <tr><td><span class="tox-val">11</span></td><td><span class="tox-drug-name">🇨🇴 Колумбия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$14 737 106</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">12</span></td><td><span class="tox-drug-name">🇳🇱 Нидерланды</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$14 699 954</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="4.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">13</span></td><td><span class="tox-drug-name">🇰🇷 Южная Корея</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 13.05</span></td><td><span class="tox-val">$11 625 724</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="3.2"></div></div></td></tr>
-            <tr><td><span class="tox-val">14</span></td><td><span class="tox-drug-name">🇸🇦 Саудовская Аравия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 22.04</span></td><td><span class="tox-val">$11 183 744</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="3.0"></div></div></td></tr>
-            <tr><td><span class="tox-val">15</span></td><td><span class="tox-drug-name">🇨🇳 Китай</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$10 393 890</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.8"></div></div></td></tr>
-            <tr><td><span class="tox-val">16</span></td><td><span class="tox-drug-name">🇦🇪 ОАЭ</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$10 099 948</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.7"></div></div></td></tr>
-            <tr><td><span class="tox-val">17</span></td><td><span class="tox-drug-name">🇵🇪 Перу</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$10 079 590</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.7"></div></div></td></tr>
-            <tr><td><span class="tox-val">18</span></td><td><span class="tox-drug-name">🇮🇳 Индия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 25.04</span></td><td><span class="tox-val">$8 496 819</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.3"></div></div></td></tr>
-            <tr><td><span class="tox-val">19</span></td><td><span class="tox-drug-name">🇯🇵 Япония</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 12.06</span></td><td><span class="tox-val">$7 451 162</span></td><td class="market-bar-cell"><div class="market-bar-track"><div class="market-bar-fill" data-w="2.0"></div></div></td></tr>
+            <tr><td><span class="tox-val">1</span></td><td><span class="tox-drug-name">🇺🇸 США / Канада</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val tox-val--high">$367 915 197</span></td></tr>
+            <tr><td><span class="tox-val">2</span></td><td><span class="tox-drug-name">🇬🇧 Великобритания</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$69 886 157</span></td></tr>
+            <tr><td><span class="tox-val">3</span></td><td><span class="tox-drug-name">🇫🇷 Франция</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$55 415 453</span></td></tr>
+            <tr><td><span class="tox-val">4</span></td><td><span class="tox-drug-name">🇩🇪 Германия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$35 631 740</span></td></tr>
+            <tr><td><span class="tox-val">5</span></td><td><span class="tox-drug-name">🇧🇷 Бразилия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$33 666 799</span></td></tr>
+            <tr><td><span class="tox-val">6</span></td><td><span class="tox-drug-name">🇦🇺 Австралия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$31 873 731</span></td></tr>
+            <tr><td><span class="tox-val">7</span></td><td><span class="tox-drug-name">🇲🇽 Мексика</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$31 864 530</span></td></tr>
+            <tr><td><span class="tox-val">8</span></td><td><span class="tox-drug-name">🇮🇹 Италия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$29 448 041</span></td></tr>
+            <tr><td><span class="tox-val">9</span></td><td><span class="tox-drug-name">🇪🇸 Испания</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$27 176 163</span></td></tr>
+            <tr><td><span class="tox-val">10</span></td><td><span class="tox-drug-name">🇷🇺 Россия / СНГ</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 28.05</span></td><td><span class="tox-val">$15 444 903</span></td></tr>
+            <tr><td><span class="tox-val">11</span></td><td><span class="tox-drug-name">🇨🇴 Колумбия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$14 737 106</span></td></tr>
+            <tr><td><span class="tox-val">12</span></td><td><span class="tox-drug-name">🇳🇱 Нидерланды</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$14 699 954</span></td></tr>
+            <tr><td><span class="tox-val">13</span></td><td><span class="tox-drug-name">🇰🇷 Южная Корея</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 13.05</span></td><td><span class="tox-val">$11 625 724</span></td></tr>
+            <tr><td><span class="tox-val">14</span></td><td><span class="tox-drug-name">🇸🇦 Саудовская Аравия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 22.04</span></td><td><span class="tox-val">$11 183 744</span></td></tr>
+            <tr><td><span class="tox-val">15</span></td><td><span class="tox-drug-name">🇨🇳 Китай</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 24.04</span></td><td><span class="tox-val">$10 393 890</span></td></tr>
+            <tr><td><span class="tox-val">16</span></td><td><span class="tox-drug-name">🇦🇪 ОАЭ</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$10 099 948</span></td></tr>
+            <tr><td><span class="tox-val">17</span></td><td><span class="tox-drug-name">🇵🇪 Перу</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 23.04</span></td><td><span class="tox-val">$10 079 590</span></td></tr>
+            <tr><td><span class="tox-val">18</span></td><td><span class="tox-drug-name">🇮🇳 Индия</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 25.04</span></td><td><span class="tox-val">$8 496 819</span></td></tr>
+            <tr><td><span class="tox-val">19</span></td><td><span class="tox-drug-name">🇯🇵 Япония</span><span style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);margin-left:8px;">старт 12.06</span></td><td><span class="tox-val">$7 451 162</span></td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="mkt-chart fade-in">
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇺🇸 США / Канада</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill market-bar-fill--top" data-w="100.0"></div></div><div class="mkt-chart-val">$367,9M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇬🇧 Великобритания</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="19.0"></div></div><div class="mkt-chart-val">$69,9M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇫🇷 Франция</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="15.1"></div></div><div class="mkt-chart-val">$55,4M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇩🇪 Германия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="9.7"></div></div><div class="mkt-chart-val">$35,6M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇧🇷 Бразилия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="9.2"></div></div><div class="mkt-chart-val">$33,7M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇦🇺 Австралия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="8.7"></div></div><div class="mkt-chart-val">$31,9M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇲🇽 Мексика</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="8.7"></div></div><div class="mkt-chart-val">$31,9M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇮🇹 Италия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="8.0"></div></div><div class="mkt-chart-val">$29,4M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇪🇸 Испания</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="7.4"></div></div><div class="mkt-chart-val">$27,2M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇷🇺 Россия / СНГ</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="4.2"></div></div><div class="mkt-chart-val">$15,4M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇨🇴 Колумбия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="4.0"></div></div><div class="mkt-chart-val">$14,7M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇳🇱 Нидерланды</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="4.0"></div></div><div class="mkt-chart-val">$14,7M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇰🇷 Юж. Корея</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="3.2"></div></div><div class="mkt-chart-val">$11,6M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇸🇦 Саудовская Ар.</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="3.0"></div></div><div class="mkt-chart-val">$11,2M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇨🇳 Китай</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.8"></div></div><div class="mkt-chart-val">$10,4M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇦🇪 ОАЭ</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.7"></div></div><div class="mkt-chart-val">$10,1M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇵🇪 Перу</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.7"></div></div><div class="mkt-chart-val">$10,1M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇮🇳 Индия</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.3"></div></div><div class="mkt-chart-val">$8,5M</div></div>
-        <div class="mkt-chart-row"><div class="mkt-chart-label">🇯🇵 Япония</div><div class="market-bar-track mkt-chart-track"><div class="market-bar-fill" data-w="2.0"></div></div><div class="mkt-chart-val">$7,5M</div></div>
-      </div>
 
       <div class="section-header fade-in"><span class="section-eyebrow">Критики vs Зрители</span><h2 class="section-title">Полярность оценок</h2></div>
       <div class="rating-split fade-in">
@@ -1974,7 +1920,7 @@
       <div class="fade-in" style="margin:32px 0 8px;">
         <div class="card-label" style="margin-bottom:16px;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);">Первый исполнитель в истории Hot 100 с хитами в 6 десятилетиях подряд</div>
         <div class="tox-wrap">
-          <table class="tox-table">
+          <table class="tox-table" id="decadesTable">
             <thead>
               <tr><th>Десятилетие</th><th>Хитов</th><th>Примечание</th></tr>
             </thead>
@@ -2509,24 +2455,6 @@
     setInterval(updateFooterCounter, 36000);
   })();
 
-  (function() {
-    function animMarketBars() {
-      document.querySelectorAll('.market-bar-fill').forEach(function(el) {
-        el.style.width = (el.dataset.w || '0') + '%';
-      });
-    }
-    var _origShowTab = window.showTab;
-    if (typeof _origShowTab === 'function') {
-      window.showTab = function(tabId, el) {
-        _origShowTab(tabId, el);
-        if (tabId === 'tab6') setTimeout(animMarketBars, 400);
-      };
-    }
-    if (document.getElementById('tab6') &&
-        document.getElementById('tab6').classList.contains('active')) {
-      setTimeout(animMarketBars, 600);
-    }
-  })();
 </script>
 </body>
 </html>
