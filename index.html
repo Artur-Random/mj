@@ -665,6 +665,7 @@
       .section-eyebrow { display:block; margin-bottom:8px; }
       .utility-nav { right:12px; bottom:calc(68px + env(safe-area-inset-bottom, 0px)); }
       .utility-nav button { font-size:.62rem; padding:8px 10px; }
+      .utility-home { display:none; }
 
       /* Mobile nav — unified color, left-accent active indicator */
       .nav-tabs.open li a {
@@ -1009,7 +1010,7 @@
 </nav>
 <div class="utility-nav" id="utilityNav" aria-label="Быстрая навигация">
   <button type="button" onclick="scrollActiveTop()">↑ Наверх</button>
-  <button type="button" onclick="showTab('home', document.querySelector('[data-tab=home]'))">⌂ На главную</button>
+  <button type="button" class="utility-home" onclick="showTab('home', document.querySelector('[data-tab=home]'))">⌂ На главную</button>
 </div>
 
 <main class="page">
