@@ -969,7 +969,12 @@
       .tox-table th { padding: 8px 6px; }
       .tox-table td { padding: 9px 6px; white-space: normal; }
       .tox-table td:first-child { width: 20px; padding-left: 4px; white-space: nowrap; }
-      #medEvidenceTable th:nth-child(2), #medEvidenceTable td:nth-child(2) { display: none; }
+      #medEvidenceTable thead { display: none; }
+      #medEvidenceTable, #medEvidenceTable tbody, #medEvidenceTable tr { display: block; }
+      #medEvidenceTable td { display: block; padding: 1px 0; border: none; white-space: normal; }
+      #medEvidenceTable tbody tr { padding: 9px 0; border-bottom: 1px solid var(--line); }
+      #medEvidenceTable td:first-child { width: auto; padding-left: 0; white-space: normal; font-size: .86rem; padding-bottom: 3px; }
+      #medEvidenceTable td:nth-child(2):not([colspan]) { display: none; }
       #marketTable td:nth-child(3) { text-align: right; white-space: nowrap; padding-right: 4px; font-family: var(--font-mono); }
     }
 
