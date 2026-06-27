@@ -96,12 +96,14 @@
       pointer-events: none;
       z-index: 1;
       opacity: .76;
-      background:
-        radial-gradient(ellipse at var(--spot1-x,18%) var(--spot1-y,20%), rgba(210,210,204,.135), rgba(210,210,204,.045) 18rem, transparent 43rem),
-        radial-gradient(ellipse at var(--spot2-x,86%) var(--spot2-y,42%), rgba(190,190,186,.105), rgba(190,190,186,.035) 15rem, transparent 40rem),
-        radial-gradient(ellipse at var(--spot3-x,52%) var(--spot3-y,86%), rgba(150,150,148,.075), rgba(150,150,148,.025) 17rem, transparent 44rem),
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cpath transform='translate(48,35) scale(4.5)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(214,214,208,.55)'/%3E%3Cpath transform='translate(248,88) scale(4)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(200,200,196,.48)'/%3E%3Cpath transform='translate(130,262) scale(4.5)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(210,210,204,.52)'/%3E%3Cpath transform='translate(185,42) scale(3)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(196,196,192,.40)'/%3E%3Cpath transform='translate(68,168) scale(3.5)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(206,206,200,.44)'/%3E%3Cpath transform='translate(278,210) scale(3)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(196,196,192,.38)'/%3E%3Cpath transform='translate(22,278) scale(3.5)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(202,202,198,.42)'/%3E%3Cpath transform='translate(105,108) scale(2)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(186,186,182,.32)'/%3E%3Cpath transform='translate(228,148) scale(2.2)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(192,192,188,.34)'/%3E%3Cpath transform='translate(162,195) scale(1.8)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(180,180,176,.28)'/%3E%3Cpath transform='translate(295,55) scale(2)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(188,188,184,.30)'/%3E%3Cpath transform='translate(58,308) scale(1.8)' d='M0,-1 .26,-.26 1,0 .26,.26 0,1 -.26,.26 -1,0 -.26,-.26Z' fill='rgba(184,184,180,.28)'/%3E%3C/svg%3E"),
+        radial-gradient(ellipse at 18% 20%, rgba(210,210,204,.135), rgba(210,210,204,.045) 18rem, transparent 43rem),
+        radial-gradient(ellipse at 86% 42%, rgba(190,190,186,.105), rgba(190,190,186,.035) 15rem, transparent 40rem),
+        radial-gradient(ellipse at 52% 86%, rgba(150,150,148,.075), rgba(150,150,148,.025) 17rem, transparent 44rem),
         linear-gradient(90deg, rgba(0,0,0,.82), transparent 22%, transparent 78%, rgba(0,0,0,.84));
-      filter: blur(.2px);
+      background-size: 320px 320px, auto, auto, auto, auto;
+      background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat;
       transition: opacity .8s ease;
     }
     body.death-focus::after {
@@ -2263,30 +2265,7 @@
     window.scrollTo({top, behavior:'smooth'});
   }
 
-  function initMemorialBackground() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const root = document.documentElement;
-    let scrollT = 0;
-    let startTime = performance.now();
-    const updateScroll = () => {
-      const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-      scrollT = window.scrollY / max;
-    };
-    window.addEventListener('scroll', updateScroll, { passive:true });
-    const tick = (now) => {
-      const elapsed = (now - startTime) / 60000; // 60s cycle
-      const st = scrollT;
-      const tt = elapsed * Math.PI * 2;
-      root.style.setProperty('--spot1-x', (12 + Math.sin(st * 5.0 + tt * 0.7) * 8).toFixed(2) + '%');
-      root.style.setProperty('--spot1-y', (18 + Math.cos(st * 4.0 + tt * 0.5) * 10).toFixed(2) + '%');
-      root.style.setProperty('--spot2-x', (84 + Math.sin(st * 4.6 + tt * 0.6 + 1.4) * 7).toFixed(2) + '%');
-      root.style.setProperty('--spot2-y', (40 + Math.cos(st * 5.2 + tt * 0.4 + 1.1) * 12).toFixed(2) + '%');
-      root.style.setProperty('--spot3-x', (52 + Math.sin(st * 3.2 + tt * 0.8 + 2.2) * 12).toFixed(2) + '%');
-      root.style.setProperty('--spot3-y', (82 + Math.cos(st * 3.7 + tt * 0.55 + 2.0) * 8).toFixed(2) + '%');
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
+
 
   function toggleMenu() {
     document.getElementById('navTabs').classList.toggle('open');
@@ -2446,7 +2425,6 @@
     initDeathFocus();
     initReactionCountries();
     initAvatars();
-    initMemorialBackground();
     renderCorpus();
     if (initTab !== 'home') {
       showTab(initTab, document.querySelector('[data-tab="' + initTab + '"]'));
