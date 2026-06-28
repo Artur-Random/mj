@@ -229,6 +229,23 @@
     .pharma-intro{max-width:980px;color:var(--text-mid);font-size:1.02rem;line-height:1.75;margin-bottom:22px}.pharma-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:22px}.pharma-summary-item{background:rgba(255,255,255,.024);border:1px solid rgba(255,255,255,.085);border-radius:18px;padding:18px 18px 16px}.pharma-summary-num{display:block;font-family:var(--font-mono);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--silver-soft);line-height:1;letter-spacing:-.06em;margin-bottom:7px}.pharma-summary-label{display:block;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);line-height:1.45}.pharma-block{margin-bottom:28px;padding:32px 0;border:0;border-top:1px solid rgba(255,255,255,.12);border-radius:0;background:transparent}.pharma-block-title{font-family:var(--font-display);font-size:clamp(1.65rem,4vw,2.2rem);line-height:1.06;color:var(--text);margin-bottom:8px}.pharma-block-subtitle{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:900px;margin-bottom:18px}.pharma-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.pharma-card{position:relative;padding:20px 20px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.085);background:rgba(255,255,255,.024);overflow:hidden}.pharma-card::after{content:'';position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,transparent,rgba(214,184,90,.55),transparent);opacity:.45}.pharma-card--critical{border-color:rgba(212,72,60,.24)}.pharma-card--critical::after{background:linear-gradient(90deg,transparent,rgba(230,57,70,.75),transparent);opacity:.8}.pharma-card--support::after{background:linear-gradient(90deg,transparent,rgba(134,207,159,.6),transparent);opacity:.7}.pharma-card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}.pharma-name{font-family:var(--font-display);font-size:1.28rem;line-height:1.05;color:var(--text);margin:0}.pharma-tag{flex-shrink:0;padding:6px 9px;border-radius:999px;border:1px solid rgba(214,184,90,.35);font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.pharma-tag--critical{border-color:rgba(230,57,70,.34);color:#ff8b84}.pharma-tag--support{border-color:rgba(134,207,159,.35);color:#b4edc2}.pharma-type{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);line-height:1.55;margin-bottom:14px}.pharma-big{font-family:var(--font-mono);font-size:clamp(1.7rem,4vw,2.5rem);line-height:1;color:var(--text);letter-spacing:-.06em;margin-bottom:12px}.pharma-big--critical{color:#ff8b84}.pharma-big--gold{color:var(--gold)}.pharma-list{display:grid;gap:8px}.pharma-row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding-top:8px;border-top:1px solid rgba(255,255,255,.06)}.pharma-row:first-child{border-top:none;padding-top:0}.pharma-key{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);flex:0 0 84px;line-height:1.45}.pharma-val{font-size:.96rem;color:var(--text-mid);text-align:right;line-height:1.55;flex:1}
     @media(max-width:760px){.pharma-block{padding:22px 18px}.pharma-grid{grid-template-columns:1fr}.pharma-row{flex-direction:column;gap:4px}.pharma-key{flex:auto}.pharma-val{text-align:left}.pharma-summary{grid-template-columns:1fr}.evidence-strip,.setlist-grid,.medical-chain{grid-template-columns:1fr}}
 
+    /* PHOTO PROTOCOL LOG — override chip box-style with flat rows */
+    .pharma-block .evidence-strip { grid-template-columns: 1fr; gap: 0; }
+    .pharma-block .evidence-chip {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      border-top: 1px solid var(--line);
+      padding: 9px 2px;
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .pharma-block .evidence-chip:last-child { border-bottom: 1px solid var(--line); }
+    .pharma-block .chip-time { flex-shrink: 0; white-space: nowrap; margin-bottom: 0; }
+    .pharma-block .chip-text { flex: 1; min-width: 0; }
+
     /* TOX */
     .tox-wrap { overflow-x:auto; margin-bottom:42px; border:1px solid var(--line); border-radius:20px; background:var(--bg-card); box-shadow:var(--shadow); }
     .tox-table { width:100%; border-collapse:collapse; font-size:.94rem; min-width:860px; }
