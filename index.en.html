@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-  <title>MJ: ещё не всё…</title>
-  <meta name="description" content="Мемориально-документальный проект Artur Random о Майкле Джексоне: последние 24 часа, контекст, первые 48 часов, реакция мира, обвинения и оправдание, наследие и корпус источников." />
+  <title>MJ: This Is Not It… Yet</title>
+  <meta name="description" content="A memorial documentary project by Artur Random about Michael Jackson: the last 24 hours, the context, the first 48 hours, the world's reaction, the accusations and the acquittal, the legacy, and the source corpus." />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://artur-random.github.io/mj/" />
-  <meta property="og:title"       content="MJ: ещё не всё…" />
-  <meta property="og:description" content="Мемориально-документальный проект Artur Random о Майкле Джексоне: последние 24 часа, контекст, первые 48 часов, реакция мира, обвинения и оправдание, наследие и корпус источников." />
+  <meta property="og:url"         content="https://artur-random.github.io/mj/index.en.html" />
+  <meta property="og:title"       content="MJ: This Is Not It… Yet" />
+  <meta property="og:description" content="A memorial documentary project by Artur Random about Michael Jackson: the last 24 hours, the context, the first 48 hours, the world's reaction, the accusations and the acquittal, the legacy, and the source corpus." />
   <meta property="og:image"       content="https://artur-random.github.io/mj/image/og-preview.webp" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:url"         content="https://artur-random.github.io/mj/" />
-  <meta name="twitter:title"       content="MJ: ещё не всё…" />
-  <meta name="twitter:description" content="Мемориально-документальный проект Artur Random о Майкле Джексоне: последние 24 часа, контекст, первые 48 часов, реакция мира, обвинения и оправдание, наследие и корпус источников." />
+  <meta name="twitter:url"         content="https://artur-random.github.io/mj/index.en.html" />
+  <meta name="twitter:title"       content="MJ: This Is Not It… Yet" />
+  <meta name="twitter:description" content="A memorial documentary project by Artur Random about Michael Jackson: the last 24 hours, the context, the first 48 hours, the world's reaction, the accusations and the acquittal, the legacy, and the source corpus." />
   <meta name="twitter:image"       content="https://artur-random.github.io/mj/image/og-preview.webp" />
 
   <link rel="dns-prefetch" href="//mc.yandex.ru" />
@@ -1015,24 +1015,29 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo" onclick="showTab('home',this);return false;">MJ: <span>ещё не всё…</span></a>
+    <a href="#" class="nav-logo" onclick="showTab('home',this);return false;">MJ: <span>this is not it… yet</span></a>
+    <div class="lang-switch" aria-label="Language">
+      <a href="index.html" onclick="this.href='index.html'+location.hash">RU</a>
+      <a href="index.en.html" class="active">EN</a>
+      <a href="index.uk.html" onclick="this.href='index.uk.html'+location.hash">UK</a>
+    </div>
     <ul class="nav-tabs" id="navTabs">
-      <li><a href="#" class="active" data-tab="home" onclick="showTab('home',this);return false;">Главная</a></li>
-      <li><a href="#" data-tab="tab1" onclick="showTab('tab1',this);return false;">Последние 24 часа</a></li>
-      <li><a href="#" data-tab="tab2" onclick="showTab('tab2',this);return false;">До 24 июня</a></li>
-      <li><a href="#" data-tab="tab3" onclick="showTab('tab3',this);return false;">Первые 48 часов</a></li>
-      <li><a href="#" data-tab="tab4" onclick="showTab('tab4',this);return false;">Реакция мира</a></li>
+      <li><a href="#" class="active" data-tab="home" onclick="showTab('home',this);return false;">Home</a></li>
+      <li><a href="#" data-tab="tab1" onclick="showTab('tab1',this);return false;">The Last 24 Hours</a></li>
+      <li><a href="#" data-tab="tab2" onclick="showTab('tab2',this);return false;">Before June 24</a></li>
+      <li><a href="#" data-tab="tab3" onclick="showTab('tab3',this);return false;">The First 48 Hours</a></li>
+      <li><a href="#" data-tab="tab4" onclick="showTab('tab4',this);return false;">The World's Reaction</a></li>
       <li class="nav-divider" aria-hidden="true"></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab5" onclick="showTab('tab5',this);return false;">Обвинения и оправдание</a></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab6" onclick="showTab('tab6',this);return false;">Наследие в цифрах</a></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab7" onclick="showTab('tab7',this);return false;">Источники</a></li>
+      <li><a class="nav-tab--appendix" href="#" data-tab="tab5" onclick="showTab('tab5',this);return false;">Accusations &amp; Acquittal</a></li>
+      <li><a class="nav-tab--appendix" href="#" data-tab="tab6" onclick="showTab('tab6',this);return false;">Legacy in Numbers</a></li>
+      <li><a class="nav-tab--appendix" href="#" data-tab="tab7" onclick="showTab('tab7',this);return false;">Sources</a></li>
     </ul>
-    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="utility-nav" id="utilityNav" aria-label="Быстрая навигация">
-  <button type="button" onclick="scrollActiveTop()">↑ Наверх</button>
-  <button type="button" class="utility-home" onclick="showTab('home', document.querySelector('[data-tab=home]'))">⌂ На главную</button>
+<div class="utility-nav" id="utilityNav" aria-label="Quick navigation">
+  <button type="button" onclick="scrollActiveTop()">↑ Top</button>
+  <button type="button" class="utility-home" onclick="showTab('home', document.querySelector('[data-tab=home]'))">⌂ Home</button>
 </div>
 
 <main class="page">
@@ -1042,22 +1047,22 @@
   <div class="home-hero" id="homeTop">
     <img class="home-photo" src="image/MJackson.webp" alt="Michael Jackson" loading="eager" fetchpriority="high" width="640" height="648" />
     <div class="container">
-      <p class="home-kicker">Мемориально-документальный проект</p>
-      <h1 class="home-title">MJ: <span>ещё не всё…</span></h1>
-      <p class="home-lead">Память, личный авторский взгляд и документальная реконструкция последних суток Майкла Джексона.</p>
-      <a class="home-scroll" href="#author" onclick="document.getElementById('author').scrollIntoView({behavior:'smooth'});return false;">Читать от автора</a>
+      <p class="home-kicker">A Memorial Documentary Project</p>
+      <h1 class="home-title">MJ: <span>this is not it… yet</span></h1>
+      <p class="home-lead">Remembrance, a personal author’s perspective, and a documentary reconstruction of Michael Jackson’s last 24 hours.</p>
+      <a class="home-scroll" href="#author" onclick="document.getElementById('author').scrollIntoView({behavior:'smooth'});return false;">Read the author’s note</a>
     </div>
   </div>
   <div class="home-photo-block" aria-hidden="true">
-    <img src="image/MJackson.webp" alt="Майкл Джексон" loading="lazy" width="640" height="648" />
+    <img src="image/MJackson.webp" alt="Michael Jackson" loading="lazy" width="640" height="648" />
   </div>
   <div class="home-section" id="author">
     <div class="container"><div class="author-grid">
-      <article class="author-block fade-in"><div class="author-label">От автора</div><div class="author-text"><p>17 лет назад не стало Короля поп-музыки Майкла Джексона.</p><p>Человека, который навсегда изменил само значение слов «музыка», «танец» и «мода». Человека, который задал такую планку, которую до сих пор никто не смог преодолеть и, я уверен, не преодолеет никогда. Человека, чьё имя и чей голос слышал почти каждый на земном шаре.</p><p>Энергичная <span class="song-inline">«Beat It»</span> или остросоциальная <span class="song-inline">«They Don’t Care About Us»</span>, пронзительная <span class="song-inline">«You Are Not Alone»</span> или легендарная <span class="song-inline">«Billie Jean»</span>... Вклад Майкла в мировую культуру невозможно измерить сухими метриками. Его можно оценить лишь искренней народной любовью и эмоциями — будь то радость, мурашки по коже или слёзы.</p><p>25 июня 2009 года мир потерял гениального музыканта, любящего отца, благородного филантропа и просто невероятно светлого Человека.</p><p>Спасибо за всё, Майкл.</p><p><strong>Rest in peace, MJ 👑</strong></p></div><div class="script-quote">Smile, though your heart is aching<br>Smile, even though it&#39;s breaking<br>When there are clouds in the sky<br>You&#39;ll get by...</div></article>
-      <article class="author-block fade-in"><div class="author-label">О проекте</div><div class="author-text"><p>Идея докопаться до правды, реконструировать последние дни жизни Майкла, узнать всё до мелочей возникла у меня ещё в январе 2023 года, и почти весь 2023 год я изучал его биографию, смотрел документальные фильмы, читал про обвинения и про их опровержения, детально изучал поездки Майкла в Россию в 1993 и 1996 годах. Но потом навалились другие дела, другие задачи, и я отложил все материалы в долгий ящик…</p><p>Но в 2026 наконец-то вышел фильм «Майкл», который я ждал очень долго. 3 июня 2026 я сходил на этот фильм в очень приятной компании, и я получил такой сильный эмоциональный «бум», что решил вернуться к материалам и довести дело до конца. И вот, к 17-й годовщине смерти Майкла, я смог, я справился.</p><p>Символично, что именно 17-я годовщина, ведь у нас на постсоветском пространстве устоялось мнение, что человек ещё подросток вплоть до 17 лет включительно, а в 18 резко наступает взрослая жизнь. Майкл и в 50 лет внутри оставался тем самым подростком… ребёнком, у которого отобрали детство.</p><p>Весь этот проект — это малая часть того, что я хотел бы сделать в память о Майкле. И я уже не остановлюсь на этом, впереди много работы!</p></div><div class="script-quote small">You can be a winner but you gotta keep the faith!</div><p class="author-signature">Artur Random</p></article>
+      <article class="author-block fade-in"><div class="author-label">From the Author</div><div class="author-text"><p>Seventeen years ago, the King of Pop, Michael Jackson, passed away.</p><p>A man who forever changed the very meaning of the words “music,” “dance,” and “fashion.” A man who set a bar that no one has managed to clear to this day — and, I am certain, no one ever will. A man whose name and whose voice have been heard by almost everyone on this planet.</p><p>The high-energy <span class="song-inline">“Beat It”</span> and the sharply social <span class="song-inline">“They Don’t Care About Us”</span>, the piercing <span class="song-inline">“You Are Not Alone”</span> and the legendary <span class="song-inline">“Billie Jean”</span>… Michael’s contribution to world culture cannot be measured in dry metrics. It can only be measured in genuine, heartfelt love and emotion — be it joy, goosebumps, or tears.</p><p>On June 25, 2009, the world lost a musical genius, a loving father, a noble philanthropist, and simply an incredibly bright and kind Human Being.</p><p>Thank you for everything, Michael.</p><p><strong>Rest in peace, MJ 👑</strong></p></div><div class="script-quote">Smile, though your heart is aching<br>Smile, even though it&#39;s breaking<br>When there are clouds in the sky<br>You&#39;ll get by...</div></article>
+      <article class="author-block fade-in"><div class="author-label">About the Project</div><div class="author-text"><p>The idea of getting to the truth — reconstructing the last days of Michael’s life, learning everything down to the smallest detail — first came to me back in January 2023, and for almost all of 2023 I studied his biography, watched documentaries, read about the accusations and their rebuttals, and researched in detail Michael’s trips to Russia in 1993 and 1996. But then other matters and other tasks piled up, and I shelved all the materials for a long while…</p><p>But in 2026, the film <em>Michael</em> — the one I had been waiting for so long — finally came out. On June 3, 2026, I went to see it in very pleasant company, and it hit me with such a powerful emotional “boom” that I decided to return to the materials and see this through to the end. And so, by the 17th anniversary of Michael’s death, I made it. I did it.</p><p>It feels symbolic that it is the 17th anniversary: where I come from, in the post-Soviet world, there is a settled notion that a person is still a teenager up to and including 17, and at 18 adult life abruptly begins. Even at 50, Michael remained that very teenager inside… a child whose childhood had been taken away.</p><p>This whole project is only a small part of what I would like to do in Michael’s memory. And I am not stopping here — there is a lot of work ahead!</p></div><div class="script-quote small">You can be a winner but you gotta keep the faith!</div><p class="author-signature">Artur Random</p></article>
     </div></div>
   </div>
-  <div class="home-section" id="homeNav"><div class="container"><p class="home-nav-intro">Дальше — документальная часть проекта. Каждый раздел можно открыть отдельно: от последних суток и предыстории до реакции мира, наследия и корпуса источников.</p><div class="home-primary-link"><a href="#" onclick="showTab('tab1', document.querySelector('[data-tab=tab1]'));return false;">Открыть последние 24 часа</a></div><div class="home-links-grid"><a class="home-link-card" href="#" onclick="showTab('tab1', document.querySelector('[data-tab=tab1]'));return false;"><b>Последние 24 часа</b><span>Репетиция, возвращение домой, препараты, звонки, 911 и UCLA.</span></a><a class="home-link-card" href="#" onclick="showTab('tab2', document.querySelector('[data-tab=tab2]'));return false;"><b>До 24 июня</b><span>Контекст последних месяцев: This Is It, бессонница, врачи и подготовка к туру.</span></a><a class="home-link-card" href="#" onclick="showTab('tab3', document.querySelector('[data-tab=tab3]'));return false;"><b>Первые 48 часов</b><span>Больница, дом на Carolwood Drive, полиция, коронер и первые следственные действия.</span></a><a class="home-link-card" href="#" onclick="showTab('tab4', document.querySelector('[data-tab=tab4]'));return false;"><b>Реакция мира</b><span>Артисты, политики, СМИ, поклонники и международные отклики.</span></a><a class="home-link-card" href="#" onclick="showTab('tab5', document.querySelector('[data-tab=tab5]'));return false;"><b>Обвинения и оправдание</b><span>1993, 2005, оправдание по всем пунктам и последующие медийные споры.</span></a><a class="home-link-card" href="#" onclick="showTab('tab6', document.querySelector('[data-tab=tab6]'));return false;"><b>Наследие в цифрах</b><span>Фильм, сборы, рейтинги, стриминги и поисковый интерес.</span></a><a class="home-link-card" href="#" onclick="showTab('tab7', document.querySelector('[data-tab=tab7]'));return false;"><b>Корпус источников</b><span>Документы, стенограммы, отчёты, токсикология, медиа и запросы.</span></a></div></div></div>
+  <div class="home-section" id="homeNav"><div class="container"><p class="home-nav-intro">What follows is the documentary part of the project. Each section can be opened separately: from the final day and the backstory to the world’s reaction, the legacy, and the source corpus.</p><div class="home-primary-link"><a href="#" onclick="showTab('tab1', document.querySelector('[data-tab=tab1]'));return false;">Open the last 24 hours</a></div><div class="home-links-grid"><a class="home-link-card" href="#" onclick="showTab('tab1', document.querySelector('[data-tab=tab1]'));return false;"><b>The Last 24 Hours</b><span>The rehearsal, the ride home, the medications, the phone calls, 911, and UCLA.</span></a><a class="home-link-card" href="#" onclick="showTab('tab2', document.querySelector('[data-tab=tab2]'));return false;"><b>Before June 24</b><span>The context of the final months: This Is It, insomnia, doctors, and tour preparations.</span></a><a class="home-link-card" href="#" onclick="showTab('tab3', document.querySelector('[data-tab=tab3]'));return false;"><b>The First 48 Hours</b><span>The hospital, the Carolwood Drive house, the police, the coroner, and the first investigative steps.</span></a><a class="home-link-card" href="#" onclick="showTab('tab4', document.querySelector('[data-tab=tab4]'));return false;"><b>The World’s Reaction</b><span>Artists, politicians, the media, fans, and international responses.</span></a><a class="home-link-card" href="#" onclick="showTab('tab5', document.querySelector('[data-tab=tab5]'));return false;"><b>Accusations &amp; Acquittal</b><span>1993, 2005, the acquittal on all counts, and the media disputes that followed.</span></a><a class="home-link-card" href="#" onclick="showTab('tab6', document.querySelector('[data-tab=tab6]'));return false;"><b>Legacy in Numbers</b><span>The film, the box office, the ratings, streaming, and search interest.</span></a><a class="home-link-card" href="#" onclick="showTab('tab7', document.querySelector('[data-tab=tab7]'));return false;"><b>The Source Corpus</b><span>Documents, transcripts, reports, toxicology, media, and records requests.</span></a></div></div></div>
 </section>
 
 
