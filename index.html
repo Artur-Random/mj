@@ -100,6 +100,10 @@
     .nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(0,0,0,.72); backdrop-filter:blur(18px); border-bottom:1px solid var(--line); box-shadow:none; }
     .nav-inner { max-width:1480px; margin:0 auto; display:flex; align-items:center; padding:0 20px; }
     .nav-logo { font-family:var(--font-mono); font-size:.72rem; color:var(--silver-soft); letter-spacing:.11em; text-transform:uppercase; padding:18px 0; margin-right:26px; white-space:nowrap; text-decoration:none; }
+    .lang-switch { display:flex; gap:12px; margin-right:20px; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; }
+    .lang-switch a { color:var(--text-dim); text-decoration:none; padding:18px 0; transition:color .2s ease; }
+    .lang-switch a:hover { color:var(--silver-soft); }
+    .lang-switch a.active { color:var(--gold); pointer-events:none; }
     .nav-logo span { color:var(--gold); }
     .nav-tabs { display:flex; list-style:none; overflow-x:auto; scrollbar-width:none; flex:1; }
     .nav-tabs::-webkit-scrollbar { display:none; }
@@ -619,6 +623,11 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo" onclick="showTab('home',this);return false;">MJ: <span>ещё не всё…</span></a>
+    <div class="lang-switch" aria-label="Выбор языка">
+      <a href="index.html" class="active">RU</a>
+      <a href="index.en.html" onclick="this.href='index.en.html'+location.hash">EN</a>
+      <a href="index.uk.html" onclick="this.href='index.uk.html'+location.hash">UK</a>
+    </div>
     <ul class="nav-tabs" id="navTabs">
       <li><a href="#" class="active" data-tab="home" onclick="showTab('home',this);return false;">Главная</a></li>
       <li><a href="#" data-tab="tab1" onclick="showTab('tab1',this);return false;">Последние 24 часа</a></li>
