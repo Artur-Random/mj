@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <title>MJ: ще не все…</title>
+  <meta name="description" content="Меморіально-документальний проєкт Artur Random про Майкла Джексона: останні 24 години, контекст, перші 48 годин, реакція світу, звинувачення та виправдання, спадщина і корпус джерел." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#030303;
+      --bg-deep:#000;
+      --bg-card:rgba(12,12,12,.30);
+      --bg-raised:rgba(18,18,18,.36);
+      --bg-paper:rgba(17,17,17,.30);
+      --line:rgba(232,232,232,.12);
+      --line-strong:rgba(214,184,90,0.34);
+      --silver:#aeb0ad;
+      --silver-soft:#d6d7d2;
+      --gold:#d6b85a;
+      --gold-soft:#f3dc8b;
+      --gold-dim:#88713b;
+      --red:#d4483c;
+      --red-soft:#ff6b61;
+      --red-dim:#35100e;
+      --blue:#5f88b8;
+      --green:#67c789;
+      --orange:#e6a34a;
+      --text:#f3f1ec;
+      --text-mid:#cbc8c0;
+      --text-dim:#908d87;
+      --text-faint:#6f6b65;
+      --font-display:'Playfair Display',Georgia,serif;
+      --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --font-mono:'IBM Plex Mono','Courier New',monospace;
+      --font-hand:'Caveat',cursive;
+      --radius:22px;
+      --shadow:0 24px 70px rgba(0,0,0,0.38);
+    }
+    html { scroll-behavior:smooth; font-size:17px; background: #000; }
+    body {
+      min-height:100vh;
+      background:
+        radial-gradient(ellipse at 12% 18%, rgba(184,184,178,.07), transparent 34rem),
+        radial-gradient(ellipse at 82% 32%, rgba(205,205,198,.055), transparent 38rem),
+        radial-gradient(ellipse at 42% 82%, rgba(150,150,145,.045), transparent 40rem),
+        linear-gradient(180deg, #010101 0%, #060606 28%, #0b0b0b 58%, #020202 100%);
+      color:var(--text);
+      font-family:var(--font-body);
+      line-height:1.72;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+      transition:background 0.7s ease;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .038;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.80) 0 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,.50) 0 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.020) 0 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.015) 0 1px, transparent 1px);
+      background-size: 44px 44px, 73px 73px, 124px 124px, 124px 124px;
+      mix-blend-mode: screen;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -12%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .76;
+      background:
+        radial-gradient(ellipse at var(--spot1-x,18%) var(--spot1-y,20%), rgba(210,210,204,.135), rgba(210,210,204,.045) 18rem, transparent 43rem),
+        radial-gradient(ellipse at var(--spot2-x,86%) var(--spot2-y,42%), rgba(190,190,186,.105), rgba(190,190,186,.035) 15rem, transparent 40rem),
+        radial-gradient(ellipse at var(--spot3-x,52%) var(--spot3-y,86%), rgba(150,150,148,.075), rgba(150,150,148,.025) 17rem, transparent 44rem),
+        linear-gradient(90deg, rgba(0,0,0,.82), transparent 22%, transparent 78%, rgba(0,0,0,.84));
+      filter: blur(.2px);
+      transition: opacity .45s linear;
+    }
+    body.death-focus {
+      background: inherit;
+    }
+    body.death-focus::after {
+      display: block;
+    }
+    ::selection { background:var(--gold); color:#070707; }
+    .read-progress { position:fixed; top:0; left:0; height:3px; width:0; z-index:2000; background:linear-gradient(90deg,var(--red),var(--gold)); box-shadow:0 0 20px rgba(214,184,90,.45); }
+
+    /* NAV */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(0,0,0,.72); backdrop-filter:blur(18px); border-bottom:1px solid var(--line); box-shadow:none; }
+    .nav-inner { max-width:1480px; margin:0 auto; display:flex; align-items:center; padding:0 20px; }
+    .nav-logo { font-family:var(--font-mono); font-size:.72rem; color:var(--silver-soft); letter-spacing:.11em; text-transform:uppercase; padding:18px 0; margin-right:26px; white-space:nowrap; text-decoration:none; }
+    .lang-switch { display:flex; gap:12px; margin-right:20px; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; }
+    .lang-switch a { color:var(--text-dim); text-decoration:none; padding:18px 0; transition:color .2s ease; }
+    .lang-switch a:hover { color:var(--silver-soft); }
+    .lang-switch a.active { color:var(--gold); pointer-events:none; }
+    .nav-logo span { color:var(--gold); }
+    .nav-tabs { display:flex; list-style:none; overflow-x:auto; scrollbar-width:none; flex:1; }
+    .nav-tabs::-webkit-scrollbar { display:none; }
+    .nav-tabs li { display:flex; align-items:center; flex:0 0 auto; }
+    .nav-tabs li a { display:block; padding:18px 13px; font-family:var(--font-mono); font-size:.69rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); text-decoration:none; border-bottom:2px solid transparent; transition:color .2s,border-color .2s,background .2s; white-space:nowrap; }
+    .nav-tabs li a:hover,.nav-tabs li a.active { color:var(--gold); border-bottom-color:var(--gold); background:transparent; }
+    .nav-tabs li a.active { color:var(--silver-soft); border-bottom-color:var(--silver-soft); }
+    .nav-tab--appendix { color:var(--text-mid) !important; }
+    .nav-tab--appendix.active { color:var(--gold) !important; border-bottom-color:var(--gold) !important; }
+    .nav-divider { width:1px; height:24px; margin:0 10px; background:rgba(255,255,255,.12); }
+    .nav-burger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:18px 0; margin-left:auto; background:none; border:none; }
+    .nav-burger span { display:block; width:24px; height:1px; background:var(--text); }
+
+    /* LAYOUT */
+    .page { padding-top:58px; position:relative; z-index:2; }
+    .tab-section { display:none; min-height:100vh; }
+    .tab-section.active { display:block; }
+    .container { max-width:1240px; margin:0 auto; padding:0 24px; }
+    .section { padding:70px 0; }
+
+    /* HERO */
+    .hero {
+      position:relative;
+      padding:84px 0 64px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      background:transparent;
+      box-shadow:none;
+    }
+    .hero-eyebrow { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--red-soft); margin-bottom:16px; }
+    .hero-title { font-family:var(--font-display); font-size:clamp(2.65rem,7vw,5.4rem); font-weight:900; line-height:.96; margin-bottom:18px; letter-spacing:-.03em; }
+    .hero-title em,.hero-title span { font-style:normal; color:var(--silver-soft); text-shadow:0 0 34px rgba(255,255,255,.08); text-decoration:none; }
+    .hero-title--case span { display:block; font-family:var(--font-mono); font-size:clamp(2.35rem,10vw,7.2rem); letter-spacing:-.08em; color:var(--silver-soft); margin-top:6px; text-shadow:0 0 34px rgba(255,255,255,.08); text-decoration:none; }
+    .hero-lead { max-width:820px; font-size:clamp(1.03rem,2.4vw,1.28rem); line-height:1.7; color:var(--text-mid); margin:0 0 28px; }
+    .hero-subtitle { font-family:var(--font-mono); font-size:.82rem; color:var(--text-dim); letter-spacing:.08em; margin-bottom:28px; text-transform:uppercase; line-height:1.65; }
+    .hero-meta { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:26px; }
+    .hero-meta-item { padding:14px 0 0; border:0; border-top:1px solid rgba(255,255,255,.14); border-radius:0; background:transparent; box-shadow:none; }
+    .hero-meta-item .label { display:block; font-family:var(--font-mono); font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; }
+    .hero-meta-item .value { display:block; font-family:var(--font-mono); font-size:.86rem; color:var(--silver-soft); line-height:1.42; }
+    .project-signature { margin-top:28px; font-family:var(--font-mono); font-size:.83rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
+    .verdict-badge { display:inline-flex; align-items:center; gap:9px; background:transparent; border:1px solid rgba(212,72,60,.55); border-radius:999px; padding:8px 16px; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.11em; text-transform:uppercase; color:#ff857d; margin-top:22px; box-shadow:none; }
+    .verdict-badge::before { content:''; width:7px; height:7px; background:var(--red); border-radius:50%; animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.82)} }
+    .hero--appendix { background:radial-gradient(circle at 18% 12%, rgba(214,184,90,.12), transparent 32rem), radial-gradient(circle at 82% 18%, rgba(95,136,184,.13), transparent 35rem), linear-gradient(180deg,#13161b 0%, #070707 100%) !important; }
+    .hero--metrics { background:radial-gradient(circle at 20% 15%, rgba(214,184,90,.16), transparent 36rem), radial-gradient(circle at 82% 18%, rgba(95,136,184,.18), transparent 38rem), linear-gradient(180deg,#14161d 0%, #070707 100%) !important; }
+    .hero--corpus { background:radial-gradient(circle at 50% 0%, rgba(214,184,90,.16), transparent 35rem), linear-gradient(180deg,#171511 0%, #070707 100%) !important; }
+
+    /* HEADERS */
+    .section-header { display:flex; align-items:baseline; gap:14px; margin-bottom:42px; border-top:1px solid rgba(255,255,255,.11); padding-top:28px; }
+    .section-eyebrow { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-dim); }
+    .section-title { font-family:var(--font-display); font-size:clamp(1.65rem,4vw,2.55rem); font-weight:700; line-height:1.12; }
+
+    /* TIMELINE */
+    .timeline { position:relative; padding-left:66px; max-width:1040px; }
+    .timeline::before { content:''; position:absolute; display:block; left:18px; top:0; bottom:0; width:1px; background:linear-gradient(to bottom, rgba(214,184,90,.12), rgba(214,184,90,.60) 16%, rgba(185,185,185,.42) 52%, rgba(212,72,60,.42) 84%, rgba(214,184,90,.12)); opacity:1; }
+    .timeline-item { position:relative; margin-bottom:30px; padding:0 0 34px 0; border:0; border-radius:0; background:transparent; box-shadow:none; opacity:0; transform:translateY(16px); transition:opacity .55s ease,transform .55s ease; }
+    .timeline-item.visible { opacity:1; transform:translateY(0); }
+    .timeline-item:hover { border-color:transparent; box-shadow:none; }
+    .timeline-item::before { content:''; position:absolute; display:block; left:-55px; top:.42rem; width:12px; height:12px; border-radius:50%; background:#050505; border:1px solid rgba(214,184,90,.56); box-shadow:0 0 0 7px rgba(0,0,0,.72); transition:border-color .25s,box-shadow .25s; }
+    .timeline-item--critical::before { border-color:var(--red-soft); background:#150201; box-shadow:0 0 0 7px rgba(0,0,0,.75), 0 0 24px rgba(212,72,60,.18); }
+    .timeline-item--key::before { border-color:var(--silver-soft); box-shadow:0 0 0 7px rgba(0,0,0,.75), 0 0 22px rgba(255,255,255,.08); }
+    .timeline-item--death { z-index:20; margin-top:54px; padding:38px 0 42px; border-top:1px solid rgba(212,72,60,.32); border-bottom:1px solid rgba(212,72,60,.22); }
+    body.death-focus .timeline-item--death { border-color:rgba(212,72,60,.32); box-shadow:none; }
+    .timeline-item--death .timeline-event { color:#fff; text-shadow:0 0 18px rgba(212,72,60,.42), 0 0 44px rgba(212,72,60,.18); }
+    body.death-focus .timeline-item--death .timeline-event { text-shadow:0 0 22px rgba(255,84,73,.62), 0 0 58px rgba(212,72,60,.28); }
+    .timeline-item--death .timeline-event::after { content:""; display:block; width:min(340px,72vw); height:1px; margin-top:14px; background:linear-gradient(90deg, var(--red), rgba(212,72,60,.25), transparent); }
+    .timeline-time { font-family:var(--font-mono); font-size:.88rem; color:var(--gold-soft); letter-spacing:.09em; margin-bottom:8px; text-transform:uppercase; }
+    .timeline-event { font-family:var(--font-display); font-size:clamp(1.22rem,3vw,1.62rem); font-weight:700; color:var(--text); margin-bottom:10px; line-height:1.22; }
+    .timeline-detail { font-size:1rem; color:var(--text-mid); line-height:1.76; max-width:820px; }
+    .timeline-detail strong { color:var(--text); }
+    .timeline-source { display:block; margin-top:12px; font-family:var(--font-mono); font-size:.77rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); line-height:1.55; padding-top:10px; border-top:1px solid rgba(255,255,255,.075); }
+
+    /* BADGES */
+    .badge { display:inline-block; padding:3px 8px; font-family:var(--font-mono); font-size:.67rem; letter-spacing:.08em; text-transform:uppercase; border-radius:999px; margin-left:7px; vertical-align:middle; }
+    .badge--fact { background:rgba(103,199,137,.12); color:#91e6ad; border:1px solid rgba(103,199,137,.34); }
+    .badge--witness { background:rgba(95,136,184,.14); color:#9ec5ef; border:1px solid rgba(95,136,184,.34); }
+    .badge--conflict { background:rgba(212,72,60,.14); color:#ff7c73; border:1px solid rgba(212,72,60,.38); }
+    .badge--unknown { background:rgba(255,255,255,.07); color:var(--text-dim); border:1px solid rgba(255,255,255,.14); }
+
+    /* QUOTE */
+    .quote-block { margin:18px 0; padding:6px 0 6px 20px; border:0; border-left:2px solid rgba(214,184,90,.42); border-radius:0; background:transparent; box-shadow:none; }
+    .quote-en { font-family:var(--font-mono); font-size:.94rem; color:var(--text); line-height:1.72; }
+    .quote-ru { font-family:var(--font-body); font-size:.95rem; color:var(--text-mid); font-style:normal; margin-top:9px; line-height:1.65; }
+    .quote-author { font-family:var(--font-mono); font-size:.74rem; color:var(--gold); letter-spacing:.09em; margin-top:11px; text-transform:uppercase; }
+
+    /* CARDS */
+    .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(295px,1fr)); gap:16px; background:transparent; border:none; margin-bottom:46px; }
+    .card { background:transparent; padding:22px 0; border:0; border-top:1px solid rgba(255,255,255,.10); border-radius:0; box-shadow:none; transition:transform .22s,border-color .22s,background .22s; }
+    .card:hover { transform:none; border-color:transparent; background:transparent; }
+    .card-label { font-family:var(--font-mono); font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; line-height:1.45; }
+    .card-title { font-family:var(--font-display); font-size:1.25rem; font-weight:700; color:var(--text); margin-bottom:9px; line-height:1.23; }
+    .card-body { font-size:.99rem; color:var(--text-mid); line-height:1.68; }
+    .card-stat { font-family:var(--font-mono); font-size:clamp(1.7rem,4vw,2.45rem); font-weight:500; color:var(--gold); line-height:1; margin:10px 0 7px; letter-spacing:-.05em; }
+
+
+    /* EVIDENCE / PHARMA INFOGRAPHICS */
+    .evidence-strip,.setlist-grid,.medical-chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:16px 0 4px}.evidence-chip,.medical-step{padding:12px 13px;border-radius:15px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.025)}.chip-time,.medical-step b{display:block;font-family:var(--font-mono);font-size:.76rem;color:var(--gold);margin-bottom:5px}.chip-text,.medical-step span{display:block;font-size:.9rem;color:var(--text-mid);line-height:1.48}.setlist-card{padding:16px;border-radius:18px;border:1px solid rgba(214,184,90,.22);background:rgba(214,184,90,.045)}.setlist-card strong{display:block;font-family:var(--font-display);font-size:1.18rem;color:var(--text);line-height:1.1;margin-bottom:7px}.setlist-card span{display:block;font-size:.9rem;color:var(--text-mid);line-height:1.55}.external-link{color:var(--gold-soft);text-decoration:none;border-bottom:1px solid rgba(214,184,90,.38)}.external-link:hover{color:var(--text);border-bottom-color:var(--text)}.delay-block{margin:18px 0 4px;padding:4px 0 6px 20px;border-radius:0;background:transparent;border:0;border-left:2px solid rgba(212,72,60,.50)}.delay-number{font-family:var(--font-mono);font-size:clamp(2rem,6vw,4.2rem);line-height:.95;color:var(--red-soft);letter-spacing:-.08em;display:block;margin-bottom:8px}.delay-caption{color:var(--text-mid);font-size:1rem;line-height:1.6}.call-minimal{margin-top:18px;padding-top:18px;padding-bottom:12px;border-top:1px solid rgba(212,72,60,.26);border-bottom:1px solid rgba(255,255,255,.08);background:transparent}.call-minimal p{margin:0 0 10px;color:var(--text-mid);line-height:1.65}.call-minimal strong{color:var(--text)}
+    .pharma-intro{max-width:980px;color:var(--text-mid);font-size:1.02rem;line-height:1.75;margin-bottom:22px}.pharma-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:22px}.pharma-summary-item{background:rgba(255,255,255,.024);border:1px solid rgba(255,255,255,.085);border-radius:18px;padding:18px 18px 16px}.pharma-summary-num{display:block;font-family:var(--font-mono);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--silver-soft);line-height:1;letter-spacing:-.06em;margin-bottom:7px}.pharma-summary-label{display:block;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);line-height:1.45}.pharma-block{margin-bottom:28px;padding:32px 0;border:0;border-top:1px solid rgba(255,255,255,.12);border-radius:0;background:transparent}.pharma-block-title{font-family:var(--font-display);font-size:clamp(1.65rem,4vw,2.2rem);line-height:1.06;color:var(--text);margin-bottom:8px}.pharma-block-subtitle{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:900px;margin-bottom:18px}.pharma-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.pharma-card{position:relative;padding:20px 20px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.085);background:rgba(255,255,255,.024);overflow:hidden}.pharma-card::after{content:'';position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,transparent,rgba(214,184,90,.55),transparent);opacity:.45}.pharma-card--critical{border-color:rgba(212,72,60,.24)}.pharma-card--critical::after{background:linear-gradient(90deg,transparent,rgba(230,57,70,.75),transparent);opacity:.8}.pharma-card--support::after{background:linear-gradient(90deg,transparent,rgba(134,207,159,.6),transparent);opacity:.7}.pharma-card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}.pharma-name{font-family:var(--font-display);font-size:1.28rem;line-height:1.05;color:var(--text);margin:0}.pharma-tag{flex-shrink:0;padding:6px 9px;border-radius:999px;border:1px solid rgba(214,184,90,.35);font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.pharma-tag--critical{border-color:rgba(230,57,70,.34);color:#ff8b84}.pharma-tag--support{border-color:rgba(134,207,159,.35);color:#b4edc2}.pharma-type{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);line-height:1.55;margin-bottom:14px}.pharma-big{font-family:var(--font-mono);font-size:clamp(1.7rem,4vw,2.5rem);line-height:1;color:var(--text);letter-spacing:-.06em;margin-bottom:12px}.pharma-big--critical{color:#ff8b84}.pharma-big--gold{color:var(--gold)}.pharma-list{display:grid;gap:8px}.pharma-row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding-top:8px;border-top:1px solid rgba(255,255,255,.06)}.pharma-row:first-child{border-top:none;padding-top:0}.pharma-key{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);flex:0 0 84px;line-height:1.45}.pharma-val{font-size:.96rem;color:var(--text-mid);text-align:right;line-height:1.55;flex:1}
+    @media(max-width:760px){.pharma-block{padding:22px 18px}.pharma-grid{grid-template-columns:1fr}.pharma-row{flex-direction:column;gap:4px}.pharma-key{flex:auto}.pharma-val{text-align:left}.pharma-summary{grid-template-columns:1fr}.evidence-strip,.setlist-grid,.medical-chain{grid-template-columns:1fr}}
+
+    /* TOX */
+    .tox-wrap { overflow-x:auto; margin-bottom:42px; border:1px solid var(--line); border-radius:20px; background:var(--bg-card); box-shadow:var(--shadow); }
+    .tox-table { width:100%; border-collapse:collapse; font-size:.94rem; min-width:860px; }
+    .tox-table thead tr { border-bottom:1px solid rgba(214,184,90,.28); }
+    .tox-table th { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-dim); padding:14px; text-align:left; font-weight:400; white-space:nowrap; }
+    .tox-table td { padding:15px 14px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:middle; white-space:nowrap; }
+    .tox-table tr:hover td { background:rgba(255,255,255,.028); }
+    .tox-table td:first-child { white-space:normal; }
+    .tox-drug-name { font-weight:700; color:var(--text); font-size:1rem; }
+    .tox-drug-type { margin-top:3px; font-family:var(--font-mono); font-size:.74rem; color:var(--text-dim); letter-spacing:.04em; text-transform:uppercase; }
+    .tox-val { font-family:var(--font-mono); font-size:.92rem; font-weight:500; }
+    .tox-val--high { color:#ff8178; }
+    .tox-val--mid { color:var(--orange); }
+    .tox-val--nd { color:var(--text-dim); }
+
+    /* REACTIONS */
+    .reactions-filter { display:flex; gap:9px; flex-wrap:wrap; margin-bottom:30px; }
+    .filter-btn { padding:9px 14px; font-family:var(--font-mono); font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:999px; color:var(--text-dim); cursor:pointer; transition:all .2s; }
+    .filter-btn:hover,.filter-btn.active { border-color:var(--gold); color:var(--gold); background:rgba(214,184,90,.07); }
+    .reactions-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; background:transparent; border:none; margin-bottom:46px; }
+    .reaction-card { background:transparent; padding:22px 0; border:0; border-top:1px solid rgba(255,255,255,.10); border-radius:0; box-shadow:none; transition:transform .22s,border-color .22s; }
+    .reaction-card:hover { transform:none; background:transparent; }
+    .reaction-meta { display:flex; align-items:flex-start; gap:14px; margin-bottom:14px; }
+    .reaction-avatar { width:46px; height:46px; border-radius:50%; background:var(--bg-raised); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:.55rem; color:var(--text-dim); flex-shrink:0; overflow:hidden; text-transform:uppercase; }
+    .reaction-avatar img { width:100%; height:100%; object-fit:cover; }
+    .reaction-info { flex:1; }
+    .reaction-name { font-family:var(--font-display); font-size:1.16rem; font-weight:700; color:var(--text); line-height:1.16; }
+    .reaction-role { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); margin-top:4px; line-height:1.45; }
+    .reaction-date { font-family:var(--font-mono); font-size:.73rem; color:var(--gold); margin-top:5px; }
+    .reaction-country { display:inline-flex; align-items:center; gap:7px; margin-top:6px; font-family:var(--font-mono); font-size:.72rem; color:var(--gold-soft); letter-spacing:.06em; text-transform:uppercase; }
+    .reaction-country .flag { font-size:1rem; line-height:1; }
+    .reaction-quote-en { font-family:var(--font-mono); font-size:.9rem; color:var(--text); line-height:1.72; border-left:3px solid var(--gold-dim); padding-left:14px; margin-bottom:8px; }
+    .reaction-quote-ru { font-family:var(--font-body); font-size:.94rem; color:var(--text-mid); font-style:normal; border-left:3px solid var(--line); padding-left:14px; line-height:1.65; }
+    .reaction-source { font-family:var(--font-mono); font-size:.74rem; color:var(--text-dim); margin-top:12px; line-height:1.55; text-transform:uppercase; letter-spacing:.04em; }
+
+    /* METRICS / LEGACY */
+    .metrics-hero,.legacy-panel { background:transparent; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; padding:34px 0; margin-bottom:28px; position:relative; overflow:hidden; box-shadow:none; }
+    .metrics-hero::after { content:'MICHAEL 2026'; position:absolute; right:-18px; top:50%; transform:translateY(-50%) rotate(90deg); font-family:var(--font-display); font-size:3.8rem; font-weight:900; color:rgba(255,255,255,.055); white-space:nowrap; pointer-events:none; }
+    .metrics-big { font-family:var(--font-mono); font-size:clamp(2.4rem,8vw,5.2rem); font-weight:500; color:var(--silver-soft); line-height:.92; margin-bottom:8px; letter-spacing:-.07em; }
+    .metrics-label { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:26px; }
+    .metrics-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(155px,1fr)); gap:18px; }
+    .metric-item { padding:14px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.03); }
+    .metric-item .m-num { font-family:var(--font-mono); font-size:1.36rem; color:var(--text); font-weight:500; line-height:1; margin-bottom:5px; letter-spacing:-.04em; }
+    .metric-item .m-label { font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); line-height:1.42; }
+    .rating-split { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:34px; }
+    .rating-half { background:transparent; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; padding:30px 0; text-align:center; box-shadow:none; }
+    .rating-half .r-pct { font-family:var(--font-mono); font-size:clamp(3rem,9vw,5rem); font-weight:500; line-height:1; margin-bottom:8px; letter-spacing:-.08em; }
+    .rating-half--critics .r-pct { color:var(--red-soft); }
+    .rating-half--audience .r-pct { color:var(--green); }
+    .rating-half .r-label { font-family:var(--font-mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:10px; line-height:1.5; }
+    .rating-half .r-detail { font-size:.96rem; color:var(--text-mid); max-width:290px; margin:0 auto; line-height:1.6; }
+    .trend-bars { display:flex; flex-direction:column; gap:12px; margin-bottom:36px; padding:0; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; background:transparent; box-shadow:none; }
+    .trend-bar-item { display:grid; grid-template-columns:minmax(190px, 1fr) minmax(140px, 2fr) 92px; align-items:center; gap:12px; }
+    .trend-bar-label { font-family:var(--font-mono); font-size:.82rem; color:var(--text-mid); line-height:1.4; }
+    .trend-bar-track { height:9px; background:rgba(255,255,255,.09); border-radius:999px; overflow:hidden; }
+    .trend-bar-fill { height:100%; background:var(--gold); width:0; transition:width 1.1s ease .2s; border-radius:999px; }
+    .trend-bar-fill.go { width:var(--w); }
+    .trend-bar-val { font-family:var(--font-mono); font-size:.82rem; color:var(--gold); text-align:right; }
+
+    /* QUESTIONS / REQUESTS */
+    .questions-list,.requests-list { display:flex; flex-direction:column; gap:14px; background:transparent; border:none; margin-bottom:38px; }
+    .question-item,.request-item { background:transparent; border:0; border-top:1px solid rgba(255,255,255,.10); border-radius:0; padding:22px 0; transition:transform .22s,border-color .22s; box-shadow:none; }
+    .question-item:hover,.request-item:hover { transform:none; background:transparent; }
+    .question-num { font-family:var(--font-mono); font-size:.74rem; color:var(--text-dim); margin-bottom:6px; }
+    .question-text { font-family:var(--font-display); font-size:1.23rem; font-weight:700; margin-bottom:8px; line-height:1.25; }
+    .question-known { font-size:.99rem; color:var(--text-mid); line-height:1.68; }
+    .request-item { display:grid; grid-template-columns:1fr auto; gap:18px; align-items:start; }
+    .request-org { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
+    .request-desc { font-size:1.02rem; color:var(--text); font-weight:600; margin-bottom:5px; }
+    .request-detail { font-size:.96rem; color:var(--text-mid); line-height:1.58; }
+    .request-date { font-family:var(--font-mono); font-size:.75rem; color:var(--text-dim); margin-top:7px; }
+    .status-pill { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; border-radius:999px; }
+    .status-pill::before { content:''; width:7px; height:7px; border-radius:50%; }
+    .status-pill--waiting { background:rgba(230,163,74,.12); color:var(--orange); border:1px solid rgba(230,163,74,.35); }
+    .status-pill--waiting::before { background:var(--orange); animation:pulse 2s infinite; }
+
+    /* CASE TABS / LEGAL */
+    .case-tabs { display:flex; border-bottom:1px solid var(--line); margin-bottom:36px; flex-wrap:wrap; gap:8px; }
+    .case-tab { padding:12px 18px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); cursor:pointer; border:1px solid transparent; border-bottom:2px solid transparent; border-radius:14px 14px 0 0; transition:all .2s; background:rgba(255,255,255,.025); }
+    .case-tab:hover,.case-tab.active { color:var(--gold); border-color:rgba(214,184,90,.24); border-bottom-color:var(--gold); background:rgba(214,184,90,.06); }
+    .case-panel { display:none; }
+    .case-panel.active { display:block; }
+    .legal-box { background:transparent; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; padding:20px 0; margin-bottom:36px; box-shadow:none; }
+    .legal-box--innocence { border-color:rgba(214,184,90,.38); }
+    .legal-box-title { font-family:var(--font-mono); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+    .legal-box p { font-size:1rem; color:var(--text-mid); line-height:1.72; }
+    .legal-box strong { color:var(--text); }
+    .case-outcome { margin:28px 0; padding:28px 0; border-radius:0; border:0; border-top:1px solid rgba(255,255,255,.12); background:transparent; box-shadow:none; }
+    .case-outcome-label { font-family:var(--font-mono); font-size:.78rem; color:var(--gold); letter-spacing:.14em; text-transform:uppercase; margin-bottom:9px; }
+    .case-outcome-title { font-family:var(--font-display); font-size:clamp(1.7rem,5vw,2.65rem); color:var(--text); line-height:1.1; margin-bottom:12px; }
+    .case-outcome p { color:var(--text-mid); font-size:1rem; line-height:1.7; }
+
+    /* CORPUS */
+    .corpus-total { margin:36px 0 22px; padding:34px 0; border-radius:0; border:0; border-top:1px solid rgba(255,255,255,.12); background:transparent; box-shadow:none; }
+    .corpus-total-number { font-family:var(--font-mono); font-size:clamp(4.4rem,24vw,11rem); line-height:.85; color:var(--silver-soft); letter-spacing:-.10em; }
+    .corpus-total-text { max-width:780px; margin-top:18px; font-size:clamp(1.05rem,3vw,1.34rem); line-height:1.55; color:var(--text-mid); }
+    .corpus-columns { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:30px; }
+    .corpus-group { padding:24px 0; border:0; border-top:1px solid rgba(255,255,255,.12); border-radius:0; background:transparent; box-shadow:none; }
+    .corpus-group-title { font-family:var(--font-display); font-size:1.55rem; line-height:1.15; margin-bottom:18px; }
+    .corpus-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .corpus-card { padding:20px; min-height:160px; border-radius:20px; border:1px solid rgba(255,255,255,.085); background:rgba(255,255,255,.022); }
+    .corpus-card--wide { grid-column:span 2; }
+    .corpus-number { font-family:var(--font-mono); font-size:clamp(2.4rem,7vw,4.2rem); line-height:.9; color:var(--text); letter-spacing:-.06em; margin-bottom:14px; }
+    .corpus-title { font-family:var(--font-display); font-size:1.18rem; line-height:1.18; color:var(--text); margin-bottom:8px; }
+    .corpus-caption { font-size:.9rem; color:var(--text-dim); line-height:1.45; }
+
+    /* UTILS / FOOTER */
+    .divider { border:none; border-top:1px solid var(--line); margin:52px 0; }
+    .fade-in { opacity:0; transform:translateY(16px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    .footer { position:relative; z-index:2; border-top:1px solid var(--line); padding:44px 0 0; margin-top:64px; background:rgba(0,0,0,.72); }
+    .footer-inner { display:grid; grid-template-columns:1fr 1fr 1fr; gap:34px; }
+    .footer-col-title { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    .footer-text { font-size:.92rem; color:var(--text-dim); line-height:1.68; }
+    .footer-author-name { font-family:var(--font-mono); color:var(--gold); letter-spacing:.14em; text-transform:uppercase; }
+    .footer-bottom { border-top:1px solid var(--line); padding:18px 0; text-align:center; font-family:var(--font-mono); font-size:.72rem; color:var(--text-dim); letter-spacing:.08em; margin-top:38px; }
+
+    a, a:visited { color: inherit; }
+
+    .hero-subtitle, .timeline-source, .card-label, .reaction-role, .reaction-date,
+    .corpus-caption, .request-date, .reaction-source, .footer-text, .legal-box p,
+    .call-meta span, .pharma-val, .pharma-type {
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    /* HOME HERO */
+    .home-hero {
+      position: relative;
+      min-height: calc(100vh - 58px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      padding: 88px 0 70px;
+    }
+    .home-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.76) 42%, rgba(0,0,0,.26) 68%, rgba(0,0,0,.90) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .home-photo {
+      position: absolute;
+      right: 4vw;
+      bottom: -4vh;
+      width: min(48vw, 620px);
+      max-height: 92vh;
+      object-fit: contain;
+      opacity: .30;
+      filter: grayscale(1) contrast(1.12) brightness(.82);
+      mix-blend-mode: screen;
+      z-index: 0;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 78%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 78%, transparent 100%);
+    }
+    .home-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .home-kicker {
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 18px;
+    }
+    .home-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 10vw, 8.8rem);
+      font-weight: 900;
+      line-height: .88;
+      letter-spacing: -.06em;
+      max-width: 820px;
+      text-shadow: 0 0 60px rgba(255,255,255,.08);
+    }
+    .home-title span { color: var(--silver-soft); }
+    .home-lead {
+      margin-top: 24px;
+      max-width: 720px;
+      color: var(--text-mid);
+      font-size: clamp(1.05rem, 2.5vw, 1.26rem);
+      line-height: 1.72;
+    }
+    .home-scroll {
+      margin-top: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+    .home-scroll::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: rgba(255,255,255,.24);
+    }
+    .home-section { padding: 78px 0; }
+
+    /* AUTHOR */
+    .author-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap: 52px;
+      align-items: start;
+    }
+    .author-block {
+      border-top: 1px solid rgba(255,255,255,.14);
+      padding-top: 28px;
+    }
+    .author-label {
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .author-text {
+      color: var(--text-mid);
+      font-size: 1.04rem;
+      line-height: 1.86;
+    }
+    .author-text p { margin-bottom: 16px; }
+    .author-text strong { color: var(--text); font-weight: 600; }
+    .song-inline { color: var(--silver-soft); white-space: nowrap; }
+    .script-quote {
+      font-family: var(--font-hand);
+      font-size: clamp(1.18rem, 3.4vw, 1.78rem);
+      line-height: 1.18;
+      color: rgba(236,236,230,.82);
+      margin-top: 20px;
+      letter-spacing: .01em;
+    }
+    .script-quote.small { font-size: clamp(1.05rem, 3vw, 1.5rem); }
+    .author-signature {
+      margin-top: 26px;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* HOME NAV */
+    .home-nav-intro {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      text-align: center;
+      color: var(--text-mid);
+      font-size: 1.04rem;
+      line-height: 1.72;
+    }
+    .home-primary-link {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0 24px;
+    }
+    .home-primary-link a,
+    .home-link-card {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.018);
+      backdrop-filter: blur(10px);
+      transition: border-color .25s ease, background .25s ease, transform .25s ease, color .25s ease;
+    }
+    .home-primary-link a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .home-primary-link a:hover,
+    .home-link-card:hover {
+      border-color: rgba(214,184,90,.46);
+      background: rgba(214,184,90,.045);
+      transform: translateY(-2px);
+    }
+    .home-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .home-link-card {
+      display: block;
+      min-height: 142px;
+      padding: 20px;
+      border-radius: 18px;
+    }
+    .home-link-card b {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      line-height: 1.1;
+      margin-bottom: 9px;
+      color: var(--silver-soft);
+    }
+    .home-link-card span {
+      display: block;
+      font-size: .91rem;
+      line-height: 1.58;
+      color: var(--text-dim);
+    }
+
+    /* UTILITY NAV */
+    .utility-nav {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1200;
+      display: flex;
+      gap: 8px;
+    }
+    .utility-nav button {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.36);
+      color: var(--text-mid);
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .utility-nav button:hover {
+      color: var(--silver-soft);
+      border-color: rgba(214,184,90,.45);
+      background: rgba(214,184,90,.05);
+    }
+    body.home-active .utility-nav {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:1000px) {
+      .hero-meta { grid-template-columns:repeat(2,1fr); }
+      .corpus-columns { grid-template-columns:1fr; }
+      .footer-inner { grid-template-columns:1fr; gap:24px; }
+    }
+    @media (max-width:980px) {
+      .author-grid { grid-template-columns:1fr; gap:36px; }
+      .home-links-grid { grid-template-columns:1fr 1fr; }
+      .home-photo { width:min(64vw,520px); opacity:.20; right:-8vw; }
+      .home-hero::after {
+        background: linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.88) 100%);
+      }
+    }
+    @media (max-width:768px) {
+      html { font-size:17px; }
+      .container { padding:0 18px; }
+      .nav-tabs { display:none; }
+      .nav-tabs.open { display:flex; flex-direction:column; position:fixed; top:58px; left:0; right:0; max-height:calc(100vh - 58px); overflow:auto; background:rgba(0,0,0,.96); border-bottom:1px solid var(--line); padding:8px 0; z-index:999; }
+      .nav-tabs.open .nav-divider { display:none; }
+      .nav-burger { display:flex; }
+      .hero { padding:64px 0 46px; }
+      .hero-meta { grid-template-columns:1fr; }
+      .hero-meta-item { padding-top:12px; }
+      .home-hero { min-height:auto; padding:76px 0 62px; }
+      .home-title { font-size:clamp(3rem,18vw,5rem); }
+      .home-photo { width:86vw; right:-26vw; bottom:0; opacity:.15; }
+      .home-section { padding:58px 0; }
+      .home-links-grid { grid-template-columns:1fr; }
+      .home-link-card { min-height:auto; }
+      .timeline { padding-left:34px; }
+      .timeline::before { left:7px; display:block; }
+      .timeline-item { padding-bottom:30px; margin-bottom:24px; }
+      .timeline-item::before { left:-32px; display:block; width:10px; height:10px; box-shadow:0 0 0 5px rgba(0,0,0,.76); }
+      .timeline-item--death { padding:32px 0 38px; }
+      .timeline-time { font-size:.82rem; }
+      .timeline-detail,.card-body,.question-known,.legal-box p { font-size:1rem; }
+      .reactions-grid,.cards-grid { grid-template-columns:1fr; gap:24px; }
+      .request-item { grid-template-columns:1fr; }
+      .rating-split { grid-template-columns:1fr; }
+      .metrics-row { grid-template-columns:1fr 1fr; }
+      .metrics-hero::after { display:none; }
+      .trend-bar-item { grid-template-columns:1fr; gap:8px; }
+      .trend-bar-val { text-align:left; }
+      .corpus-grid { grid-template-columns:1fr; }
+      .corpus-card--wide { grid-column:span 1; }
+      .section-header { display:block; }
+      .section-eyebrow { display:block; margin-bottom:8px; }
+      .utility-nav { right:12px; bottom:12px; }
+      .utility-nav button { font-size:.62rem; padding:8px 10px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      *,.fade-in,.timeline-item { transition:none !important; animation:none !important; }
+    }
+
+  </style>
+
+</head>
+<body>
+<div class="read-progress" id="readProgress"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showTab('home',this);return false;">MJ: <span>ще не все…</span></a>
+    <div class="lang-switch" aria-label="Вибір мови">
+      <a href="index.html" onclick="this.href='index.html'+location.hash">RU</a>
+      <a href="index.en.html" onclick="this.href='index.en.html'+location.hash">EN</a>
+      <a href="index.uk.html" class="active">UK</a>
+    </div>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a href="#" class="active" data-tab="home" onclick="showTab('home',this);return false;">Головна</a></li>
+      <li><a href="#" data-tab="tab1" onclick="showTab('tab1',this);return false;">Останні 24 години</a></li>
+      <li><a href="#" data-tab="tab2" onclick="showTab('tab2',this);return false;">До 24 червня</a></li>
+      <li><a href="#" data-tab="tab3" onclick="showTab('tab3',this);return false;">Перші 48 годин</a></li>
+      <li><a href="#" data-tab="tab4" onclick="showTab('tab4',this);return false;">Реакція світу</a></li>
+      <li class="nav-divider" aria-hidden="true"></li>
+      <li><a class="nav-tab--appendix" href="#" data-tab="tab5" onclick="showTab('tab5',this);return false;">Звинувачення та виправдання</a></li>
+      <li><a class="nav-tab--appendix" href="#" data-tab="tab6" onclick="showTab('tab6',this);return false;">Спадщина в цифрах</a></li>
+      <li><a class="nav-tab--appendix" href="#" data-tab="tab7" onclick="showTab('tab7',this);return false;">Джерела</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="utility-nav" id="utilityNav" aria-label="Швидка навігація">
+  <button type="button" onclick="scrollActiveTop()">↑ Нагору</button>
+  <button type="button" onclick="showTab('home', document.querySelector('[data-tab=home]'))">⌂ На главную</button>
+</div>
+
+<main class="page">
+
+<!-- HOME -->
+<section class="tab-section active" id="home">
+  <div class="home-hero" id="homeTop">
+    <img class="home-photo" src="image/MJackson.png" alt="Michael Jackson" loading="eager" />
+    <div class="container">
+      <p class="home-kicker">Мемориально-документальный проект</p>
+      <h1 class="home-title">MJ: <span>ещё не всё…</span></h1>
+      <p class="home-lead">Память, личный авторский взгляд и документальная реконструкция последних суток Майкла Джексона.</p>
+      <a class="home-scroll" href="#author" onclick="document.getElementById('author').scrollIntoView({behavior:'smooth'});return false;">Читать от автора</a>
+    </div>
+  </div>
+  <div class="home-section" id="author">
+    <div class="container"><div class="author-grid">
+      <article class="author-block fade-in"><div class="author-label">От автора</div><div class="author-text"><p>17 лет назад не стало Короля поп-музыки Майкла Джексона.</p><p>Человека, который навсегда изменил само значение слов «музыка», «танец» и «мода». Человека, который задал такую планку, которую до сих пор никто не смог преодолеть и, я уверен, не преодолеет никогда. Человека, чьё имя и чей голос слышал почти каждый на земном шаре.</p><p>Энергичная <span class="song-inline">«Beat It»</span> или остросоциальная <span class="song-inline">«They Don’t Care About Us»</span>, пронзительная <span class="song-inline">«You Are Not Alone»</span> или легендарная <span class="song-inline">«Billie Jean»</span>... Вклад Майкла в мировую культуру невозможно измерить сухими метриками. Его можно оценить лишь искренней народной любовью и эмоциями — будь то радость, мурашки по коже или слёзы.</p><p>25 июня 2009 года мир потерял гениального музыканта, любящего отца, благородного филантропа и просто невероятно светлого Человека.</p><p>Спасибо за всё, Майкл.</p><p><strong>Rest in peace, MJ 👑</strong></p></div><div class="script-quote">Smile, though your heart is aching<br>Smile, even though it&#39;s breaking<br>When there are clouds in the sky<br>You&#39;ll get by...</div></article>
+      <article class="author-block fade-in"><div class="author-label">О проекте</div><div class="author-text"><p>Идея докопаться до правды, реконструировать последние дни жизни Майкла, узнать всё до мелочей возникла у меня ещё в январе 2023 года, и почти весь 2023 год я изучал его биографию, смотрел документальные фильмы, читал про обвинения и про их опровержения, детально изучал поездки Майкла в Россию в 1993 и 1996 годах. Но потом навалились другие дела, другие задачи, и я отложил все материалы в долгий ящик…</p><p>Но в 2026 наконец-то вышел фильм «Майкл», который я ждал очень долго. 3 июня 2026 я сходил на этот фильм в очень приятной компании, и я получил такой сильный эмоциональный «бум», что решил вернуться к материалам и довести дело до конца. И вот, к 17-й годовщине смерти Майкла, я смог, я справился.</p><p>Символично, что именно 17-я годовщина, ведь у нас на постсоветском пространстве устоялось мнение, что человек ещё подросток вплоть до 17 лет включительно, а в 18 резко наступает взрослая жизнь. Майкл и в 50 лет внутри оставался тем самым подростком… ребёнком, у которого отобрали детство.</p><p>Весь этот проект — это малая часть того, что я хотел бы сделать в память о Майкле. И я уже не остановлюсь на этом, впереди много работы!</p></div><div class="script-quote small">You can be a winner but you gotta keep the faith!</div><p class="author-signature">Artur Random</p></article>
+    </div></div>
+  </div>
+  <div class="home-section" id="homeNav"><div class="container"><p class="home-nav-intro">Дальше — документальная часть проекта. Каждый раздел можно открыть отдельно: от последних суток и предыстории до реакции мира, наследия и корпуса источников.</p><div class="home-primary-link"><a href="#" onclick="showTab('tab1', document.querySelector('[data-tab=tab1]'));return false;">Открыть последние 24 часа</a></div><div class="home-links-grid"><a class="home-link-card" href="#" onclick="showTab('tab1', document.querySelector('[data-tab=tab1]'));return false;"><b>Последние 24 часа</b><span>Репетиция, возвращение домой, препараты, звонки, 911 и UCLA.</span></a><a class="home-link-card" href="#" onclick="showTab('tab2', document.querySelector('[data-tab=tab2]'));return false;"><b>До 24 июня</b><span>Контекст последних месяцев: This Is It, бессонница, врачи и подготовка к туру.</span></a><a class="home-link-card" href="#" onclick="showTab('tab3', document.querySelector('[data-tab=tab3]'));return false;"><b>Первые 48 часов</b><span>Больница, дом на Carolwood Drive, полиция, коронер и первые следственные действия.</span></a><a class="home-link-card" href="#" onclick="showTab('tab4', document.querySelector('[data-tab=tab4]'));return false;"><b>Реакция мира</b><span>Артисты, политики, СМИ, поклонники и международные отклики.</span></a><a class="home-link-card" href="#" onclick="showTab('tab5', document.querySelector('[data-tab=tab5]'));return false;"><b>Обвинения и оправдание</b><span>1993, 2005, оправдание по всем пунктам и последующие медийные споры.</span></a><a class="home-link-card" href="#" onclick="showTab('tab6', document.querySelector('[data-tab=tab6]'));return false;"><b>Наследие в цифрах</b><span>Фильм, сборы, рейтинги, стриминги и поисковый интерес.</span></a><a class="home-link-card" href="#" onclick="showTab('tab7', document.querySelector('[data-tab=tab7]'));return false;"><b>Корпус источников</b><span>Документы, стенограммы, отчёты, токсикология, медиа и запросы.</span></a></div></div></div>
+</section>
+
+
+<!-- TAB 1: ПОСЛЕДНИЕ 24 ЧАСА -->
+<section class="tab-section" id="tab1">
+  <div class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Реконструкция · 24–25 июня 2009</p>
+      <h1 class="hero-title">Последние<br><em>24 часа</em></h1>
+      <p class="hero-lead">Последние 24 часа Майкла Джексона: последняя репетиция, ночные препараты, телефонные звонки, задержка 911, UCLA и первые действия следствия.</p>
+      <p class="hero-subtitle">24–25 ИЮНЯ 2009 · 100 NORTH CAROLWOOD DRIVE, LOS ANGELES · UCLA MEDICAL CENTER</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><span class="label">Дело коронера</span><span class="value">2009-04415</span></div>
+        <div class="hero-meta-item"><span class="label">Свидетельство о смерти</span><span class="value">State File №3052009085414</span></div>
+        <div class="hero-meta-item"><span class="label">Официальная смерть</span><span class="value">25.06.2009 · 14:26 PDT</span></div>
+        <div class="hero-meta-item"><span class="label">Причина</span><span class="value">ОСТРОЕ ОТРАВЛЕНИЕ ПРОПОФОЛОМ</span></div>
+      </div>
+      <div class="verdict-badge">HOMICIDE — УБИЙСТВО (коронер, 28.08.2009)</div>
+      <p class="project-signature">Artur Random</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Хронология</span>
+        <h2 class="section-title">Поминутная реконструкция</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item timeline-item--key"><div class="timeline-time">14:26 PDT · 24 июня</div><div class="timeline-event">Начало 24-часовой рамки <span class="badge badge--fact">Метод реконструкции</span></div><div class="timeline-detail">Отсчёт ведётся от отметки, симметричной официальному времени смерти: <strong>14:26 PDT 24 июня → 14:26 PDT 25 июня 2009</strong>. Дневной участок документирован слабее вечерних и ночных событий, поэтому хронология отделяет подтверждённые факты от интерпретаций.</div><div class="timeline-source">Хронологическая рамка проекта · Case 2009-04415</div></div>
+        <div class="timeline-item"><div class="timeline-time">День 24 июня</div><div class="timeline-event">Дом на Carolwood Drive: обед и подготовка к выезду <span class="badge badge--witness">Показания персонала</span></div><div class="timeline-detail">По показаниям шеф-повара Кай Чейз, Джексон находился дома, обедал с детьми; ему были поданы обжаренный тунец, салат и морковно-апельсиновый сок. В разговоре о предстоящем переезде в Лондон он сказал: <strong>“I’m packed and I’m ready to go”</strong>.</div><div class="timeline-source">Показания Kai Chase · материалы AEG / People v. Murray</div></div>
+        <div class="timeline-item timeline-item--key"><div class="timeline-time">~19:00</div><div class="timeline-event">Выезд на репетицию <span class="badge badge--fact">Охрана</span></div><div class="timeline-detail">Джексон выехал из резиденции на тёмно-синем Cadillac Escalade. За рулём находился начальник охраны <strong>Фахим Мухаммад</strong>, на переднем пассажирском сиденье — помощник <strong>Майкл Амир Уильямс</strong>.</div><div class="timeline-source">Показания Faheem Muhammad · Michael Amir Williams</div></div>
+        <div class="timeline-item"><div class="timeline-time">Вечер 24 июня</div><div class="timeline-event">Staples Center: рабочие встречи перед сценой <span class="badge badge--fact">AEG / производство</span></div><div class="timeline-detail">Перед физической частью репетиции обсуждались будущие телевизионные и сценические проекты, включая Halloween/CBS-идею, связанную с визуальным наследием <strong>Ghosts</strong>. Эта деталь важна как показатель рабочей и творческой вовлечённости за несколько часов до ночных медицинских вмешательств.</div><div class="timeline-source">Материалы AEG · показания Randy Phillips / Frank DiLeo / Ken Ehrlich</div></div>
+        <div class="timeline-item timeline-item--key"><div class="timeline-time">Вечер 24 июня · Staples Center</div><div class="timeline-event">Последний репетиционный сет <span class="badge badge--fact">This Is It</span></div><div class="timeline-detail">Вечерняя репетиция включала сложные вокально-хореографические номера. По материалам реконструкции, среди них были <strong>Dangerous</strong>, блок <strong>Thriller / Threatened</strong> и <strong>Earth Song</strong>.</div><div class="setlist-grid"><div class="setlist-card"><strong>Dangerous</strong><span>прогон обновлённой версии для тура This Is It</span></div><div class="setlist-card"><strong>Thriller / Threatened</strong><span>костюмный и постановочный блок с крупным сценическим реквизитом</span></div><div class="setlist-card"><strong>Earth Song</strong><span>последняя песня, исполненная Джексоном на сцене</span></div></div><div class="timeline-source">Показания Travis Payne · Michael Bearden · Kenny Ortega · <a class="external-link" href="https://youtu.be/jk0MXvM8Ff0?si=ahsJhMIm8sIyKS0x" target="_blank" rel="noopener noreferrer">видеофрагмент Earth Song</a></div></div>
+        <div class="timeline-item"><div class="timeline-time">~00:00 · 25 июня</div><div class="timeline-event">Окончание репетиции</div><div class="timeline-detail">Репетиция завершилась около полуночи. По показаниям участников, Джексон попрощался с командой, обнял танцоров и произнёс: <strong>“God bless you”</strong>. Рэнди Филлипс позднее утверждал, что Джексон сказал ему: «Ты привёл меня сюда. Теперь я знаю, что смогу».</div><div class="timeline-source">Показания Randy Phillips · Kenny Ortega · участники This Is It</div></div>
+        <div class="timeline-item timeline-item--key"><div class="timeline-time">~00:30–01:05</div><div class="timeline-event">Последняя дорога домой</div><div class="timeline-detail">После репетиции автомобиль выехал от Staples Center. У ворот резиденции Джексон кратко взаимодействовал с ожидавшими поклонниками. Машина Мюррея уже находилась у дома.</div><div class="timeline-source">Показания охраны · Michael Amir Williams · Faheem Muhammad</div></div>
+        <div class="timeline-item"><div class="timeline-time">~01:00–01:30</div><div class="timeline-event">Начало ночной изоляции <span class="badge badge--witness">Дом</span></div><div class="timeline-detail">После возвращения Джексон поднялся наверх. Дальнейшие события ночи происходили преимущественно на втором этаже; доступ персонала туда был ограничен. Центральной фигурой медицинского контроля становится Конрад Мюррей.</div><div class="timeline-source">Показания Alberto Alvarez · Faheem Muhammad · People v. Murray</div></div>
+        <div class="timeline-item timeline-item--critical"><div class="timeline-time">01:30–10:40</div><div class="timeline-event">Фармакологическая шкала ночи <span class="badge badge--witness">Версия Мюррея</span></div><div class="timeline-detail">По полицейскому допросу Мюррея от 27 июня, в течение ночи последовательно применялись бензодиазепины, а утром — пропофол с лидокаином. Опасность состояла не только в каждом препарате отдельно, но и в их наложении.</div><div class="evidence-strip"><div class="evidence-chip"><span class="chip-time">01:30</span><span class="chip-text">Диазепам · 10 мг · перорально</span></div><div class="evidence-chip"><span class="chip-time">02:00</span><span class="chip-text">Лоразепам · 2 мг · IV</span></div><div class="evidence-chip"><span class="chip-time">03:00</span><span class="chip-text">Мидазолам · 2 мг · IV</span></div><div class="evidence-chip"><span class="chip-time">05:00</span><span class="chip-text">Лоразепам · 2 мг · IV</span></div><div class="evidence-chip"><span class="chip-time">07:30</span><span class="chip-text">Мидазолам · 2 мг · IV</span></div><div class="evidence-chip"><span class="chip-time">10:40</span><span class="chip-text">Пропофол · 25 мг, по версии Мюррея</span></div></div><div class="timeline-source">Допрос Conrad Murray · Ritz-Carlton · 27.06.2009 · Апелляция B237677</div></div>
+        <div class="timeline-item timeline-item--critical"><div class="timeline-time">10:34–11:51</div><div class="timeline-event">Телефон вместо непрерывного мониторинга <span class="badge badge--fact">Phone records</span></div><div class="timeline-detail">Биллинг AT&amp;T / Sprint показывает серию звонков и сообщений в период, когда пациент, по версии обвинения, нуждался в постоянном наблюдении после введения препаратов.</div><div class="evidence-strip"><div class="evidence-chip"><span class="chip-time">10:34–10:42</span><span class="chip-text">звонок в офис; пересекается с заявленным временем введения пропофола</span></div><div class="evidence-chip"><span class="chip-time">11:17</span><span class="chip-text">email страховому брокеру о здоровье Джексона</span></div><div class="evidence-chip"><span class="chip-time">11:18–11:50</span><span class="chip-text">длительный разговор с клиникой / административные вопросы</span></div><div class="evidence-chip"><span class="chip-time">11:49</span><span class="chip-text">voicemail Роберту Расселлу</span></div><div class="evidence-chip"><span class="chip-time">11:51</span><span class="chip-text">звонок Саде Андинг; через 5–6 минут разговор фактически обрывается</span></div></div><div class="timeline-source">Phone records AT&amp;T / Sprint · People v. Murray · Апелляция B237677</div></div>
+        <div class="timeline-item timeline-item--critical"><div class="timeline-time">~11:56–11:57</div><div class="timeline-event">Вероятный момент обнаружения кризиса <span class="badge badge--conflict">Вывод обвинения</span></div><div class="timeline-detail">Сейд Андинг показала, что во время звонка услышала шум, голоса, затем кашель; Мюррей перестал отвечать. Обвинение связывало этот момент с обнаружением того, что Джексон не дышит или находится в критическом состоянии.</div><div class="quote-block"><p class="quote-en">"I heard commotion as if the phone was in a pocket or something. I heard coughing and nobody answered."</p><p class="quote-ru">«Я услышала шум, как будто телефон оказался в кармане или где-то рядом. Потом кашель — и никто не отвечал.»</p><p class="quote-author">— Sade Anding · показания People v. Murray</p></div><div class="timeline-source">Показания Sade Anding · phone records</div></div>
+        <div class="timeline-item timeline-item--critical"><div class="timeline-time">~11:57–12:20</div><div class="timeline-event">Разрыв до 911 <span class="badge badge--conflict">Ключевая задержка</span></div><div class="timeline-detail">Вместо немедленного вызова 911 Мюррей связывался с персоналом. В 12:12 он оставил сообщение Майклу Амиру Уильямсу: <strong>“Call me right away”</strong>; затем сообщил, что у Джексона была «плохая реакция».</div><div class="delay-block"><span class="delay-number">≈23 минуты</span><div class="delay-caption">между вероятным обнаружением критического состояния и вызовом экстренной службы</div></div><div class="timeline-source">Phone records · показания Michael Amir Williams · Alberto Alvarez</div></div>
+        <div class="timeline-item timeline-item--critical"><div class="timeline-time">~12:17–12:20</div><div class="timeline-event">Спальня: Альварес, дети, флаконы <span class="badge badge--witness">Показания Альвареса</span></div><div class="timeline-detail">Альварес вошёл в спальню и увидел Джексона на кровати. По его показаниям, Мюррей выполнял СЛР одной рукой на мягкой поверхности. Перед звонком 911 Мюррей поручил убрать флаконы и IV-пакет в сумку. В этот же промежуток детей вывели из комнаты.</div><div class="timeline-source">Показания Alberto Alvarez · People v. Murray</div></div>
+        <div class="timeline-item timeline-item--critical"><div class="timeline-time">12:20:18</div><div class="timeline-event">Вызов 911 <span class="badge badge--fact">Запись 911</span></div><div class="timeline-detail">Звонок сделал Альберто Альварес. В разговоре названы ключевые признаки: пациент без сознания, не дышит, находится на кровати; рядом есть личный врач. Пропофол в разговоре не упоминается.</div><div class="call-minimal"><p><strong>Оператор 911:</strong> Пожарно-медицинская служба 33. Какой адрес чрезвычайной ситуации?</p><p><strong>Звонивший:</strong> Мне нужна скорая как можно скорее. У нас здесь мужчина, которому нужна помощь. Он не дышит.</p><p><strong>Оператор:</strong> Он на полу? Где он сейчас?</p><p><strong>Звонивший:</strong> Он на кровати. У нас здесь с ним личный врач.</p><p><strong>Ключевой смысл:</strong> диспетчеру сообщают о пациенте без сознания и без дыхания, но не сообщают о пропофоле.</p></div><div class="timeline-source">Запись вызова 911 · 25.06.2009 · 12:20:18 · длительность около 163 секунд</div></div>
+        <div class="timeline-item timeline-item--critical"><div class="timeline-time">12:26</div><div class="timeline-event">Прибытие парамедиков LAFD <span class="badge badge--fact">Станция 71</span></div><div class="timeline-detail">Парамедики прибыли через несколько минут после вызова. Были зафиксированы отсутствие дыхания и пульса, асистолия, расширенные сухие зрачки и холодная кожа. Мюррей не сообщил о пропофоле, упомянув лоразепам.</div><div class="medical-chain"><div class="medical-step"><b>12:26</b><span>прибытие LAFD</span></div><div class="medical-step"><b>12:29</b><span>первичная оценка: асистолия</span></div><div class="medical-step"><b>ACLS</b><span>интубация, препараты, реанимация</span></div><div class="medical-step"><b>анамнез</b><span>пропофол не назван</span></div></div><div class="timeline-source">Показания Richard Senneff · Martin Blount · People v. Murray</div></div>
+        <div class="timeline-item timeline-item--key"><div class="timeline-time">~13:07–13:14</div><div class="timeline-event">Доставка в UCLA <span class="badge badge--fact">ER</span></div><div class="timeline-detail">Джексон был доставлен в Ronald Reagan UCLA Medical Center. Реанимацию продолжили доктор <strong>Ришель Купер</strong>, доктор <strong>Тао Нгуен</strong> и команда экстренной помощи. По показаниям врачей, Мюррей вновь не сообщил о пропофоле.</div><div class="timeline-source">Показания Richelle Cooper · Thao Nguyen · People v. Murray</div></div>
+        <div class="timeline-item timeline-item--critical timeline-item--death"><div class="timeline-time">14:26 PDT · 25 июня</div><div class="timeline-event">Официальная смерть <span class="badge badge--fact">Свидетельство о смерти</span></div><div class="timeline-detail">Смерть Майкла Джексона официально констатирована в Ronald Reagan UCLA Medical Center. В последующей поправке коронера место смерти изменено на Carolwood Drive, а механизм указан как <strong>“Intravenous injection by another”</strong>.</div><div class="timeline-source">Свидетельство №3052009085414 · Поправка коронера №109007159 · 31.08.2009</div></div>
+      </div><!-- /timeline -->
+      <hr class="divider" />
+      <div class="section-header fade-in"><span class="section-eyebrow">Фармакология</span><h2 class="section-title">Фармакологическая картина ночи</h2></div><p class="pharma-intro fade-in">Табличный формат заменён карточками, но дозы, концентрации и терапевтические диапазоны сохранены.</p><div class="pharma-summary fade-in"><div class="pharma-summary-item"><span class="pharma-summary-num">6</span><span class="pharma-summary-label">препаратов и веществ в реконструкции ночи</span></div><div class="pharma-summary-item"><span class="pharma-summary-num">3</span><span class="pharma-summary-label">бензодиазепина: диазепам, лоразепам, мидазолам</span></div><div class="pharma-summary-item"><span class="pharma-summary-num">2</span><span class="pharma-summary-label">анестетика / сопутствующих: пропофол и лидокаин</span></div><div class="pharma-summary-item"><span class="pharma-summary-num">0</span><span class="pharma-summary-label">Демерол / меперидин не обнаружен</span></div></div>
+      <div class="pharma-block fade-in"><h3 class="pharma-block-title">Что вводилось и когда</h3><p class="pharma-block-subtitle">Данные основаны на версии Конрада Мюррея из полицейского допроса.</p><div class="pharma-grid"><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Диазепам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">длительного действия · перорально</div><div class="pharma-big pharma-big--gold">10 мг</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~01:30</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Лоразепам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">средней продолжительности · IV</div><div class="pharma-big pharma-big--gold">2 мг × 2</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~02:00 и ~05:00</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Мидазолам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">быстродействующее седативное · IV</div><div class="pharma-big pharma-big--gold">2 мг × 2</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~03:00 и ~07:30</div></div></div></article><article class="pharma-card pharma-card--critical"><div class="pharma-card-top"><h4 class="pharma-name">Пропофол</h4><span class="pharma-tag pharma-tag--critical">Анестетик</span></div><div class="pharma-type">внутривенный анестетик · гипнотик</div><div class="pharma-big pharma-big--critical">25 мг</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Время</div><div class="pharma-val">~10:40, по версии Мюррея</div></div><div class="pharma-row"><div class="pharma-key">Связка</div><div class="pharma-val">с лидокаином</div></div></div></article></div></div>
+      <div class="pharma-block fade-in"><h3 class="pharma-block-title">Что показала токсикология</h3><p class="pharma-block-subtitle">Данные токсикологии из отчёта коронера и показаний Dan Anderson.</p><div class="pharma-grid"><article class="pharma-card pharma-card--critical"><div class="pharma-card-top"><h4 class="pharma-name">Пропофол</h4><span class="pharma-tag pharma-tag--critical">Ключевой</span></div><div class="pharma-type">внутривенный анестетик · гипнотик</div><div class="pharma-big pharma-big--critical">2.6 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">2.6 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">3.2 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">UCLA</div><div class="pharma-val">4.1 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Печень</div><div class="pharma-val">6.2 мкг/г</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">2–4 мкг/мл (хирургия)</div></div></div></article><article class="pharma-card pharma-card--support"><div class="pharma-card-top"><h4 class="pharma-name">Лидокаин</h4><span class="pharma-tag pharma-tag--support">Сопутствующий</span></div><div class="pharma-type">местный анестетик</div><div class="pharma-big">0.84 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">0.84 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">0.68 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">UCLA</div><div class="pharma-val">0.51 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Печень</div><div class="pharma-val">0.45 мкг/г</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">1.5–6 мкг/мл</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Лоразепам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">анксиолитик / седативное</div><div class="pharma-big">0.169 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Бедро</div><div class="pharma-val">0.169 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">0.162 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">0.1–0.2 мкг/мл</div></div></div></article><article class="pharma-card"><div class="pharma-card-top"><h4 class="pharma-name">Мидазолам</h4><span class="pharma-tag">Бензодиазепин</span></div><div class="pharma-type">седативное</div><div class="pharma-big">4.6 мкг/мл</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Сердце</div><div class="pharma-val">4.6 мкг/мл</div></div><div class="pharma-row"><div class="pharma-key">Диапазон</div><div class="pharma-val">0.05–0.15 мкг/мл</div></div></div></article><article class="pharma-card pharma-card--support"><div class="pharma-card-top"><h4 class="pharma-name">Демерол (меперидин)</h4><span class="pharma-tag pharma-tag--support">Не обнаружен</span></div><div class="pharma-type">опиоидный анальгетик</div><div class="pharma-big">0</div><div class="pharma-list"><div class="pharma-row"><div class="pharma-key">Статус</div><div class="pharma-val">в токсикологии не обнаружен</div></div></div></article></div><p style="font-size:.77rem;color:var(--text-dim);margin:18px 0 0;font-family:var(--font-mono);">Dan Anderson, chief toxicologist LA Coroner · суд 6–7.10.2011 · Case 2009-04415</p></div>
+    </div>
+  </div>
+</section><!-- /tab1 -->
+
+<!-- TAB 2: ПРЕДЫСТОРИЯ -->
+<section class="tab-section" id="tab2">
+  <div class="section">
+    <div class="container">
+      <div class="hero" style="padding:60px 0 40px;border:none;">
+        <p class="hero-eyebrow">Контекст · 1984–24 июня 2009</p>
+        <h1 class="hero-title">До<br><em>24 июня</em></h1>
+        <p class="hero-subtitle">ОЖОГ PEPSI 1984 · МЮНХЕН 1999 · АПРЕЛЬ–ИЮНЬ 2009</p>
+      </div>
+      <div class="section-header"><span class="section-eyebrow">Хронология</span><h2 class="section-title">Ключевые события</h2></div>
+      <div class="timeline">
+
+        <div class="timeline-item timeline-item--key">
+          <div class="timeline-time">27 января 1984</div>
+          <div class="timeline-event">Ожог на съёмках рекламы Pepsi <span class="badge badge--fact">Факт</span></div>
+          <div class="timeline-detail">Shrine Auditorium, Лос-Анджелес. Пиротехника сработала преждевременно — волосы загорелись. Ожог 2-й степени скальпа (~6 см²). Лечение в <strong>Brotman Medical Center</strong>. Начало отношений с доктором <strong>Арнольдом Кляйном</strong>. Первые сильные анальгетики.</div>
+          <div class="timeline-source">Медкарта Brotman Medical Center 1984 · Показания AEG trial 2013</div>
+        </div>
+
+        <div class="timeline-item timeline-item--key">
+          <div class="timeline-time">27 июня 1999</div>
+          <div class="timeline-event">Инцидент в Мюнхене <span class="badge badge--fact">Медзапись</span></div>
+          <div class="timeline-detail">Концерт «Michael Jackson and Friends», Олимпийский стадион. Обрушился рабочий мост. Травмы спины. По показаниям в суде AEG 2013 — ключевое событие в хроническом болевом синдроме Джексона.</div>
+          <div class="timeline-source">Апелляция B252411 · Показания AEG trial 2013</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">Декабрь 2008</div>
+          <div class="timeline-event">Мюррей выписывает темазепам <span class="badge badge--fact">LAPD Item 151</span></div>
+          <div class="timeline-detail">22.12.2008 — темазепам 30 мг. Найден на тумбочке. Начало систематического применения бензодиазепинов под наблюдением Мюррея.</div>
+        </div>
+
+        <div class="timeline-item timeline-item--key">
+          <div class="timeline-time">6 апреля 2009</div>
+          <div class="timeline-event">Первая поставка пропофола на адрес Альварес <span class="badge badge--fact">Квитанции FedEx</span></div>
+          <div class="timeline-detail">Applied Pharmacy Services (Лас-Вегас) → квартира Николь Альварес в Санта-Монике.</div>
+          <div class="quote-block">
+            <p class="quote-en">"I sent the shipments to the Santa Monica address because Dr. Murray told me it was his official California medical office."</p>
+            <p class="quote-ru">«Я отправлял посылки на адрес в Санта-Монике, потому что доктор Мюррей сказал, что это его официальный медицинский офис в Калифорнии.»</p>
+            <p class="quote-author">— Тим Лопес, фармацевт Applied Pharmacy Services, суд 2011</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">Апрель–15 июня 2009</div>
+          <div class="timeline-event">255 флаконов пропофола <span class="badge badge--fact">Факт</span></div>
+          <div class="timeline-detail">130 × 100 мл + 125 × 20 мл = <strong>15.5 литров</strong>. Плюс 20 флаконов лоразепама и 60 мидазолама. На месте найдено только <strong>12 флаконов</strong>. Судьба 243 — открытый вопрос (DEA FOIA подан).</div>
+          <div class="timeline-source">Показания Tim Lopez · Апелляция B237677</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">18 апреля 2009</div>
+          <div class="timeline-event">Визит доктора Мецгера — отказ <span class="badge badge--fact">Стенограмма</span></div>
+          <div class="timeline-detail">Джексон просит IV-снотворное («juice»). Мецгер отказывает. Назначает клоназепам 1 мг и тразодон 50 мг — оба найдены позже на тумбочке (LAPD Items 155, 156).</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">10 мая 2009</div>
+          <div class="timeline-event">Запись смазанной речи Джексона <span class="badge badge--fact">iPhone Мюррея</span></div>
+          <div class="timeline-detail">Мюррей записывает голос Джексона на телефон. Речь почти неразборчива. Воспроизведена в первый день суда.</div>
+        </div>
+
+        <div class="timeline-item timeline-item--key">
+          <div class="timeline-time">14–24 июня 2009</div>
+          <div class="timeline-event">AEG: контракт, встречи, тревога <span class="badge badge--fact">Апелляция B252411</span></div>
+          <div class="timeline-detail">14 июня: первая встреча Филлипс + Мюррей + Джексон. Email Гонгауэра: «AEG платит, не Джексон». Черновики контракта (16, 19, 24 июня). 19 июня — email Ортеги: Джексон «would embarrass himself on stage». 20 июня — экстренная встреча, обсуждается психолог. 23 июня — лучшая репетиция.</div>
+          <div class="quote-block">
+            <p class="quote-en">"He was a basket case… no one is taking responsibility for him or caring for him."</p>
+            <p class="quote-ru">«Он был в расстроенном состоянии… никто не берёт на себя ответственность за него.»</p>
+            <p class="quote-author">— Kenny Ortega, email, 19 июня 2009</p>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-item--critical">
+          <div class="timeline-time">25 июня 2009</div>
+          <div class="timeline-event">Мюррей факсирует контракт — AEG и Джексон его не подписали</div>
+          <div class="timeline-detail">Контракт на $150 000/месяц так и остался незаверенным со стороны AEG и Джексона.</div>
+          <div class="timeline-source">Апелляция B252411 · Гражданский суд AEG 2013</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section><!-- /tab2 -->
+
+<!-- TAB 3: ПЕРВЫЕ 48 ЧАСОВ -->
+<section class="tab-section" id="tab3">
+  <div class="section">
+    <div class="container">
+      <div class="hero" style="padding:60px 0 40px;border:none;">
+        <p class="hero-eyebrow">Следственные действия · 25–29 июня 2009</p>
+        <h1 class="hero-title">Первые 48 часов<br><em>после смерти</em></h1>
+        <p class="hero-subtitle">LAPD · КОРОНЕР · АУТОПСИЯ · ДОПРОС МЮРРЕЯ · ОРДЕР НА ОБЫСК</p>
+      </div>
+      <div class="section-header"><span class="section-eyebrow">Хронология</span><h2 class="section-title">Действия следствия</h2></div>
+      <div class="timeline">
+
+        <div class="timeline-item timeline-item--critical">
+          <div class="timeline-time">14:26 — 25 июня</div>
+          <div class="timeline-event">Официальная смерть <span class="badge badge--fact">Свидетельство</span></div>
+          <div class="timeline-detail">Dr. Richelle Cooper, UCLA. Мюррей не упомянул пропофол — ни парамедикам, ни врачам UCLA. Подтверждено Dr. Nguyen и Dr. Cooper под присягой.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">15:38 — 25 июня</div>
+          <div class="timeline-event">Уведомление коронера <span class="badge badge--fact">Официально</span></div>
+          <div class="timeline-detail">Детектив LAPD <strong>W. Porche</strong> уведомил офис коронера. Первоначальная квалификация: «accidental vs. natural death». В 16:15 лейтенант коронера <strong>Ф. Коррал</strong> передал дело следователю Флик.</div>
+        </div>
+
+        <div class="timeline-item timeline-item--critical">
+          <div class="timeline-time">16:38 — 25 июня</div>
+          <div class="timeline-event">Мюррей покинул UCLA <span class="badge badge--fact">CCTV</span></div>
+          <div class="timeline-detail">Ушёл из ER — зафиксировано на CCTV. В 17:02 — в западном вестибюле. Предложил вписать в пресс-релиз «причина смерти неизвестна». Отказался подписывать свидетельство о смерти.</div>
+          <div class="timeline-source">Показания Amir Dan Rubin, COO UCLA</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">17:20 — 25 июня</div>
+          <div class="timeline-event">Следователь-коронер Флик в UCLA <span class="badge badge--fact">Показания Флик</span></div>
+          <div class="timeline-detail">Осмотр тела. Никаких следов травмы. 4 флакона крови (ID 3975944) → лаборатория коронера.</div>
+        </div>
+
+        <div class="timeline-item timeline-item--critical">
+          <div class="timeline-time">19:10–20:20 — 25 июня</div>
+          <div class="timeline-event">Первый осмотр Carolwood Drive <span class="badge badge--conflict">Нарушение протокола</span></div>
+          <div class="timeline-detail"><strong>Дом НЕ был опечатан как место преступления.</strong> LAPD: «медицинская ситуация». Джанет Джексон разрешили вывезти вещи через 2 дня.</div>
+          <div class="quote-block">
+            <p class="quote-en">"No investigation is perfect."</p>
+            <p class="quote-ru">«Ни одно расследование не бывает идеальным.»</p>
+            <p class="quote-author">— Элисса Флик, показания под присягой</p>
+          </div>
+          <div class="timeline-source">CBS News · Показания Флик · People v. Murray</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">26 июня 2009 · 10:00</div>
+          <div class="timeline-event">Аутопсия <span class="badge badge--fact">Отчёт коронера</span></div>
+          <div class="timeline-detail">Провёл <strong>Dr. Christopher Rogers</strong>, главный судебно-медицинский эксперт. Дело 2009-04415, 51 страница. Вывод: «Джексон был здоровее среднего человека своего возраста». Причина смерти — <strong>DEFERRED</strong> (ждёт токсикологии). Коронер Крейг Харви 27 июня публично: «признаков криминала нет».</div>
+          <div class="timeline-source">Отчёт коронера 2009-04415 · Bloomberg, 26.06.2009</div>
+        </div>
+
+        <div class="timeline-item timeline-item--critical">
+          <div class="timeline-time">27 июня 2009 · Ritz Carlton</div>
+          <div class="timeline-event">Допрос Мюррея — впервые называет пропофол <span class="badge badge--fact">Аудиозапись</span></div>
+          <div class="timeline-detail">Детективы <strong>Орландо Мартинес</strong> и <strong>Скотт Смит</strong> — 2 часа. Добровольно, с адвокатами. <strong>Через 2 дня после смерти — Мюррей впервые произносит слово «пропофол».</strong> Признаётся во введении 25 мг в 10:40.</div>
+          <div class="timeline-source">Запись допроса, воспроизведена на суде People v. Murray</div>
+        </div>
+
+        <div class="timeline-item timeline-item--key">
+          <div class="timeline-time">29 июня 2009</div>
+          <div class="timeline-event">Ордер SW №58834 · Изъятие медицинских сумок</div>
+          <div class="timeline-detail">Судья <strong>Charlaine F. Olmedo</strong>. Флик изымает три медицинские сумки из шкафа — <strong>через 4 дня после смерти</strong>. Синяя сумка Costco: пропофол, лидокаин, мидазолам, лоразепам.</div>
+          <div class="timeline-source">SW №58834 · Показания Флик · homicide.latimes.com</div>
+        </div>
+
+        <div class="timeline-item timeline-item--critical">
+          <div class="timeline-time">28 августа 2009</div>
+          <div class="timeline-event">Официальный вердикт: УБИЙСТВО <span class="badge badge--fact">Поправка коронера</span></div>
+          <div class="timeline-detail">HOMICIDE. Причина: острое отравление пропофолом. Поправка подписана 31.08.2009, зарегистрирована 01.09.2009 — за 2 дня до похорон. Документ: Фото IMG_1565.jpeg в файлах проекта.</div>
+          <div class="timeline-source">Поправка коронера №109007159</div>
+        </div>
+
+      </div>
+
+      <hr class="divider" />
+
+      <div class="section-header fade-in"><span class="section-eyebrow">Нераскрытые вопросы</span><h2 class="section-title">Что остаётся без ответа</h2></div>
+      <div class="questions-list fade-in">
+        <div class="question-item"><div class="question-num">01</div><div class="question-text">Куда делись 243 из 255 флаконов пропофола?</div><div class="question-known">На месте найдено только 12. Судьба 243 не установлена. DEA FOIA подан — июнь 2026.</div></div>
+        <div class="question-item"><div class="question-num">02</div><div class="question-text">Кому звонил Мюррей в 10:14–11:07?</div><div class="question-known">Четыре звонка зафиксированы в биллинге — личности абонентов не установлены в открытых материалах дела.</div></div>
+        <div class="question-item"><div class="question-num">03</div><div class="question-text">Пропофол вводился инфузией, а не болюсом 25 мг?</div><div class="question-known">Dr. Shafer (эксперт обвинения): концентрации указывают на длительную инфузию. Теория самовведения Джексоном «основана на предположениях» — апелляционный суд.</div></div>
+        <div class="question-item"><div class="question-num">04</div><div class="question-text">Приказ лейтенанта Стренга — ограничить расследование только Мюрреем?</div><div class="question-known">Детектив Смит показал под присягой что такой приказ был. Документальных подтверждений в открытом доступе нет. FOIA в LAPD не подан.</div></div>
+        <div class="question-item"><div class="question-num">05</div><div class="question-text">Результаты расследования DEA других врачей Джексона?</div><div class="question-known">DEA расследовало Кляйна и других. Результаты не публиковались. FOIA в DEA подан — ответ ожидается.</div></div>
+      </div>
+
+      <div class="section-header fade-in" style="margin-top:52px;"><span class="section-eyebrow">Активные запросы</span><h2 class="section-title">Статус государственных запросов</h2></div>
+      <div class="requests-list fade-in">
+        <div class="request-item">
+          <div>
+            <div class="request-org">LA County Department of Medical Examiner</div>
+            <div class="request-desc">CPRA-запрос (Закон Калифорнии о публичных записях)</div>
+            <div class="request-detail">Дело №2009-04415 · Дополнительные материалы аутопсии, записи коронера, цепочка хранения вещдоков</div>
+            <div class="request-date">Подан: 4 июня 2026 · info@me.lacounty.gov · Срок: ~14 июня 2026</div>
+          </div>
+          <div class="status-pill status-pill--waiting">Ожидание</div>
+        </div>
+        <div class="request-item">
+          <div>
+            <div class="request-org">Drug Enforcement Administration (DEA)</div>
+            <div class="request-desc">FOIA-запрос (Закон о свободе информации)</div>
+            <div class="request-detail">Applied Pharmacy Services · Регистрация DEA Мюррея · Расследование других врачей Джексона</div>
+            <div class="request-date">Подан: июнь 2026 · DEA.FOIA@dea.gov · Номер не присвоен</div>
+          </div>
+          <div class="status-pill status-pill--waiting">Ожидание</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section><!-- /tab3 -->
+
+<!-- TAB 4: РЕАКЦИЯ МИРА -->
+<section class="tab-section" id="tab4">
+  <div class="section">
+    <div class="container">
+      <div class="hero" style="padding:60px 0 40px;border:none;">
+        <p class="hero-eyebrow">Медиареакция · 25–29 июня 2009</p>
+        <h1 class="hero-title">Мир<br><em>остановился</em></h1>
+        <p class="hero-subtitle">TMZ · BBC · ПЕРВЫЙ КАНАЛ · УНІАН · 44 ВЕРИФИЦИРОВАННЫХ РЕАКЦИИ</p>
+      </div>
+
+      <div class="section-header"><span class="section-eyebrow">Хронология СМИ</span><h2 class="section-title">Как новость облетела мир</h2></div>
+      <div class="cards-grid fade-in">
+        <div class="card"><div class="card-label">14:26 PDT · UCLA Medical Center</div><div class="card-title">Официальная констатация смерти</div><div class="card-body">Dr. Richelle Cooper. Семья и СМИ ещё не знают.</div></div>
+        <div class="card"><div class="card-label">14:44 PDT · tmz.com</div><div class="card-title">TMZ — первым в мире</div><div class="card-body">«Michael Jackson Dies» — через 18 минут после официальной констатации. Источник утечки официально не установлен. Предположительно: персонал UCLA или скорой.</div></div>
+        <div class="card"><div class="card-label">~15:15 PDT · latimes.com</div><div class="card-title">Los Angeles Times подтверждает</div><div class="card-body">Первое традиционное СМИ. Сайт упал под нагрузкой. Twitter недоступен. AOL IM не работал 40 мин. Wikipedia — ~1M посетителей за час.</div></div>
+        <div class="card"><div class="card-label">~15:30–16:00 PDT</div><div class="card-title">CNN, NBC, ABC, CBS</div><div class="card-body">Экстренные выпуски. MTV и BET — круглосуточный показ клипов. Фарра Фосетт умерла тем же утром — Ларри Кинг: «К сожалению, она завтра будет на пятой странице».</div></div>
+        <div class="card"><div class="card-label">~22:00 BST · BBC</div><div class="card-title">Великобритания — экстренный выпуск</div><div class="card-body">BBC, Sky News, ITV News прерывают программы. Все национальные газеты меняют первые полосы. AEG объявляет о возврате 750 000 билетов (~£50 млн).</div></div>
+        <div class="card"><div class="card-label">26 июня · 12:02 МСК</div><div class="card-title">Первый канал, РИА Новости, Lenta.ru</div><div class="card-body">Первый канал выпустил новость с видеообращением Джермейна. РИА Новости — около полуночи МСК с пометкой «Срочно». Стихийный мемориал у посольства США на Новинском бульваре.</div></div>
+      </div>
+
+      <div class="section-header fade-in"><span class="section-eyebrow">Реакции · 44 верифицированных высказывания</span><h2 class="section-title">Что сказал мир</h2></div>
+      <div class="reactions-filter">
+        <button class="filter-btn active" onclick="filterReactions('all',this)">Все</button>
+        <button class="filter-btn" onclick="filterReactions('family',this)">Семья</button>
+        <button class="filter-btn" onclick="filterReactions('usa',this)">США</button>
+        <button class="filter-btn" onclick="filterReactions('uk',this)">Великобритания</button>
+        <button class="filter-btn" onclick="filterReactions('ru',this)">Россия</button>
+        <button class="filter-btn" onclick="filterReactions('ua',this)">Украина</button>
+        <button class="filter-btn" onclick="filterReactions('world',this)">Мир</button>
+        <button class="filter-btn" onclick="filterReactions('silent',this)">Промолчали</button>
+      </div>
+      <div class="reactions-grid" id="reactionsGrid">
+
+        <div class="reaction-card" data-country="family">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Джермейн Джексон</div><div class="reaction-role">Брат · пресс-конференция UCLA</div><div class="reaction-date">25.06.2009 · ~17:00–18:00 PDT</div></div></div>
+          <div class="reaction-quote-en">"My brother, the legendary King of Pop, Michael Jackson, has left us. His personal physician did everything possible to save him. ... May Allah be with you, Michael, always."</div>
+          <div class="reaction-quote-ru">«Мой брат, легендарный Король поп-музыки, Майкл Джексон, покинул нас.»</div>
+          <div class="reaction-source">UCLA newsroom · newsroom.ucla.edu</div>
+        </div>
+
+        <div class="reaction-card" data-country="family">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Джанет Джексон</div><div class="reaction-role">Сестра</div><div class="reaction-date">Июнь 2009 · BET Awards</div></div></div>
+          <div class="reaction-quote-en">"For you, Michael is an icon. For us, Michael is family."</div>
+          <div class="reaction-quote-ru">«Для вас Майкл — икона. Для нас Майкл — семья.»</div>
+          <div class="reaction-source">BET Awards 2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="family">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ла Тойя Джексон</div><div class="reaction-role">Сестра</div><div class="reaction-date">25–26 июня 2009</div></div></div>
+          <div class="reaction-quote-ru">Прибыла на Carolwood вечером 25 июня, присутствовала при осмотре коронера. Позже: «Его окружали плохие люди»</div>
+          <div class="reaction-source">Daily Mail · Michael Jackson Fandom Wiki</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Куинси Джонс</div><div class="reaction-role">Продюсер · Thriller, Off the Wall, Bad</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-quote-en">"I am absolutely devastated at this tragic and unexpected news. ... Today, I lost my little brother."</div>
+          <div class="reaction-quote-ru">«Я абсолютно опустошён. Сегодня я потерял моего младшего брата.»</div>
+          <div class="reaction-source">Rolling Stone, 25.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Дайана Росс</div><div class="reaction-role">Певица · близкий друг</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-quote-en">"I can't stop crying. This is so sudden and shocking. I just don't have words."</div>
+          <div class="reaction-quote-ru">«Я не могу перестать плакать. Это так внезапно и шокирует.»</div>
+          <div class="reaction-source">Rolling Stone, 25.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Элизабет Тейлор</div><div class="reaction-role">Актриса · ближайшая подруга</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-quote-en">Initially "too devastated to make a statement." Later: "My life feels so empty. I don't think anyone knew how much we loved each other."</div>
+          <div class="reaction-quote-ru">Изначально «слишком опустошена, чтобы говорить». Позже: «Моя жизнь кажется пустой.»</div>
+          <div class="reaction-source">СМИ · Twitter 2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Мадонна</div><div class="reaction-role">Певица</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-quote-en">"I can't stop crying over the sad news. The world has lost one of the greats, but his music will live on forever."</div>
+          <div class="reaction-quote-ru">«Мир потерял одного из великих, но его музыка будет жить вечно.»</div>
+          <div class="reaction-source">vz.ru · 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ашер</div><div class="reaction-role">Певец · ученик Джексона</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-quote-en">"I would not be the artist, performer, and philanthropist I am today without the influence of Michael."</div>
+          <div class="reaction-quote-ru">«Без влияния Майкла я бы никогда не стал тем артистом, которым являюсь сегодня.»</div>
+          <div class="reaction-source">BBC News, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Стиви Уандер</div><div class="reaction-role">Певец · близкий друг</div><div class="reaction-date">25.06 → 07.07.2009</div></div></div>
+          <div class="reaction-quote-en">Representative 25.06: "Stevie is not available for any comment. He is emotionally distraught and chose to be quiet." Staples Center memorial 07.07: "God must have needed him far more."</div>
+          <div class="reaction-quote-ru">Представитель: «Стиви сломлен и решил молчать.» Мемориал 7 июля: «Должно быть, Богу он был нужен намного больше.»</div>
+          <div class="reaction-source">СМИ · Staples Center Memorial 07.07.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Брук Шилдс</div><div class="reaction-role">Актриса · подруга с детства</div><div class="reaction-date">07.07.2009 · мемориал</div></div></div>
+          <div class="reaction-quote-en">"To the outside world Michael was a genius. To those who knew him personally, he was caring, funny, honest, pure, and non-judgmental... We need to look up and see him sitting on the crescent moon, smiling."</div>
+          <div class="reaction-quote-ru">«Для внешнего мира Майкл был гением. Для тех кто его знал — заботливым, смешным и честным. Нам нужно посмотреть вверх и увидеть его на полумесяце.»</div>
+          <div class="reaction-source">Staples Center Memorial, 07.07.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Барак Обама</div><div class="reaction-role">Президент США</div><div class="reaction-date">03.07.2009</div></div></div>
+          <div class="reaction-quote-en">"spectacular performer... I grew up on Michael Jackson's music... greatest entertainers"</div>
+          <div class="reaction-quote-ru">«Блестящий артист. Я вырос на его музыке.»</div>
+          <div class="reaction-source">AP · 03.07.2009 · vz.ru/news/2009/7/3/303664</div>
+        </div>
+
+        <div class="reaction-card" data-country="usa">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Арнольд Шварценеггер</div><div class="reaction-role">Губернатор Калифорнии</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-quote-en">"a great artist who never stopped pushing the boundaries of creativity"</div>
+          <div class="reaction-quote-ru">«Великий артист, никогда не переставал раздвигать границы творчества»</div>
+          <div class="reaction-source">Rolling Stone, 25.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="uk">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Гордон Браун</div><div class="reaction-role">Премьер-министр Великобритании</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-en">"This is very sad news for the millions of Michael Jackson fans in Britain and around the world. The prime minister's thoughts are with Michael Jackson's family at this time."</div>
+          <div class="reaction-quote-ru">«Очень печальная новость для миллионов поклонников. Мысли премьер-министра с семьёй Джексона.»</div>
+          <div class="reaction-source">Reuters · Guardian · BBC, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="uk">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Пол Маккартни</div><div class="reaction-role">Музыкант · Beatles</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-quote-en">"It's so sad and shocking. I feel privileged to have hung out and worked with Michael. He was a massively talented boy man with a gentle soul."</div>
+          <div class="reaction-quote-ru">«Так грустно и шокирует. Он был невероятно талантливым человеком с нежной душой.»</div>
+          <div class="reaction-source">beatlesbible.com, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="uk">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Элтон Джон</div><div class="reaction-role">Музыкант</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-quote-ru">На благотворительном балу посвятил Джексону «Candle In The Wind» и «Don't Let The Sun Go Down On Me»</div>
+          <div class="reaction-source">mjworld.net, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="uk">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ури Геллер</div><div class="reaction-role">Друг Джексона</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-quote-en">"I am absolutely devastated, very very sad. I am praying that his soul is now in heaven."</div>
+          <div class="reaction-quote-ru">«Я просто опустошён, очень грустен. Молюсь чтобы его душа была на небесах.»</div>
+          <div class="reaction-source">BBC, 25.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="world">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Николя Саркози</div><div class="reaction-role">Президент Франции</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">Узнал «с большим волнением». Назвал «человеком, который многое дал музыке и танцу», отметил «универсальность» артиста</div>
+          <div class="reaction-source">Французские СМИ, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="world">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">L'Osservatore Romano</div><div class="reaction-role">Официальная газета Ватикана</div><div class="reaction-date">26–27.06.2009</div></div></div>
+          <div class="reaction-quote-en">"Ma sarà morto davvero?"</div>
+          <div class="reaction-quote-ru">«Неужели он действительно умер?» — заголовок некролога. Рассматривали как поп-икону, сравнивали с мифом Элвиса.</div>
+          <div class="reaction-source">L'Osservatore Romano, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="world">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ёити Масудзоэ</div><div class="reaction-role">Министр здравоохранения Японии</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-en">"He was a superstar. It is an extremely tragic loss. He gave people around the world dreams and hope."</div>
+          <div class="reaction-quote-ru">«Он был суперзвездой. Невероятно трагическая потеря. Он подарил людям мира мечты и надежду.»</div>
+          <div class="reaction-source">Японские СМИ, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="world">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Жилберту Жил</div><div class="reaction-role">Музыкант · экс-министр культуры Бразилии</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-quote-en">"It makes me very sad to see such a great and incredible talent leave us so soon. I'll miss the King of Pop."</div>
+          <div class="reaction-quote-ru">«Мне очень грустно видеть как такой великий талант покидает нас так рано.»</div>
+          <div class="reaction-source">Бразильские СМИ, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="ru">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Алла Пугачёва</div><div class="reaction-role">Певица · концерт в Лос-Анджелесе</div><div class="reaction-date">28.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Он ушёл, не дождавшись своего прощального тура. Он положил на алтарь сцены всё своё здоровье, свою личную жизнь. Давайте встанем и просто молча постоим и помянем его…»</div>
+          <div class="reaction-source">VTT-субтитры видеозаписи концерта в Лос-Анджелесе, 28.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="ru">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Максим Галкин</div><div class="reaction-role">Артист (о реакции с Пугачёвой)</div><div class="reaction-date">26–27.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Для нас с Аллой это шокирующее, трагическое известие. Майкл Джексон был абсолютно гениальным человеком. Будучи 50-летним мужчиной он остался в душе ребёнком — это свидетельство чего-то неземного.»</div>
+          <div class="reaction-source">Комсомольская правда, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="ru">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Филипп Киркоров</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Общество сделало всё чтобы уничтожить его. Это звонок, после которого надо задуматься о том, как незаслуженно уничтожают людей.»</div>
+          <div class="reaction-source">РИА Новости, 26.06.2009 · ria.ru/20090626/175515607</div>
+        </div>
+
+        <div class="reaction-card" data-country="ru">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Дима Билан</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Такие люди рождаются раз в столетие, а то и реже. Он неповторим.»</div>
+          <div class="reaction-source">Комсомольская правда, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="ru">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Григорий Лепс</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Для большой популярной музыки это гигантская потеря. Его можно было не любить, можно было ненавидеть, но не признавать его выдающегося таланта нельзя.»</div>
+          <div class="reaction-source">Русское Радио · station.ru, 26.06.2009</div>
+        </div>
+
+        <div class="reaction-card" data-country="ua">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Василий Вовкун</div><div class="reaction-role">Министр культуры и туризма Украины</div><div class="reaction-date">26.06.2009 · 18:42</div></div></div>
+          <div class="reaction-quote-ru">«Со смертью Майкла Джексона ушла целая эпоха современной музыки. Думаю, имя Майкла Джексона, как и "Битлз", будет всегда оставаться на высоте. Украина присоединяется со своим соболезнованием ко всем, кто его знал, любил и уважал.»</div>
+          <div class="reaction-source">УНІАН, 26.06.2009, 18:42 · Первоисточник · Автор: Ксеня Лесів</div>
+        </div>
+
+        <div class="reaction-card" data-country="ua">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Нина Матвиенко</div><div class="reaction-role">Народная артистка Украины</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Майкл Джексон был уникальным певцом. Из этой жизни ушла очень вымученная душа. Я сегодня зажгу ему свечечку.»</div>
+          <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
+        </div>
+
+        <div class="reaction-card" data-country="ua">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Юрий Рыбчинский</div><div class="reaction-role">Поэт-песенник Украины</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Майкл Джексон — это человек, родившийся для песни. Он до смерти оставался большим ребёнком. Одно слово — эпоха.»</div>
+          <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
+        </div>
+
+        <div class="reaction-card" data-country="ua">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Андрей Кузьменко (Кузьма Скрябін)</div><div class="reaction-role">Музыкант · «Скрябін» · †02.02.2015</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Как бы к нему ни относились, Майкл Джексон был мегачеловеком. Именно с него началось огромное количество новых веяний в музыке. Мы все тоже собирались в Лондон. Для меня это шок!»</div>
+          <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
+        </div>
+
+        <div class="reaction-card" data-country="ua">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Олег Скрипка</div><div class="reaction-role">Лидер группы «ВВ»</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«В поп-музыке всегда существует баланс между талантом и маркетингом. В случае Майкла Джексона большой частью его успеха был талант. Для меня поп-музыка закончилась.»</div>
+          <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
+        </div>
+
+        <div class="reaction-card" data-country="ua">
+          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ани Лорак</div><div class="reaction-role">Певица</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-quote-ru">«Это действительно большая потеря. Даже после его смерти он будет жить в своей музыке. Мы все скорбим по нему.»</div>
+          <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
+        </div>
+
+        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
+          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Дмитрий Медведев</div><div class="reaction-role">Президент России</div></div></div>
+          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+          <div class="reaction-source">Консенсус 5 исследовательских отчётов deep research</div>
+        </div>
+
+        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
+          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Виктор Ющенко</div><div class="reaction-role">Президент Украины</div></div></div>
+          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+          <div class="reaction-source">Консенсус исследовательских отчётов</div>
+        </div>
+
+        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
+          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Александр Лукашенко</div><div class="reaction-role">Президент Беларуси</div></div></div>
+          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+          <div class="reaction-source">Консенсус исследовательских отчётов</div>
+        </div>
+
+        <div class="reaction-card" data-country="silent" style="border-left:2px solid var(--line);">
+          <div class="reaction-meta"><div class="reaction-info"><div class="reaction-name" style="color:var(--text-dim);">Королева Елизавета II</div><div class="reaction-role">Великобритания</div></div></div>
+          <div class="reaction-quote-ru" style="border-left-color:var(--line);color:var(--text-dim);">Официальных заявлений не зафиксировано</div>
+          <div class="reaction-source">Консенсус исследовательских отчётов</div>
+        </div>
+
+      </div><!-- /reactions-grid -->
+
+    </div>
+  </div>
+</section><!-- /tab4 -->
+
+
+<!-- TAB 5: ОБВИНЕНИЯ И ОПРАВДАНИЕ -->
+<section class="tab-section" id="tab5">
+  <div class="section">
+    <div class="container">
+      <div class="hero hero--appendix" style="padding:60px 0 42px;border:none;">
+        <p class="hero-eyebrow">Дополнительное расследование · вне дела 2009-04415</p>
+        <h1 class="hero-title">Обвинения<br><span>и оправдание</span></h1>
+        <p class="hero-lead">Отдельный биографический и репутационный контекст: обвинения 1993 года, уголовный процесс 2005 года, оправдательный вердикт присяжных и медийные обвинения после смерти Майкла Джексона.</p>
+        <p class="project-signature">Artur Random</p>
+      </div>
+
+      <div class="legal-box legal-box--innocence">
+        <div class="legal-box-title">Принцип раздела</div>
+        <p>Этот раздел не относится к делу о смерти Майкла Джексона 2009 года. Обвинения рассматриваются как обвинения, а не как установленные факты. В 2005 году Майкл Джексон был оправдан по всем пунктам уголовного дела. Задача раздела — отделить судебные итоги, документы и проверяемые факты от слухов, медийных интерпретаций и сенсационной подачи.</p>
+      </div>
+
+      <div class="case-outcome case-outcome--acquitted">
+        <div class="case-outcome-label">Юридический итог</div>
+        <div class="case-outcome-title">Оправдание по всем пунктам в 2005 году</div>
+        <p>Этот блок подаётся как дополнительное расследование и репутационный контекст, а не как часть реконструкции смерти 2009 года.</p>
+      </div>
+
+      <div class="case-tabs">
+        <button class="case-tab active" onclick="showCase('case1993',this)">1993 · гражданское урегулирование</button>
+        <button class="case-tab" onclick="showCase('case2005',this)">2005 · уголовный процесс</button>
+        <button class="case-tab" onclick="showCase('case2019',this)">2019 · медийные обвинения</button>
+      </div>
+
+      <!-- CASE 1993 -->
+      <div class="case-panel active" id="case1993">
+        <div class="cards-grid" style="margin-bottom:28px;">
+          <div class="card"><div class="card-label">Тип дела</div><div class="card-title">Гражданское (уголовное закрыто)</div><div class="card-body">Уголовных обвинений не предъявлено. Мировое соглашение ~$23 млн, январь 1994. Инициировано командой Джексона.</div></div>
+          <div class="card"><div class="card-label">Обвинитель</div><div class="card-title">Джордан Чандлер, 13 лет</div><div class="card-body">Никогда не давал показаний в уголовном суде. Дальнейшие сведения о его частной жизни не включены в подтверждённый корпус проекта.</div></div>
+          <div class="card"><div class="card-label">Ключевой документ</div><div class="card-title">Declaration of J. Chandler, 28.12.1993</div><div class="card-body">Юридическая декларация под угрозой уголовной ответственности. Детально описывает постепенную эскалацию.</div></div>
+        </div>
+        <div class="questions-list">
+          <div class="question-item"><div class="question-num"><span class="badge badge--fact">Установлено</span></div><div class="question-text">Финансовый мотив отца задокументирован</div><div class="question-known">Аудиозапись разговора Эвана Чандлера: «получу всё что хочу». Ранее требовал у Джексона помощи со сценарием фильма. Адвокат Барри Ротман — долги 30+ кредиторам.</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--fact">Установлено</span></div><div class="question-text">Мировое соглашение инициировано командой Джексона</div><div class="question-known">Подтверждено показаниями адвоката Ларри Фельдмана под присягой · суд 01.04.2005.</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--conflict">Противоречие</span></div><div class="question-text">Описание тела «обрезан» — противоречит аутопсии 2009</div><div class="question-known">Аутопсия 2009 года: Джексон не был обрезан. Адвокат Фельдман заблокировал использование фото досмотра в гражданском суде.</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--unknown">Не установлено</span></div><div class="question-text">Совпали ли показания с фотографиями телесного досмотра (20.12.1993)?</div><div class="question-known">Результаты засекречены. Фото заблокированы для суда. Доступа нет.</div></div>
+        </div>
+      </div>
+
+      <!-- CASE 2005 -->
+      <div class="case-panel" id="case2005">
+        <div class="cards-grid" style="margin-bottom:28px;">
+          <div class="card"><div class="card-label">Дело</div><div class="card-title">People v. Jackson №1133603</div><div class="card-body">Оправдан по всем 14 пунктам обвинения. 13 июня 2005.</div></div>
+          <div class="card"><div class="card-label">Системная связь 1993–2005</div><div class="card-title">Один адвокат · один психолог · один прокурор</div><div class="card-body">Фельдман (гонорар успеха), Кац (двойной конфликт интересов), Снеддон (оба дела). Фельдман признал: обвинительный приговор автоматически выиграл бы гражданский иск.</div></div>
+          <div class="card"><div class="card-label">Обвинитель</div><div class="card-title">Гэвин Арвизо, 13 лет</div><div class="card-body">Задокументированная история манипуляций семьи. Показания менялись между DCFS, Большим жюри и судом.</div></div>
+        </div>
+        <div class="questions-list">
+          <div class="question-item"><div class="question-num"><span class="badge badge--fact">Установлено</span></div><div class="question-text">Оправдание 2005 — юридически обоснованное</div><div class="question-known">Семья Арвизо: история манипуляций (JCPenney $152K, welfare fraud — пятая поправка). Большинство свидетелей обвинения имели финансовые претензии к Джексону. Психолог Кац не проверял историю семьи до оценки показаний.</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--fact">Установлено бесспорно</span></div><div class="question-text">Алкоголь несовершеннолетним</div><div class="question-known">Три независимых источника: Салас, Арвизо, Монтгомери. Маскировка вина в банки из-под газировки.</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--fact">Установлено бесспорно</span></div><div class="question-text">Ограничение свободы семьи Арвизо</div><div class="question-known">Три независимых подтверждения. Запись в журнале ворот: «детям нельзя уезжать». Билеты в Бразилию в один конец (показания Монтгомери).</div></div>
+        </div>
+      </div>
+
+      <!-- CASE 2019 -->
+      <div class="case-panel" id="case2019">
+        <div class="cards-grid" style="margin-bottom:28px;">
+          <div class="card"><div class="card-label">Фильм</div><div class="card-title">Leaving Neverland (2019, HBO)</div><div class="card-body">Обвинения Уэйда Робсона и Джеймса Сейфчака. Режиссёр Дэн Рид.</div></div>
+          <div class="card"><div class="card-label">Гражданский иск</div><div class="card-title">$400 млн · MJJ Productions и MJJ Ventures</div><div class="card-body">Не против Джексона лично. Перенесён на 14 февраля 2028 года.</div></div>
+          <div class="card"><div class="card-label">Иск Робсона</div><div class="card-title">Отклонён (2013–2015)</div><div class="card-body">4 переписывания исковых претензий. Постановление судьи Беклоффа 26.05.2015: Робсон знал о наследстве с февраля 2011, лгал об этом.</div></div>
+        </div>
+        <div class="questions-list">
+          <div class="question-item"><div class="question-num"><span class="badge badge--fact">Установлено</span></div><div class="question-text">Робсон дважды отрицал насилие под присягой в 2005</div><div class="question-known">Стенограмма суда 05.05.2005. В 2013 изменил позицию. Три разные версии «почему молчал»: стыд → не осознавал → боялся реакции. Записи дневника: «настало время получить своё».</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--conflict">Архитектурное опровержение</span></div><div class="question-text">Главная железнодорожная станция Неверленда не существовала в 1988–1992</div><div class="question-known">Строительные чертежи: штамп «APPROVED SEP 11 1993», округ Санта-Барбара. Завершена 1994. Джексон впервые увидел её в 1995. Сейфчак утверждал: насилие происходило там в 1988–1992.</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--conflict">Хронологическое несоответствие</span></div><div class="question-text">Грэмми 1989 проходила в Лос-Анджелесе, а не в Нью-Йорке</div><div class="question-known">Сейфчак: насилие в нью-йоркском отеле во время Грэмми 1989. Грэмми 1989 — LA Shrine Auditorium. Джексон не выступал.</div></div>
+          <div class="question-item"><div class="question-num"><span class="badge badge--conflict">Вещественное несоответствие</span></div><div class="question-text">Кольца «от Джексона» — та же модель что на Emmy 2019</div><div class="question-known">Сцена с кольцами снята последней — через 17 месяцев после остального материала. Другая мебель в кадре. Кольца соответствуют взрослому пальцу.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section><!-- /tab5 -->
+
+<!-- TAB 6: НАСЛЕДИЕ В ЦИФРАХ -->
+<section class="tab-section" id="tab6">
+  <div class="section">
+    <div class="container">
+      <div class="hero hero--metrics" style="padding:60px 0 42px;border:none;">
+        <p class="hero-eyebrow">Актуальный срез · 2026</p>
+        <h1 class="hero-title">Наследие<br><span>в цифрах</span></h1>
+        <p class="hero-lead">Фильм, музыка, рейтинги, поисковый интерес и медиаприсутствие Майкла Джексона в 2026 году: данные, которые показывают, что его фигура остаётся частью мировой культуры.</p>
+        <p class="project-signature">Artur Random</p>
+      </div>
+
+      <div class="section-header fade-in"><span class="section-eyebrow">17 лет спустя · 14–16 июня 2026</span><h2 class="section-title">Фильм «Майкл» и возрождение интереса</h2></div>
+
+      <div class="metrics-hero fade-in">
+        <div class="metrics-big">$934 009 960</div>
+        <div class="metrics-label">Мировые кассовые сборы · the-numbers.com · 16.06.2026</div>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="m-num">$362.8M</div><div class="m-label">США (Lionsgate)</div></div>
+          <div class="metric-item"><div class="m-num">$571.2M</div><div class="m-label">Международные сборы</div></div>
+          <div class="metric-item"><div class="m-num">6.0×</div><div class="m-label">Окупаемость ($155M бюджет)</div></div>
+          <div class="metric-item"><div class="m-num">127 мин</div><div class="m-label">Хронометраж · PG-13</div></div>
+          <div class="metric-item"><div class="m-num">3 955</div><div class="m-label">Залов открытие (США)</div></div>
+          <div class="metric-item"><div class="m-num">~$1B</div><div class="m-label">Прогноз с Японией</div></div>
+        </div>
+      </div>
+
+      <div class="cards-grid fade-in">
+        <div class="card"><div class="card-label">Россия · ЕАИС · 25.06.2026</div><div class="card-stat">1 111 802 271 ₽</div><div class="card-body">Общие сборы. #1 среди зарубежных (с мая 2026). #1 в России в июне 2026 (785 357 331 ₽ за месяц). 1 415 кинотеатров · 101 574 сеанса. Старт 28 мая.</div></div>
+        <div class="card"><div class="card-label">Украина · Box Office Mojo</div><div class="card-stat">$1 964 966</div><div class="card-body">С премьеры 22 апреля 2026. Открытие: $452 434. 172 кинотеатра. #1 в Украине за 2026 год. Дистрибьютор: B&amp;H Film Distribution.</div></div>
+        <div class="card"><div class="card-label">Беларусь · Кинобизнес сегодня</div><div class="card-stat">~33.8 млн руб.</div><div class="card-body">Расчётная сумма к 14 июня (разность 1112.7 − 1078.9 млн руб. в агрегате). Премьера 28 мая 2026.</div></div>
+        <div class="card"><div class="card-label">Япония · 映画.com · 15.06.2026</div><div class="card-stat">1 090 023 220 ¥</div><div class="card-body">За 12–14 июня. 672 056 зрителей. #1 старт среди зарубежных в 2026. С IMAX предпоказами ~1.2 млрд иен. Прогноз итого: $50–60M.</div></div>
+      </div>
+
+      <div class="section-header fade-in"><span class="section-eyebrow">Критики vs Зрители</span><h2 class="section-title">Полярность оценок</h2></div>
+      <div class="rating-split fade-in">
+        <div class="rating-half rating-half--critics">
+          <div class="r-label">Профессиональные критики · Rotten Tomatoes</div>
+          <div class="r-pct">38%</div>
+          <div class="r-label">Топ-критики: 25% · Metacritic: 39/100</div>
+          <div class="r-detail">«Снятый на камеру плейлист в поисках сюжета» — Роберт Дэниелс, RogerEbert.com</div>
+        </div>
+        <div class="rating-half rating-half--audience">
+          <div class="r-label">Зрители · Popcornmeter (25 000+ билетов)</div>
+          <div class="r-pct">97%</div>
+          <div class="r-label">IMDb: 7.6 · Кинопоиск: 8.0 · Filmarks: 4.2/5</div>
+          <div class="r-detail">Зритель проголосовал за ностальгию и катарсис</div>
+        </div>
+      </div>
+
+      <div class="section-header fade-in" style="margin-top:44px;"><span class="section-eyebrow">Стриминг · 14–16 июня 2026</span><h2 class="section-title">Цифры наследия</h2></div>
+      <div class="cards-grid fade-in">
+        <div class="card"><div class="card-label">Spotify · 14.06.2026 (скрин)</div><div class="card-stat">112 121 656</div><div class="card-body">Слушателей в месяц. Billie Jean: 2 918 807 193 прослуш. Beat It: 1 907 272 539. Chicago: 738 368 311.</div></div>
+        <div class="card"><div class="card-label">Яндекс Музыка · 14.06.2026 (скрин)</div><div class="card-stat">4 306 205</div><div class="card-body">Слушателей в месяц. Рост +1 563 837 за 28 дней. Billie Jean — 16-е место в чарте.</div></div>
+        <div class="card"><div class="card-label">Songstats · все платформы (скрин)</div><div class="card-stat">43.1B</div><div class="card-body">Стримов всего. 198M подписчиков. 70.1B просмотров видео. 181M Shazam. Billie Jean: популярность 99%.</div></div>
+      </div>
+
+      <div class="section-header fade-in"><span class="section-eyebrow">Яндекс Вордстат · май–июнь 2026</span><h2 class="section-title">Поисковое цунами</h2></div>
+      <div class="trend-bars fade-in" id="trendBars">
+        <div class="trend-bar-item"><div class="trend-bar-label">Фоновый уровень (до 28 мая)</div><div class="trend-bar-track"><div class="trend-bar-fill" style="--w:13.6%;background:var(--text-dim);"></div></div><div class="trend-bar-val">34 783/д</div></div>
+        <div class="trend-bar-item"><div class="trend-bar-label">28 мая — старт проката в России</div><div class="trend-bar-track"><div class="trend-bar-fill" style="--w:49%;background:var(--orange);"></div></div><div class="trend-bar-val">124 773/д</div></div>
+        <div class="trend-bar-item"><div class="trend-bar-label">12 июня — абсолютный пик (×7.3)</div><div class="trend-bar-track"><div class="trend-bar-fill" style="--w:100%;background:var(--gold);"></div></div><div class="trend-bar-val">255 202/д</div></div>
+        <div class="trend-bar-item" style="margin-top:14px;"><div class="trend-bar-label">«майкл джексон фильм»</div><div class="trend-bar-track"><div class="trend-bar-fill" style="--w:100%;background:var(--blue);"></div></div><div class="trend-bar-val">587 000</div></div>
+        <div class="trend-bar-item"><div class="trend-bar-label">«майкл джексон песни»</div><div class="trend-bar-track"><div class="trend-bar-fill" style="--w:51%;background:var(--blue);"></div></div><div class="trend-bar-val">299 000</div></div>
+        <div class="trend-bar-item"><div class="trend-bar-label">«дети майкла джексона»</div><div class="trend-bar-track"><div class="trend-bar-fill" style="--w:26%;background:var(--blue);"></div></div><div class="trend-bar-val">153 000</div></div>
+        <div class="trend-bar-item"><div class="trend-bar-label">«майкл джексон жив» (конспирология)</div><div class="trend-bar-track"><div class="trend-bar-fill" style="--w:9%;background:var(--red);"></div></div><div class="trend-bar-val">51 000</div></div>
+      </div>
+
+    </div>
+  </div>
+</section><!-- /tab6 -->
+
+
+
+<!-- TAB 7: КОРПУС ИСТОЧНИКОВ -->
+<section class="tab-section" id="tab7">
+  <div class="section">
+    <div class="container">
+      <div class="hero hero--corpus" style="padding:60px 0 42px;border:none;">
+        <p class="hero-eyebrow">Методология · обновляемый корпус</p>
+        <h1 class="hero-title">Корпус<br><span>источников</span></h1>
+        <p class="hero-lead">Количество обработанных источников и материалов, сгруппированных по типу: судебные документы, медицинские материалы, следственные данные, медиа, технические записи и дополнительные расследования. Раздел обновляется по мере уточнения корпуса.</p>
+        <p class="project-signature">Artur Random</p>
+      </div>
+
+      <div class="corpus-total">
+        <div class="corpus-total-number" data-corpus-total>—</div>
+        <div class="corpus-total-text">единиц обработанного корпуса. Главный принцип раздела: только числа и категории, без длинных списков документов.</div>
+      </div>
+
+      <div class="corpus-columns" id="corpusColumns"></div>
+    </div>
+  </div>
+</section><!-- /tab7 -->
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-col-title">Проект</div>
+        <p class="footer-text">Независимая реконструкция последних суток Майкла Джексона, первых следственных действий и мировой реакции на его смерть.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Материалы</div>
+        <p class="footer-text">Хронология составлена по судебным материалам, медицинским документам, показаниям, медиаархивам, техническим данным и открытым источникам.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Автор</div>
+        <p class="footer-text footer-author-name">Artur Random</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">© 2026 · Artur Random · Дело 2009-04415</div>
+  </div>
+</footer>
+
+<script>
+  const sourceCorpus = {
+    totalLabel: '100+',
+    totalText: 'источников, документов, стенограмм и материалов в рабочем корпусе',
+    items: [
+      { count: '100 000+', title: 'Строк судебного текста',
+        caption: 'стенограммы, показания, апелляционные решения' },
+      { count: '100+', title: 'Стенограмм и протокольных файлов',
+        caption: 'дела People v. Murray, AEG trial, LAPD' },
+      { count: '51', title: 'Страница отчёта коронера',
+        caption: 'дело №2009-04415 · Dr. Christopher Rogers' },
+      { count: '68', title: 'Страниц апелляционного решения',
+        caption: 'B237677 · People v. Murray' },
+      { count: '8', title: 'Файлов ФБР',
+        caption: 'архивные материалы 1992–2004 годов' },
+      { count: '89', title: 'Материалов по обвинениям и оправданию',
+        caption: 'судебные стенограммы, документы, медиа' },
+      { count: '2', title: 'Активных государственных запроса',
+        caption: 'CPRA (коронер) и FOIA (DEA) · 2026' }
+    ]
+  };
+
+  function renderCorpus() {
+    const totalEl = document.querySelector('[data-corpus-total]');
+    if (totalEl) totalEl.textContent = sourceCorpus.totalLabel;
+    const textEl = document.querySelector('.corpus-total-text');
+    if (textEl) textEl.textContent = sourceCorpus.totalText;
+    const root = document.getElementById('corpusColumns');
+    if (!root) return;
+    root.innerHTML = '<section class="corpus-group" style="grid-column:1/-1"><div class="corpus-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">' +
+      sourceCorpus.items.map(function(item) {
+        return '<article class="corpus-card"><div class="corpus-number">' + item.count +
+          '</div><div class="corpus-title">' + item.title +
+          '</div><div class="corpus-caption">' + item.caption + '</div></article>';
+      }).join('') +
+      '</div></section>';
+  }
+
+  var TAB_HASHES = {
+    home: '',
+    tab1: 'last-24-hours',
+    tab2: 'before-june-24',
+    tab3: 'first-48-hours',
+    tab4: 'world-reaction',
+    tab5: 'accusations-and-acquittal',
+    tab6: 'legacy-in-numbers',
+    tab7: 'sources'
+  };
+  var HASH_TABS = {};
+  Object.keys(TAB_HASHES).forEach(function(k) {
+    if (TAB_HASHES[k]) HASH_TABS[TAB_HASHES[k]] = k;
+  });
+
+  function showTab(tabId, el) {
+    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById(tabId);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('.nav-tabs a').forEach(a => a.classList.remove('active'));
+    const activeLink = el || document.querySelector(`.nav-tabs a[data-tab="${tabId}"]`);
+    if (activeLink) activeLink.classList.add('active');
+    const nav = document.getElementById('navTabs');
+    if (nav) nav.classList.remove('open');
+    window.scrollTo({top:0,behavior:'smooth'});
+    document.body.classList.remove('death-focus');
+    document.body.classList.toggle('home-active', tabId === 'home');
+    if (tabId === 'tab6') setTimeout(animBars, 250);
+    if (tabId === 'tab7') renderCorpus();
+    var hash = TAB_HASHES[tabId];
+    history.pushState(null, '', hash ? '#' + hash : location.pathname + location.search);
+  }
+
+  function scrollActiveTop() {
+    const active = document.querySelector('.tab-section.active');
+    const top = active ? Math.max(active.getBoundingClientRect().top + window.scrollY - 58, 0) : 0;
+    window.scrollTo({top, behavior:'smooth'});
+  }
+
+  function initMemorialBackground() {
+    const root = document.documentElement;
+    const update = () => {
+      const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const t = window.scrollY / max;
+      root.style.setProperty('--spot1-x', (12 + Math.sin(t * 5.0) * 8).toFixed(2) + '%');
+      root.style.setProperty('--spot1-y', (18 + Math.cos(t * 4.0) * 10).toFixed(2) + '%');
+      root.style.setProperty('--spot2-x', (84 + Math.sin(t * 4.6 + 1.4) * 7).toFixed(2) + '%');
+      root.style.setProperty('--spot2-y', (40 + Math.cos(t * 5.2 + 1.1) * 12).toFixed(2) + '%');
+      root.style.setProperty('--spot3-x', (52 + Math.sin(t * 3.2 + 2.2) * 12).toFixed(2) + '%');
+      root.style.setProperty('--spot3-y', (82 + Math.cos(t * 3.7 + 2.0) * 8).toFixed(2) + '%');
+    };
+    window.addEventListener('scroll', update, { passive:true });
+    update();
+  }
+
+  function toggleMenu() {
+    document.getElementById('navTabs').classList.toggle('open');
+  }
+
+  function showCase(id, el) {
+    document.querySelectorAll('.case-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (el) el.classList.add('active');
+  }
+
+  function filterReactions(country, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.reaction-card').forEach(c => {
+      c.style.display = (country === 'all' || c.dataset.country === country) ? '' : 'none';
+    });
+  }
+
+  function initAnim() {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.timeline-item, .fade-in').forEach(el => io.observe(el));
+  }
+
+  function initDeathFocus() {
+    const deathItem = document.querySelector('.timeline-item--death');
+    if (!deathItem) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const tab1Active = document.getElementById('tab1')?.classList.contains('active');
+        document.body.classList.toggle('death-focus', entry.isIntersecting && tab1Active);
+      });
+    }, { threshold: 0.52 });
+    observer.observe(deathItem);
+  }
+
+  function animBars() {
+    document.querySelectorAll('.trend-bar-fill').forEach(b => b.classList.add('go'));
+  }
+
+  function initProgress() {
+    const bar = document.getElementById('readProgress');
+    if (!bar) return;
+    const update = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      bar.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', update, { passive:true });
+    update();
+  }
+
+  function initReactionCountries() {
+    const map = {
+      family: { flag:'◇', name:'Семья' },
+      usa: { flag:'🇺🇸', name:'США' },
+      uk: { flag:'🇬🇧', name:'Великобритания' },
+      ru: { flag:'🇷🇺', name:'Россия' },
+      ua: { flag:'🇺🇦', name:'Украина' },
+      world: { flag:'🌍', name:'Мир' },
+      silent: { flag:'—', name:'Официального заявления не найдено' }
+    };
+    document.querySelectorAll('.reaction-card').forEach(card => {
+      const info = card.querySelector('.reaction-info');
+      if (!info || info.querySelector('.reaction-country')) return;
+      const item = map[card.dataset.country] || { flag:'•', name:card.dataset.country || 'Источник' };
+      const node = document.createElement('div');
+      node.className = 'reaction-country';
+      node.innerHTML = `<span class="flag">${item.flag}</span><span>${item.name}</span>`;
+      const date = info.querySelector('.reaction-date');
+      if (date) info.insertBefore(node, date); else info.appendChild(node);
+    });
+  }
+
+  function initAvatars() {
+    document.querySelectorAll('.reaction-card').forEach(function(card) {
+      var avatar = card.querySelector('.reaction-avatar');
+      if (!avatar || avatar.querySelector('img')) return;
+      var nameEl = card.querySelector('.reaction-name');
+      if (!nameEl) return;
+      var words = nameEl.textContent.trim().split(/\s+/).filter(Boolean);
+      var initials = (words[0] ? words[0][0] : '').toUpperCase();
+      if (words.length > 1) initials += (words[words.length - 1][0] || '').toUpperCase();
+      avatar.textContent = initials;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    var initHash = location.hash.slice(1);
+    var initTab = HASH_TABS[initHash] || 'home';
+    initAnim();
+    initProgress();
+    initDeathFocus();
+    initReactionCountries();
+    initAvatars();
+    initMemorialBackground();
+    renderCorpus();
+    if (initTab !== 'home') {
+      showTab(initTab, document.querySelector('[data-tab="' + initTab + '"]'));
+    } else {
+      document.body.classList.add('home-active');
+      var first = document.querySelector('.nav-tabs a[data-tab="home"]');
+      if (first) first.classList.add('active');
+    }
+  });
+</script>
+</body>
+</html>
