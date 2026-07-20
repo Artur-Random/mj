@@ -1016,6 +1016,11 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo" onclick="showTab('home',this);return false;">MJ: <span>ещё не всё…</span></a>
+    <div class="lang-switch" aria-label="Выбор языка">
+      <a href="index.html" class="active">RU</a>
+      <a href="index.en.html" onclick="this.href='index.en.html'+location.hash">EN</a>
+      <a href="index.uk.html" onclick="this.href='index.uk.html'+location.hash">UK</a>
+    </div>
     <ul class="nav-tabs" id="navTabs">
       <li><a href="#" class="active" data-tab="home" onclick="showTab('home',this);return false;">Главная</a></li>
       <li><a href="#" data-tab="tab1" onclick="showTab('tab1',this);return false;">Последние 24 часа</a></li>
