@@ -52,7 +52,7 @@
       --text:#f3f1ec;
       --text-mid:#cbc8c0;
       --text-dim:#908d87;
-      --text-faint:#6f6b65;
+      --text-faint:#7c7871;
       --font-display:'PT Serif',Georgia,serif;
       --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       --font-mono:'Share Tech','Inter',system-ui,sans-serif;
@@ -201,7 +201,7 @@
     .timeline-item--death .timeline-event::after { content:""; display:block; width:min(340px,72vw); height:1px; margin-top:14px; background:linear-gradient(90deg, var(--red), rgba(212,72,60,.25), transparent); }
     .timeline-time { font-family:var(--font-mono); font-size:.88rem; color:var(--gold-soft); letter-spacing:.09em; margin-bottom:8px; text-transform:uppercase; }
     .timeline-event { font-family:var(--font-display); font-size:clamp(1.22rem,3vw,1.62rem); font-weight:700; color:var(--text); margin-bottom:10px; line-height:1.22; }
-    .timeline-detail { font-size:1rem; color:var(--text-mid); line-height:1.76; max-width:820px; }
+    .timeline-detail { font-size:1rem; color:var(--text-mid); line-height:1.76; max-width:620px; }
     .timeline-detail strong { color:var(--text); }
     .timeline-source { display:block; margin-top:12px; font-family:var(--font-mono); font-size:.77rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); line-height:1.55; padding-top:10px; border-top:1px solid rgba(255,255,255,.075); }
 
@@ -267,7 +267,7 @@
 
     /* REACTIONS */
     .reactions-filter { display:flex; gap:9px; flex-wrap:wrap; margin-bottom:30px; }
-    .filter-btn { padding:9px 14px; font-family:var(--font-mono); font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:999px; color:var(--text-dim); cursor:pointer; transition:all .2s; }
+    .filter-btn { padding:9px 14px; font-family:var(--font-mono); font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:999px; color:var(--text-dim); cursor:pointer; transition:border-color .2s, color .2s, background-color .2s; }
     .filter-btn:hover,.filter-btn.active { border-color:var(--gold); color:var(--gold); background:rgba(214,184,90,.07); }
     .reactions-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; background:transparent; border:none; margin-bottom:46px; }
     .reaction-card { background:transparent; padding:22px 0; border:0; border-top:1px solid rgba(255,255,255,.10); border-radius:0; box-shadow:none; }
@@ -328,7 +328,7 @@
 
     /* CASE TABS / LEGAL */
     .case-tabs { display:flex; border-bottom:1px solid var(--line); margin-bottom:36px; flex-wrap:wrap; gap:8px; }
-    .case-tab { padding:12px 18px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); cursor:pointer; border:1px solid transparent; border-bottom:2px solid transparent; border-radius:14px 14px 0 0; transition:all .2s; background:rgba(255,255,255,.025); }
+    .case-tab { padding:12px 18px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); cursor:pointer; border:1px solid transparent; border-bottom:2px solid transparent; border-radius:14px 14px 0 0; transition:color .2s, border-color .2s, border-bottom-color .2s, background-color .2s; background:rgba(255,255,255,.025); }
     .case-tab:hover,.case-tab.active { color:var(--gold); border-color:rgba(214,184,90,.24); border-bottom-color:var(--gold); background:rgba(214,184,90,.06); }
     .case-panel { display:none; }
     .case-panel.active { display:block; }
@@ -749,7 +749,7 @@
       line-height: 1.55;
       margin: 0;
     }
-    .cookie-banner a { color: var(--gold); text-decoration: underline; cursor: pointer; }
+    #openPolicyBannerBtn { background:none; border:none; padding:0; font:inherit; color: var(--gold); text-decoration: underline; cursor: pointer; }
     .cookie-btn {
       flex-shrink: 0;
       appearance: none;
@@ -1021,18 +1021,18 @@
       <a href="index.en.html" onclick="this.href='index.en.html'+location.hash">EN</a>
       <a href="index.uk.html" onclick="this.href='index.uk.html'+location.hash">UK</a>
     </div>
-    <ul class="nav-tabs" id="navTabs">
-      <li><a href="#" class="active" data-tab="home" onclick="showTab('home',this);return false;">Главная</a></li>
-      <li><a href="#" data-tab="tab1" onclick="showTab('tab1',this);return false;">Последние 24 часа</a></li>
-      <li><a href="#" data-tab="tab2" onclick="showTab('tab2',this);return false;">До 24 июня</a></li>
-      <li><a href="#" data-tab="tab3" onclick="showTab('tab3',this);return false;">Первые 48 часов</a></li>
-      <li><a href="#" data-tab="tab4" onclick="showTab('tab4',this);return false;">Реакция мира</a></li>
+    <ul class="nav-tabs" id="navTabs" role="tablist">
+      <li role="presentation"><a href="#" id="navtab-home" class="active" data-tab="home" role="tab" aria-selected="true" aria-controls="home" onclick="showTab('home',this);return false;">Главная</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab1" data-tab="tab1" role="tab" aria-selected="false" aria-controls="tab1" onclick="showTab('tab1',this);return false;">Последние 24 часа</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab2" data-tab="tab2" role="tab" aria-selected="false" aria-controls="tab2" onclick="showTab('tab2',this);return false;">До 24 июня</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab3" data-tab="tab3" role="tab" aria-selected="false" aria-controls="tab3" onclick="showTab('tab3',this);return false;">Первые 48 часов</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab4" data-tab="tab4" role="tab" aria-selected="false" aria-controls="tab4" onclick="showTab('tab4',this);return false;">Реакция мира</a></li>
       <li class="nav-divider" aria-hidden="true"></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab5" onclick="showTab('tab5',this);return false;">Обвинения и оправдание</a></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab6" onclick="showTab('tab6',this);return false;">Наследие в цифрах</a></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab7" onclick="showTab('tab7',this);return false;">Источники</a></li>
+      <li role="presentation"><a class="nav-tab--appendix" href="#" id="navtab-tab5" data-tab="tab5" role="tab" aria-selected="false" aria-controls="tab5" onclick="showTab('tab5',this);return false;">Обвинения и оправдание</a></li>
+      <li role="presentation"><a class="nav-tab--appendix" href="#" id="navtab-tab6" data-tab="tab6" role="tab" aria-selected="false" aria-controls="tab6" onclick="showTab('tab6',this);return false;">Наследие в цифрах</a></li>
+      <li role="presentation"><a class="nav-tab--appendix" href="#" id="navtab-tab7" data-tab="tab7" role="tab" aria-selected="false" aria-controls="tab7" onclick="showTab('tab7',this);return false;">Источники</a></li>
     </ul>
-    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="utility-nav" id="utilityNav" aria-label="Быстрая навигация">
@@ -1043,7 +1043,7 @@
 <main class="page">
 
 <!-- HOME -->
-<section class="tab-section active" id="home">
+<section class="tab-section active" id="home" role="tabpanel" aria-labelledby="navtab-home">
   <div class="home-hero" id="homeTop">
     <img class="home-photo" src="image/MJackson.webp" alt="Michael Jackson" loading="eager" fetchpriority="high" width="640" height="648" />
     <div class="container">
@@ -1067,7 +1067,7 @@
 
 
 <!-- TAB 1: ПОСЛЕДНИЕ 24 ЧАСА -->
-<section class="tab-section" id="tab1">
+<section class="tab-section" id="tab1" role="tabpanel" aria-labelledby="navtab-tab1">
   <div class="hero">
     <div class="container">
       <p class="hero-eyebrow">Реконструкция · 24–25 июня 2009</p>
@@ -1176,7 +1176,7 @@
 </section><!-- /tab1 -->
 
 <!-- TAB 2: ПРЕДЫСТОРИЯ -->
-<section class="tab-section" id="tab2">
+<section class="tab-section" id="tab2" role="tabpanel" aria-labelledby="navtab-tab2">
   <div class="section">
     <div class="container">
       <div class="hero" style="padding:60px 0 40px;border:none;">
@@ -1261,7 +1261,7 @@
 </section><!-- /tab2 -->
 
 <!-- TAB 3: ПЕРВЫЕ 48 ЧАСОВ -->
-<section class="tab-section" id="tab3">
+<section class="tab-section" id="tab3" role="tabpanel" aria-labelledby="navtab-tab3">
   <div class="section">
     <div class="container">
       <div class="hero" style="padding:60px 0 40px;border:none;">
@@ -1415,7 +1415,7 @@
 </section><!-- /tab3 -->
 
 <!-- TAB 4: РЕАКЦИЯ МИРА -->
-<section class="tab-section" id="tab4">
+<section class="tab-section" id="tab4" role="tabpanel" aria-labelledby="navtab-tab4">
   <div class="section">
     <div class="container">
       <div class="hero" style="padding:60px 0 40px;border:none;">
@@ -1436,247 +1436,247 @@
 
       <div class="section-header fade-in"><span class="section-eyebrow">Реакции · 44 верифицированных высказываний</span><h2 class="section-title">Что сказал мир</h2></div>
       <div class="reactions-filter">
-        <button class="filter-btn active" onclick="filterReactions('all',this)">Все</button>
-        <button class="filter-btn" onclick="filterReactions('family',this)">Семья</button>
-        <button class="filter-btn" onclick="filterReactions('br',this)">Бразилия</button>
-        <button class="filter-btn" onclick="filterReactions('va',this)">Ватикан</button>
-        <button class="filter-btn" onclick="filterReactions('uk',this)">Великобритания</button>
-        <button class="filter-btn" onclick="filterReactions('il',this)">Израиль</button>
-        <button class="filter-btn" onclick="filterReactions('ru',this)">Россия</button>
-        <button class="filter-btn" onclick="filterReactions('usa',this)">США</button>
-        <button class="filter-btn" onclick="filterReactions('ua',this)">Украина</button>
-        <button class="filter-btn" onclick="filterReactions('fr',this)">Франция</button>
-        <button class="filter-btn" onclick="filterReactions('jp',this)">Япония</button>
+        <button class="filter-btn active" aria-pressed="true" onclick="filterReactions('all',this)">Все</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('family',this)">Семья</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('br',this)">Бразилия</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('va',this)">Ватикан</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('uk',this)">Великобритания</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('il',this)">Израиль</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('ru',this)">Россия</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('usa',this)">США</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('ua',this)">Украина</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('fr',this)">Франция</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('jp',this)">Япония</button>
       </div>
       <div class="reactions-grid" id="reactionsGrid">
 
         <div class="reaction-card" data-country="family">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Джермейн Джексон</div><div class="reaction-role">Брат · пресс-конференция UCLA</div><div class="reaction-date">25.06.2009 · ~17:00–18:00 PDT</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Джермейн Джексон</div><div class="reaction-role">Брат · пресс-конференция UCLA</div><div class="reaction-date">25.06.2009 · ~17:00–18:00 PDT</div></div></div>
           <div class="reaction-quote-en">"My brother, the legendary King of Pop, Michael Jackson, has left us. His personal physician did everything possible to save him. ... May Allah be with you, Michael, always."</div>
           <div class="reaction-quote-ru">«Мой брат, легендарный Король поп-музыки, Майкл Джексон, покинул нас. Его личный врач сделал всё возможное, чтобы спасти его. … Да пребудет с тобой Аллах, Майкл, всегда.»</div>
           <div class="reaction-source">UCLA newsroom · newsroom.ucla.edu</div>
         </div>
 
         <div class="reaction-card" data-country="family">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Джанет Джексон</div><div class="reaction-role">Сестра</div><div class="reaction-date">Июнь 2009 · BET Awards</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Джанет Джексон</div><div class="reaction-role">Сестра</div><div class="reaction-date">Июнь 2009 · BET Awards</div></div></div>
           <div class="reaction-quote-en">"For you, Michael is an icon. For us, Michael is family."</div>
           <div class="reaction-quote-ru">«Для вас Майкл — икона. Для нас Майкл — семья.»</div>
           <div class="reaction-source">BET Awards 2009</div>
         </div>
 
         <div class="reaction-card" data-country="family">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ла Тойя Джексон</div><div class="reaction-role">Сестра</div><div class="reaction-date">25–26 июня 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Ла Тойя Джексон</div><div class="reaction-role">Сестра</div><div class="reaction-date">25–26 июня 2009</div></div></div>
           <div class="reaction-quote-ru">Прибыла на Carolwood вечером 25 июня, присутствовала при осмотре коронера. Позже: «Его окружали плохие люди»</div>
           <div class="reaction-source">Daily Mail · Michael Jackson Fandom Wiki</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Куинси Джонс</div><div class="reaction-role">Продюсер · Thriller, Off the Wall, Bad</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Куинси Джонс</div><div class="reaction-role">Продюсер · Thriller, Off the Wall, Bad</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"I am absolutely devastated at this tragic and unexpected news. ... Today, I lost my little brother."</div>
           <div class="reaction-quote-ru">«Я абсолютно опустошён. Сегодня я потерял моего младшего брата.»</div>
           <div class="reaction-source">Rolling Stone, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Дайана Росс</div><div class="reaction-role">Певица · близкий друг</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Дайана Росс</div><div class="reaction-role">Певица · близкий друг</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"I can't stop crying. This is so sudden and shocking. I just don't have words."</div>
           <div class="reaction-quote-ru">«Я не могу перестать плакать. Это так внезапно и шокирует.»</div>
           <div class="reaction-source">Rolling Stone, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Элизабет Тейлор</div><div class="reaction-role">Актриса · ближайшая подруга</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Элизабет Тейлор</div><div class="reaction-role">Актриса · ближайшая подруга</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">Initially "too devastated to make a statement." Later: "My life feels so empty. I don't think anyone knew how much we loved each other."</div>
           <div class="reaction-quote-ru">Изначально «слишком опустошена, чтобы говорить». Позже: «Моя жизнь кажется пустой. Я не думаю, что кто-то знал, как сильно мы любили друг друга.»</div>
           <div class="reaction-source">СМИ · Twitter 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Мадонна</div><div class="reaction-role">Певица</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Мадонна</div><div class="reaction-role">Певица</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"I can't stop crying over the sad news. The world has lost one of the greats, but his music will live on forever."</div>
           <div class="reaction-quote-ru">«Мир потерял одного из великих, но его музыка будет жить вечно.»</div>
           <div class="reaction-source">vz.ru · 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ашер</div><div class="reaction-role">Певец · ученик Джексона</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Ашер</div><div class="reaction-role">Певец · ученик Джексона</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"I would not be the artist, performer, and philanthropist I am today without the influence of Michael."</div>
           <div class="reaction-quote-ru">«Без влияния Майкла я бы никогда не стал тем артистом, исполнителем и филантропом, которым являюсь сегодня.»</div>
           <div class="reaction-source">BBC News, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Стиви Уандер</div><div class="reaction-role">Певец · близкий друг</div><div class="reaction-date">25.06 → 07.07.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Стиви Уандер</div><div class="reaction-role">Певец · близкий друг</div><div class="reaction-date">25.06 → 07.07.2009</div></div></div>
           <div class="reaction-quote-en">Representative 25.06: "Stevie is not available for any comment. He is emotionally distraught and chose to be quiet." Staples Center memorial 07.07: "God must have needed him far more."</div>
           <div class="reaction-quote-ru">Представитель: «Стиви сломлен и решил молчать.» Мемориал 7 июля: «Должно быть, Богу он был нужен намного больше.»</div>
           <div class="reaction-source">СМИ · Staples Center Memorial 07.07.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Берри Горди</div><div class="reaction-role">Основатель Motown Records</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Берри Горди</div><div class="reaction-role">Основатель Motown Records</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"I am shocked beyond words. It's like a dream — a bad dream. This cannot be! How can Michael Jackson not be here?"</div>
           <div class="reaction-quote-ru">«Я потрясён до потери слов. Это как сон — кошмарный сон. Этого не может быть! Как Майкла Джексона может не быть?»</div>
           <div class="reaction-source">Blues & Soul, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Сюзанн Де Пасс</div><div class="reaction-role">Куратор Motown, запустившая карьеру Jackson 5</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Сюзанн Де Пасс</div><div class="reaction-role">Куратор Motown, запустившая карьеру Jackson 5</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-en">"Now the King of Pop deserves his rest."</div>
           <div class="reaction-quote-ru">«Теперь Королю поп-музыки полагается отдых».</div>
           <div class="reaction-source">TV Guide, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Смоки Робинсон</div><div class="reaction-role">Певец · близкий друг</div><div class="reaction-date">07.07.2009 · мемориал, Staples Center</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Смоки Робинсон</div><div class="reaction-role">Певец · близкий друг</div><div class="reaction-date">07.07.2009 · мемориал, Staples Center</div></div></div>
           <div class="reaction-quote-en">"That's my little brother over there. But he's not really gone. He's going to live forever and ever and ever."</div>
           <div class="reaction-quote-ru">«Это мой младший брат вон там. Но на самом деле он не ушёл. Он будет жить вечно и вечно».</div>
           <div class="reaction-source">Rolling Stone, 07.07.2009 (обновлено 05.12.2023)</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Селин Дион</div><div class="reaction-role">Певица</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Селин Дион</div><div class="reaction-role">Певица</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"From the beginning of my career, he was my idol in show business... I had his poster on my wall."</div>
           <div class="reaction-quote-ru">«С самого начала моей карьеры он был моим кумиром в шоу-бизнесе... У меня на стене висел его постер».</div>
           <div class="reaction-source">ABC7, 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Брук Шилдс</div><div class="reaction-role">Актриса · подруга с детства</div><div class="reaction-date">07.07.2009 · мемориал</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Брук Шилдс</div><div class="reaction-role">Актриса · подруга с детства</div><div class="reaction-date">07.07.2009 · мемориал</div></div></div>
           <div class="reaction-quote-en">"To the outside world Michael was a genius. To those who knew him personally, he was caring, funny, honest, pure, and non-judgmental... We need to look up and see him sitting on the crescent moon, smiling."</div>
           <div class="reaction-quote-ru">«Для внешнего мира Майкл был гением. Для тех кто его знал — заботливым, смешным и честным. Нам нужно посмотреть вверх и увидеть его на полумесяце.»</div>
           <div class="reaction-source">Staples Center Memorial, 07.07.2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Барак Обама</div><div class="reaction-role">Президент США</div><div class="reaction-date">03.07.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Барак Обама</div><div class="reaction-role">Президент США</div><div class="reaction-date">03.07.2009</div></div></div>
           <div class="reaction-quote-en">"… a spectacular performer. I grew up on Michael Jackson's music. He was one of the greatest entertainers of our time."</div>
           <div class="reaction-quote-ru">«…Блестящий артист. Я вырос на музыке Майкла Джексона. Он был одним из величайших артистов нашего времени.»</div>
           <div class="reaction-source">AP · 03.07.2009 · vz.ru/news/2009/7/3/303664</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Арнольд Шварценеггер</div><div class="reaction-role">Губернатор Калифорнии</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Арнольд Шварценеггер</div><div class="reaction-role">Губернатор Калифорнии</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"a great artist who never stopped pushing the boundaries of creativity"</div>
           <div class="reaction-quote-ru">«Великий артист, никогда не переставал раздвигать границы творчества»</div>
           <div class="reaction-source">Rolling Stone, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Гордон Браун</div><div class="reaction-role">Премьер-министр Великобритании</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Гордон Браун</div><div class="reaction-role">Премьер-министр Великобритании</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-en">"This is very sad news for the millions of Michael Jackson fans in Britain and around the world. The prime minister's thoughts are with Michael Jackson's family at this time."</div>
           <div class="reaction-quote-ru">«Это очень печальная новость для миллионов поклонников Майкла Джексона в Британии и во всём мире. Мысли премьер-министра в это время с семьёй Майкла Джексона.»</div>
           <div class="reaction-source">Reuters · Guardian · BBC, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Пол Маккартни</div><div class="reaction-role">Музыкант · Beatles</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Пол Маккартни</div><div class="reaction-role">Музыкант · Beatles</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"It's so sad and shocking. I feel privileged to have hung out and worked with Michael. He was a massively talented boy man with a gentle soul."</div>
           <div class="reaction-quote-ru">«Это так грустно и шокирующе. Я чувствую себя привилегированным за то, что общался и работал с Майклом. Он был невероятно талантливым ребёнком-взрослым с нежной душой.»</div>
           <div class="reaction-source">beatlesbible.com, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Элтон Джон</div><div class="reaction-role">Музыкант</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Элтон Джон</div><div class="reaction-role">Музыкант</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-ru">На благотворительном балу посвятил Джексону «Candle In The Wind» и «Don't Let The Sun Go Down On Me»</div>
           <div class="reaction-source">mjworld.net, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="il">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ури Геллер</div><div class="reaction-role">Друг Джексона</div><div class="reaction-date">25.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Ури Геллер</div><div class="reaction-role">Друг Джексона</div><div class="reaction-date">25.06.2009</div></div></div>
           <div class="reaction-quote-en">"I am absolutely devastated, very very sad. I am praying that his soul is now in heaven."</div>
           <div class="reaction-quote-ru">«Я просто опустошён, очень грустен. Молюсь чтобы его душа была на небесах.»</div>
           <div class="reaction-source">BBC, 25.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="fr">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Николя Саркози</div><div class="reaction-role">Президент Франции</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Николя Саркози</div><div class="reaction-role">Президент Франции</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">Узнал «с большим волнением». Назвал «человеком, который многое дал музыке и танцу», отметил «универсальность» артиста</div>
           <div class="reaction-source">Французские СМИ, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="va">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">L'Osservatore Romano</div><div class="reaction-role">Официальная газета Ватикана</div><div class="reaction-date">26–27.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">L'Osservatore Romano</div><div class="reaction-role">Официальная газета Ватикана</div><div class="reaction-date">26–27.06.2009</div></div></div>
           <div class="reaction-quote-en">"Ma sarà morto davvero?"</div>
           <div class="reaction-quote-ru">«Неужели он действительно умер?» — заголовок некролога. Рассматривали как поп-икону, сравнивали с мифом Элвиса.</div>
           <div class="reaction-source">L'Osservatore Romano, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="jp">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ёити Масудзоэ</div><div class="reaction-role">Министр здравоохранения Японии</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Ёити Масудзоэ</div><div class="reaction-role">Министр здравоохранения Японии</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-en">"He was a superstar. It is an extremely tragic loss. He gave people around the world dreams and hope."</div>
           <div class="reaction-quote-ru">«Он был суперзвездой. Невероятно трагическая потеря. Он подарил людям мира мечты и надежду.»</div>
           <div class="reaction-source">Японские СМИ, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="br">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Жилберту Жил</div><div class="reaction-role">Музыкант · экс-министр культуры Бразилии</div><div class="reaction-date">25–26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Жилберту Жил</div><div class="reaction-role">Музыкант · экс-министр культуры Бразилии</div><div class="reaction-date">25–26.06.2009</div></div></div>
           <div class="reaction-quote-en">"It makes me very sad to see such a great and incredible talent leave us so soon. I'll miss the King of Pop."</div>
           <div class="reaction-quote-ru">«Мне очень грустно видеть как такой великий талант покидает нас так рано.»</div>
           <div class="reaction-source">Бразильские СМИ, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Алла Пугачёва</div><div class="reaction-role">Певица · концерт в Лос-Анджелесе</div><div class="reaction-date">28.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Алла Пугачёва</div><div class="reaction-role">Певица · концерт в Лос-Анджелесе</div><div class="reaction-date">28.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Он ушёл, не дождавшись своего прощального тура. Он положил на алтарь сцены всё своё здоровье, свою личную жизнь. Давайте встанем и просто молча постоим и помянем его…»</div>
           <div class="reaction-source">VTT-субтитры видеозаписи концерта в Лос-Анджелесе, 28.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Максим Галкин</div><div class="reaction-role">Артист (о реакции с Пугачёвой)</div><div class="reaction-date">26–27.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Максим Галкин</div><div class="reaction-role">Артист (о реакции с Пугачёвой)</div><div class="reaction-date">26–27.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Для нас с Аллой это шокирующее, трагическое известие. Майкл Джексон был абсолютно гениальным человеком. Будучи 50-летним мужчиной он остался в душе ребёнком — это свидетельство чего-то неземного.»</div>
           <div class="reaction-source">Комсомольская правда, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Филипп Киркоров</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Филипп Киркоров</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Общество сделало всё чтобы уничтожить его. Это звонок, после которого надо задуматься о том, как незаслуженно уничтожают людей.»</div>
           <div class="reaction-source">РИА Новости, 26.06.2009 · ria.ru/20090626/175515607</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Дима Билан</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Дима Билан</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Такие люди рождаются раз в столетие, а то и реже. Он неповторим.»</div>
           <div class="reaction-source">Комсомольская правда, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Григорий Лепс</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Григорий Лепс</div><div class="reaction-role">Певец</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Для большой популярной музыки это гигантская потеря. Его можно было не любить, можно было ненавидеть, но не признавать его выдающегося таланта нельзя.»</div>
           <div class="reaction-source">Русское Радио · station.ru, 26.06.2009</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Василий Вовкун</div><div class="reaction-role">Министр культуры и туризма Украины</div><div class="reaction-date">26.06.2009 · 18:42</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Василий Вовкун</div><div class="reaction-role">Министр культуры и туризма Украины</div><div class="reaction-date">26.06.2009 · 18:42</div></div></div>
           <div class="reaction-quote-ru">«Со смертью Майкла Джексона ушла целая эпоха современной музыки. Думаю, имя Майкла Джексона, как и "Битлз", будет всегда оставаться на высоте. Украина присоединяется со своим соболезнованием ко всем, кто его знал, любил и уважал.»</div>
           <div class="reaction-source">УНІАН, 26.06.2009, 18:42 · Первоисточник · Автор: Ксеня Лесів</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Нина Матвиенко</div><div class="reaction-role">Народная артистка Украины</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Нина Матвиенко</div><div class="reaction-role">Народная артистка Украины</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Майкл Джексон был уникальным певцом. Из этой жизни ушла очень вымученная душа. Я сегодня зажгу ему свечечку.»</div>
           <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Юрий Рыбчинский</div><div class="reaction-role">Поэт-песенник Украины</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Юрий Рыбчинский</div><div class="reaction-role">Поэт-песенник Украины</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Майкл Джексон — это человек, родившийся для песни. Он до смерти оставался большим ребёнком. Одно слово — эпоха.»</div>
           <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Андрей Кузьменко (Кузьма Скрябін)</div><div class="reaction-role">Музыкант · «Скрябін» · †02.02.2015</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Андрей Кузьменко (Кузьма Скрябін)</div><div class="reaction-role">Музыкант · «Скрябін» · †02.02.2015</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Как бы к нему ни относились, Майкл Джексон был мегачеловеком. Именно с него началось огромное количество новых веяний в музыке. Мы все тоже собирались в Лондон. Для меня это шок!»</div>
           <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Олег Скрипка</div><div class="reaction-role">Лидер группы «ВВ»</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Олег Скрипка</div><div class="reaction-role">Лидер группы «ВВ»</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«В поп-музыке всегда существует баланс между талантом и маркетингом. В случае Майкла Джексона большой частью его успеха был талант. Для меня поп-музыка закончилась.»</div>
           <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ани Лорак</div><div class="reaction-role">Певица</div><div class="reaction-date">26.06.2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Ани Лорак</div><div class="reaction-role">Певица</div><div class="reaction-date">26.06.2009</div></div></div>
           <div class="reaction-quote-ru">«Это действительно большая потеря. Даже после его смерти он будет жить в своей музыке. Мы все скорбим по нему.»</div>
           <div class="reaction-source">УНІАН, 26.06.2009 · Первоисточник</div>
         </div>
@@ -1697,7 +1697,7 @@
 
 
 <!-- TAB 5: ОБВИНЕНИЯ И ОПРАВДАНИЕ -->
-<section class="tab-section" id="tab5">
+<section class="tab-section" id="tab5" role="tabpanel" aria-labelledby="navtab-tab5">
   <div class="section">
     <div class="container">
       <div class="hero hero--appendix" style="padding:60px 0 42px;border:none;">
@@ -1719,14 +1719,14 @@
         <p>Этот блок подаётся как дополнительное расследование и репутационный контекст, а не как часть реконструкции смерти 2009 года.</p>
       </div>
 
-      <div class="case-tabs">
-        <button class="case-tab active" onclick="showCase('case1993',this)">1993 · гражданское урегулирование</button>
-        <button class="case-tab" onclick="showCase('case2005',this)">2005 · уголовный процесс</button>
-        <button class="case-tab" onclick="showCase('case2019',this)">2019 · медийные обвинения</button>
+      <div class="case-tabs" role="tablist">
+        <button class="case-tab active" id="casetab-case1993" role="tab" aria-selected="true" aria-controls="case1993" onclick="showCase('case1993',this)">1993 · гражданское урегулирование</button>
+        <button class="case-tab" id="casetab-case2005" role="tab" aria-selected="false" aria-controls="case2005" onclick="showCase('case2005',this)">2005 · уголовный процесс</button>
+        <button class="case-tab" id="casetab-case2019" role="tab" aria-selected="false" aria-controls="case2019" onclick="showCase('case2019',this)">2019 · медийные обвинения</button>
       </div>
 
       <!-- CASE 1993 -->
-      <div class="case-panel active" id="case1993">
+      <div class="case-panel active" id="case1993" role="tabpanel" aria-labelledby="casetab-case1993">
         <div class="cards-grid" style="margin-bottom:28px;">
           <div class="card"><div class="card-label">Тип дела</div><div class="card-title">Гражданское (уголовное закрыто)</div><div class="card-body">Уголовных обвинений не предъявлено. Мировое соглашение ~$23 млн, январь 1994. Инициировано командой Джексона.</div></div>
           <div class="card"><div class="card-label">Обвинитель</div><div class="card-title">Джордан Чандлер, 13 лет</div><div class="card-body">Никогда не давал показаний в уголовном суде. Дальнейшие сведения о его частной жизни не включены в подтверждённый корпус проекта.</div></div>
@@ -1741,7 +1741,7 @@
       </div>
 
       <!-- CASE 2005 -->
-      <div class="case-panel" id="case2005">
+      <div class="case-panel" id="case2005" role="tabpanel" aria-labelledby="casetab-case2005">
         <div class="cards-grid" style="margin-bottom:28px;">
           <div class="card"><div class="card-label">Дело</div><div class="card-title">People v. Jackson №1133603</div><div class="card-body">Оправдан по всем 14 пунктам обвинения. 13 июня 2005.</div></div>
           <div class="card"><div class="card-label">Системная связь 1993–2005</div><div class="card-title">Один адвокат · один психолог · один прокурор</div><div class="card-body">Фельдман (гонорар успеха), Кац (двойной конфликт интересов), Снеддон (оба дела). Фельдман признал: обвинительный приговор автоматически выиграл бы гражданский иск.</div></div>
@@ -1755,7 +1755,7 @@
       </div>
 
       <!-- CASE 2019 -->
-      <div class="case-panel" id="case2019">
+      <div class="case-panel" id="case2019" role="tabpanel" aria-labelledby="casetab-case2019">
         <div class="cards-grid" style="margin-bottom:28px;">
           <div class="card"><div class="card-label">Фильм</div><div class="card-title">Leaving Neverland (2019, HBO)</div><div class="card-body">Обвинения Уэйда Робсона и Джеймса Сейфчака. Режиссёр Дэн Рид.</div></div>
           <div class="card"><div class="card-label">Гражданский иск</div><div class="card-title">$400 млн · MJJ Productions и MJJ Ventures</div><div class="card-body">Не против Джексона лично. Перенесён на 14 февраля 2028 года.</div></div>
@@ -1809,7 +1809,7 @@
 </section><!-- /tab5 -->
 
 <!-- TAB 6: НАСЛЕДИЕ В ЦИФРАХ -->
-<section class="tab-section" id="tab6">
+<section class="tab-section" id="tab6" role="tabpanel" aria-labelledby="navtab-tab6">
   <div class="section">
     <div class="container">
       <div class="hero hero--metrics" style="padding:60px 0 42px;border:none;">
@@ -2205,7 +2205,7 @@
 
 
 <!-- TAB 7: КОРПУС ИСТОЧНИКОВ -->
-<section class="tab-section" id="tab7">
+<section class="tab-section" id="tab7" role="tabpanel" aria-labelledby="navtab-tab7">
   <div class="section">
     <div class="container">
       <div class="hero hero--corpus" style="padding:60px 0 42px;border:none;">
@@ -2234,7 +2234,7 @@
       <div>
         <div class="footer-col-title">Проект</div>
         <p class="footer-text">Независимая реконструкция последних суток Майкла Джексона, первых следственных действий и мировой реакции на его смерть.</p>
-        <a href="#" id="openPolicyBtn" onclick="openPolicy();return false;" style="display:block;margin-top:12px;color:var(--text-dim);text-decoration:underline;font-size:.8rem;">Политика конфиденциальности и cookies</a>
+        <button type="button" id="openPolicyBtn" onclick="openPolicy()" style="display:block;margin-top:12px;color:var(--text-dim);text-decoration:underline;font-size:.8rem;background:none;border:none;padding:0;font-family:inherit;cursor:pointer;text-align:left;">Политика конфиденциальности и cookies</button>
       </div>
       <div>
         <div class="footer-col-title">Материалы</div>
@@ -2274,7 +2274,7 @@
 
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
-  <p>Этот мемориальный проект использует файлы cookie и Яндекс Метрику для сбора обезличенной статистики посещений. Продолжая работу с сайтом, вы соглашаетесь с нашей <a id="openPolicyBannerBtn" tabindex="0">Политикой конфиденциальности</a>.</p>
+  <p>Этот мемориальный проект использует файлы cookie и Яндекс Метрику для сбора обезличенной статистики посещений. Продолжая работу с сайтом, вы соглашаетесь с нашей <button type="button" id="openPolicyBannerBtn">Политикой конфиденциальности</button>.</p>
   <button class="cookie-btn" id="cookieAcceptBtn" type="button">Понятно</button>
 </div>
 
@@ -2361,8 +2361,10 @@
     document.querySelectorAll('.nav-tabs a').forEach(a => a.classList.remove('active'));
     const activeLink = el || document.querySelector(`.nav-tabs a[data-tab="${tabId}"]`);
     if (activeLink) activeLink.classList.add('active');
-    const nav = document.getElementById('navTabs');
-    if (nav) nav.classList.remove('open');
+    document.querySelectorAll('.nav-tabs a[role="tab"]').forEach(a => {
+      a.setAttribute('aria-selected', a.dataset.tab === tabId ? 'true' : 'false');
+    });
+    closeMenu();
     window.scrollTo({top:0,behavior:'smooth'});
     document.body.classList.remove('death-focus'); // immediate clear; scroll listener recalculates
     if (typeof updateDeathFocus === 'function') updateDeathFocus();
@@ -2372,6 +2374,13 @@
     if (tabId === 'tab7') renderCorpus();
     var hash = TAB_HASHES[tabId];
     history.pushState(null, '', hash ? '#' + hash : location.pathname + location.search);
+    if (target) {
+      var heading = target.querySelector('h1');
+      if (heading) {
+        heading.setAttribute('tabindex', '-1');
+        heading.focus({preventScroll: true});
+      }
+    }
   }
 
   function scrollActiveTop() {
@@ -2383,11 +2392,22 @@
 
 
   function toggleMenu() {
-    document.getElementById('navTabs').classList.toggle('open');
+    var nav = document.getElementById('navTabs');
+    var open = nav.classList.toggle('open');
+    var burger = document.getElementById('burger');
+    if (burger) {
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    }
   }
 
   function closeMenu() {
     document.getElementById('navTabs').classList.remove('open');
+    var burger = document.getElementById('burger');
+    if (burger) {
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Открыть меню');
+    }
   }
 
   function showCase(id, el) {
@@ -2395,11 +2415,18 @@
     document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     if (el) el.classList.add('active');
+    document.querySelectorAll('.case-tab[role="tab"]').forEach(t => {
+      t.setAttribute('aria-selected', t.getAttribute('aria-controls') === id ? 'true' : 'false');
+    });
   }
 
   function filterReactions(country, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
     document.querySelectorAll('.reaction-card').forEach(c => {
       c.style.display = (country === 'all' || c.dataset.country === country) ? '' : 'none';
     });
@@ -2528,6 +2555,7 @@
       var initials = (words[0] ? words[0][0] : '').toUpperCase();
       if (words.length > 1) initials += (words[words.length - 1][0] || '').toUpperCase();
       avatar.textContent = initials;
+      avatar.setAttribute('aria-hidden', 'true');
     });
   }
 
@@ -2565,20 +2593,33 @@
       var bannerPolicyLink = document.getElementById('openPolicyBannerBtn');
       if (bannerPolicyLink) {
         bannerPolicyLink.addEventListener('click', openPolicy);
-        bannerPolicyLink.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') openPolicy();
-        });
       }
     }
   });
 
   /* POLICY MODAL */
+  var policyTriggerEl = null;
+
+  function setBackgroundInert(state) {
+    var modal = document.getElementById('policyModal');
+    Array.prototype.forEach.call(document.body.children, function(el) {
+      if (el === modal || el.tagName === 'SCRIPT') return;
+      if ('inert' in el) { el.inert = state; }
+      else if (state) { el.setAttribute('aria-hidden', 'true'); }
+      else { el.removeAttribute('aria-hidden'); }
+    });
+  }
+
   function openPolicy() {
     var modal = document.getElementById('policyModal');
     if (!modal) return;
+    policyTriggerEl = document.activeElement;
+    setBackgroundInert(true);
     modal.style.display = 'flex';
     requestAnimationFrame(function() { modal.style.opacity = '1'; });
     document.body.style.overflow = 'hidden';
+    var firstFocusable = modal.querySelector('button, a[href], [tabindex]');
+    if (firstFocusable) firstFocusable.focus();
   }
 
   function closePolicy() {
@@ -2587,6 +2628,11 @@
     modal.style.opacity = '0';
     setTimeout(function() { modal.style.display = 'none'; }, 260);
     document.body.style.overflow = '';
+    setBackgroundInert(false);
+    if (policyTriggerEl && typeof policyTriggerEl.focus === 'function') {
+      policyTriggerEl.focus();
+    }
+    policyTriggerEl = null;
   }
 
   document.addEventListener('DOMContentLoaded', function() {

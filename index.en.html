@@ -52,7 +52,7 @@
       --text:#f3f1ec;
       --text-mid:#cbc8c0;
       --text-dim:#908d87;
-      --text-faint:#6f6b65;
+      --text-faint:#7c7871;
       --font-display:'PT Serif',Georgia,serif;
       --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       --font-mono:'Share Tech','Inter',system-ui,sans-serif;
@@ -201,7 +201,7 @@
     .timeline-item--death .timeline-event::after { content:""; display:block; width:min(340px,72vw); height:1px; margin-top:14px; background:linear-gradient(90deg, var(--red), rgba(212,72,60,.25), transparent); }
     .timeline-time { font-family:var(--font-mono); font-size:.88rem; color:var(--gold-soft); letter-spacing:.09em; margin-bottom:8px; text-transform:uppercase; }
     .timeline-event { font-family:var(--font-display); font-size:clamp(1.22rem,3vw,1.62rem); font-weight:700; color:var(--text); margin-bottom:10px; line-height:1.22; }
-    .timeline-detail { font-size:1rem; color:var(--text-mid); line-height:1.76; max-width:820px; }
+    .timeline-detail { font-size:1rem; color:var(--text-mid); line-height:1.76; max-width:620px; }
     .timeline-detail strong { color:var(--text); }
     .timeline-source { display:block; margin-top:12px; font-family:var(--font-mono); font-size:.77rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); line-height:1.55; padding-top:10px; border-top:1px solid rgba(255,255,255,.075); }
 
@@ -267,7 +267,7 @@
 
     /* REACTIONS */
     .reactions-filter { display:flex; gap:9px; flex-wrap:wrap; margin-bottom:30px; }
-    .filter-btn { padding:9px 14px; font-family:var(--font-mono); font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:999px; color:var(--text-dim); cursor:pointer; transition:all .2s; }
+    .filter-btn { padding:9px 14px; font-family:var(--font-mono); font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:999px; color:var(--text-dim); cursor:pointer; transition:border-color .2s, color .2s, background-color .2s; }
     .filter-btn:hover,.filter-btn.active { border-color:var(--gold); color:var(--gold); background:rgba(214,184,90,.07); }
     .reactions-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; background:transparent; border:none; margin-bottom:46px; }
     .reaction-card { background:transparent; padding:22px 0; border:0; border-top:1px solid rgba(255,255,255,.10); border-radius:0; box-shadow:none; }
@@ -328,7 +328,7 @@
 
     /* CASE TABS / LEGAL */
     .case-tabs { display:flex; border-bottom:1px solid var(--line); margin-bottom:36px; flex-wrap:wrap; gap:8px; }
-    .case-tab { padding:12px 18px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); cursor:pointer; border:1px solid transparent; border-bottom:2px solid transparent; border-radius:14px 14px 0 0; transition:all .2s; background:rgba(255,255,255,.025); }
+    .case-tab { padding:12px 18px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.07em; text-transform:uppercase; color:var(--text-dim); cursor:pointer; border:1px solid transparent; border-bottom:2px solid transparent; border-radius:14px 14px 0 0; transition:color .2s, border-color .2s, border-bottom-color .2s, background-color .2s; background:rgba(255,255,255,.025); }
     .case-tab:hover,.case-tab.active { color:var(--gold); border-color:rgba(214,184,90,.24); border-bottom-color:var(--gold); background:rgba(214,184,90,.06); }
     .case-panel { display:none; }
     .case-panel.active { display:block; }
@@ -749,7 +749,7 @@
       line-height: 1.55;
       margin: 0;
     }
-    .cookie-banner a { color: var(--gold); text-decoration: underline; cursor: pointer; }
+    #openPolicyBannerBtn { background:none; border:none; padding:0; font:inherit; color: var(--gold); text-decoration: underline; cursor: pointer; }
     .cookie-btn {
       flex-shrink: 0;
       appearance: none;
@@ -1021,18 +1021,18 @@
       <a href="index.en.html" class="active">EN</a>
       <a href="index.uk.html" onclick="this.href='index.uk.html'+location.hash">UK</a>
     </div>
-    <ul class="nav-tabs" id="navTabs">
-      <li><a href="#" class="active" data-tab="home" onclick="showTab('home',this);return false;">Home</a></li>
-      <li><a href="#" data-tab="tab1" onclick="showTab('tab1',this);return false;">The Last 24 Hours</a></li>
-      <li><a href="#" data-tab="tab2" onclick="showTab('tab2',this);return false;">Before June 24</a></li>
-      <li><a href="#" data-tab="tab3" onclick="showTab('tab3',this);return false;">The First 48 Hours</a></li>
-      <li><a href="#" data-tab="tab4" onclick="showTab('tab4',this);return false;">The World's Reaction</a></li>
+    <ul class="nav-tabs" id="navTabs" role="tablist">
+      <li role="presentation"><a href="#" id="navtab-home" class="active" data-tab="home" role="tab" aria-selected="true" aria-controls="home" onclick="showTab('home',this);return false;">Home</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab1" data-tab="tab1" role="tab" aria-selected="false" aria-controls="tab1" onclick="showTab('tab1',this);return false;">The Last 24 Hours</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab2" data-tab="tab2" role="tab" aria-selected="false" aria-controls="tab2" onclick="showTab('tab2',this);return false;">Before June 24</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab3" data-tab="tab3" role="tab" aria-selected="false" aria-controls="tab3" onclick="showTab('tab3',this);return false;">The First 48 Hours</a></li>
+      <li role="presentation"><a href="#" id="navtab-tab4" data-tab="tab4" role="tab" aria-selected="false" aria-controls="tab4" onclick="showTab('tab4',this);return false;">The World's Reaction</a></li>
       <li class="nav-divider" aria-hidden="true"></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab5" onclick="showTab('tab5',this);return false;">Accusations &amp; Acquittal</a></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab6" onclick="showTab('tab6',this);return false;">Legacy in Numbers</a></li>
-      <li><a class="nav-tab--appendix" href="#" data-tab="tab7" onclick="showTab('tab7',this);return false;">Sources</a></li>
+      <li role="presentation"><a class="nav-tab--appendix" href="#" id="navtab-tab5" data-tab="tab5" role="tab" aria-selected="false" aria-controls="tab5" onclick="showTab('tab5',this);return false;">Accusations &amp; Acquittal</a></li>
+      <li role="presentation"><a class="nav-tab--appendix" href="#" id="navtab-tab6" data-tab="tab6" role="tab" aria-selected="false" aria-controls="tab6" onclick="showTab('tab6',this);return false;">Legacy in Numbers</a></li>
+      <li role="presentation"><a class="nav-tab--appendix" href="#" id="navtab-tab7" data-tab="tab7" role="tab" aria-selected="false" aria-controls="tab7" onclick="showTab('tab7',this);return false;">Sources</a></li>
     </ul>
-    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="utility-nav" id="utilityNav" aria-label="Quick navigation">
@@ -1043,7 +1043,7 @@
 <main class="page">
 
 <!-- HOME -->
-<section class="tab-section active" id="home">
+<section class="tab-section active" id="home" role="tabpanel" aria-labelledby="navtab-home">
   <div class="home-hero" id="homeTop">
     <img class="home-photo" src="image/MJackson.webp" alt="Michael Jackson" loading="eager" fetchpriority="high" width="640" height="648" />
     <div class="container">
@@ -1067,7 +1067,7 @@
 
 
 <!-- TAB 1: THE LAST 24 HOURS -->
-<section class="tab-section" id="tab1">
+<section class="tab-section" id="tab1" role="tabpanel" aria-labelledby="navtab-tab1">
   <div class="hero">
     <div class="container">
       <p class="hero-eyebrow">Reconstruction · June 24–25, 2009</p>
@@ -1176,7 +1176,7 @@
 </section><!-- /tab1 -->
 
 <!-- TAB 2: BACKGROUND -->
-<section class="tab-section" id="tab2">
+<section class="tab-section" id="tab2" role="tabpanel" aria-labelledby="navtab-tab2">
   <div class="section">
     <div class="container">
       <div class="hero" style="padding:60px 0 40px;border:none;">
@@ -1259,7 +1259,7 @@
 </section><!-- /tab2 -->
 
 <!-- TAB 3: THE FIRST 48 HOURS -->
-<section class="tab-section" id="tab3">
+<section class="tab-section" id="tab3" role="tabpanel" aria-labelledby="navtab-tab3">
   <div class="section">
     <div class="container">
       <div class="hero" style="padding:60px 0 40px;border:none;">
@@ -1412,7 +1412,7 @@
 </section><!-- /tab3 -->
 
 <!-- TAB 4: THE WORLD'S REACTION -->
-<section class="tab-section" id="tab4">
+<section class="tab-section" id="tab4" role="tabpanel" aria-labelledby="navtab-tab4">
   <div class="section">
     <div class="container">
       <div class="hero" style="padding:60px 0 40px;border:none;">
@@ -1433,227 +1433,227 @@
 
       <div class="section-header fade-in"><span class="section-eyebrow">Reactions · 44 verified statements</span><h2 class="section-title">What the World Said</h2></div>
       <div class="reactions-filter">
-        <button class="filter-btn active" onclick="filterReactions('all',this)">All</button>
-        <button class="filter-btn" onclick="filterReactions('family',this)">Family</button>
-        <button class="filter-btn" onclick="filterReactions('br',this)">Brazil</button>
-        <button class="filter-btn" onclick="filterReactions('va',this)">Vatican</button>
-        <button class="filter-btn" onclick="filterReactions('uk',this)">UK</button>
-        <button class="filter-btn" onclick="filterReactions('il',this)">Israel</button>
-        <button class="filter-btn" onclick="filterReactions('ru',this)">Russia</button>
-        <button class="filter-btn" onclick="filterReactions('usa',this)">USA</button>
-        <button class="filter-btn" onclick="filterReactions('ua',this)">Ukraine</button>
-        <button class="filter-btn" onclick="filterReactions('fr',this)">France</button>
-        <button class="filter-btn" onclick="filterReactions('jp',this)">Japan</button>
+        <button class="filter-btn active" aria-pressed="true" onclick="filterReactions('all',this)">All</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('family',this)">Family</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('br',this)">Brazil</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('va',this)">Vatican</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('uk',this)">UK</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('il',this)">Israel</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('ru',this)">Russia</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('usa',this)">USA</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('ua',this)">Ukraine</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('fr',this)">France</button>
+        <button class="filter-btn" aria-pressed="false" onclick="filterReactions('jp',this)">Japan</button>
       </div>
       <div class="reactions-grid" id="reactionsGrid">
 
         <div class="reaction-card" data-country="family">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Jermaine Jackson</div><div class="reaction-role">Brother · UCLA press conference</div><div class="reaction-date">June 25, 2009 · ~17:00–18:00 PDT</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Jermaine Jackson</div><div class="reaction-role">Brother · UCLA press conference</div><div class="reaction-date">June 25, 2009 · ~17:00–18:00 PDT</div></div></div>
           <div class="reaction-quote-en">"My brother, the legendary King of Pop, Michael Jackson, has left us. His personal physician did everything possible to save him. ... May Allah be with you, Michael, always."</div>
           <div class="reaction-source">UCLA newsroom · newsroom.ucla.edu</div>
         </div>
 
         <div class="reaction-card" data-country="family">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Janet Jackson</div><div class="reaction-role">Sister</div><div class="reaction-date">June 2009 · BET Awards</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Janet Jackson</div><div class="reaction-role">Sister</div><div class="reaction-date">June 2009 · BET Awards</div></div></div>
           <div class="reaction-quote-en">"For you, Michael is an icon. For us, Michael is family."</div>
           <div class="reaction-source">BET Awards 2009</div>
         </div>
 
         <div class="reaction-card" data-country="family">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">La Toya Jackson</div><div class="reaction-role">Sister</div><div class="reaction-date">June 25–26, 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">La Toya Jackson</div><div class="reaction-role">Sister</div><div class="reaction-date">June 25–26, 2009</div></div></div>
           <div class="reaction-quote-ru">Arrived at Carolwood on the evening of June 25; present during the coroner's examination. Later: "He was surrounded by bad people."</div>
           <div class="reaction-source">Daily Mail · Michael Jackson Fandom Wiki</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Quincy Jones</div><div class="reaction-role">Producer · Thriller, Off the Wall, Bad</div><div class="reaction-date">25 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Quincy Jones</div><div class="reaction-role">Producer · Thriller, Off the Wall, Bad</div><div class="reaction-date">25 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"I am absolutely devastated at this tragic and unexpected news. ... Today, I lost my little brother."</div>
           <div class="reaction-source">Rolling Stone, 25 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Diana Ross</div><div class="reaction-role">Singer · close friend</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Diana Ross</div><div class="reaction-role">Singer · close friend</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"I can't stop crying. This is so sudden and shocking. I just don't have words."</div>
           <div class="reaction-source">Rolling Stone, 25 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Elizabeth Taylor</div><div class="reaction-role">Actress · closest friend</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Elizabeth Taylor</div><div class="reaction-role">Actress · closest friend</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">Initially "too devastated to make a statement." Later: "My life feels so empty. I don't think anyone knew how much we loved each other."</div>
           <div class="reaction-source">Press · Twitter 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Madonna</div><div class="reaction-role">Singer</div><div class="reaction-date">25 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Madonna</div><div class="reaction-role">Singer</div><div class="reaction-date">25 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"I can't stop crying over the sad news. The world has lost one of the greats, but his music will live on forever."</div>
           <div class="reaction-source">vz.ru · 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Usher</div><div class="reaction-role">Singer · Jackson's protégé</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Usher</div><div class="reaction-role">Singer · Jackson's protégé</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"I would not be the artist, performer, and philanthropist I am today without the influence of Michael."</div>
           <div class="reaction-source">BBC News, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Stevie Wonder</div><div class="reaction-role">Singer · close friend</div><div class="reaction-date">25 Jun → 7 Jul 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Stevie Wonder</div><div class="reaction-role">Singer · close friend</div><div class="reaction-date">25 Jun → 7 Jul 2009</div></div></div>
           <div class="reaction-quote-en">Representative 25.06: "Stevie is not available for any comment. He is emotionally distraught and chose to be quiet." Staples Center memorial 07.07: "God must have needed him far more."</div>
           <div class="reaction-source">Press · Staples Center Memorial 7 Jul 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Berry Gordy</div><div class="reaction-role">Founder of Motown Records</div><div class="reaction-date">25 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Berry Gordy</div><div class="reaction-role">Founder of Motown Records</div><div class="reaction-date">25 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"I am shocked beyond words. It's like a dream — a bad dream. This cannot be! How can Michael Jackson not be here?"</div>
           <div class="reaction-source">Blues & Soul, 25 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Suzanne De Passe</div><div class="reaction-role">Motown executive who launched the Jackson 5</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Suzanne De Passe</div><div class="reaction-role">Motown executive who launched the Jackson 5</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"Now the King of Pop deserves his rest."</div>
           <div class="reaction-source">TV Guide, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Smokey Robinson</div><div class="reaction-role">Singer · close friend</div><div class="reaction-date">7 Jul 2009 · memorial, Staples Center</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Smokey Robinson</div><div class="reaction-role">Singer · close friend</div><div class="reaction-date">7 Jul 2009 · memorial, Staples Center</div></div></div>
           <div class="reaction-quote-en">"That's my little brother over there. But he's not really gone. He's going to live forever and ever and ever."</div>
           <div class="reaction-source">Rolling Stone, 7 Jul 2009 (updated 5 Dec 2023)</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Celine Dion</div><div class="reaction-role">Singer</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Celine Dion</div><div class="reaction-role">Singer</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"From the beginning of my career, he was my idol in show business... I had his poster on my wall."</div>
           <div class="reaction-source">ABC7, 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Brooke Shields</div><div class="reaction-role">Actress · childhood friend</div><div class="reaction-date">7 Jul 2009 · memorial</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Brooke Shields</div><div class="reaction-role">Actress · childhood friend</div><div class="reaction-date">7 Jul 2009 · memorial</div></div></div>
           <div class="reaction-quote-en">"To the outside world Michael was a genius. To those who knew him personally, he was caring, funny, honest, pure, and non-judgmental... We need to look up and see him sitting on the crescent moon, smiling."</div>
           <div class="reaction-source">Staples Center Memorial, 7 Jul 2009</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Barack Obama</div><div class="reaction-role">President of the United States</div><div class="reaction-date">3 Jul 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Barack Obama</div><div class="reaction-role">President of the United States</div><div class="reaction-date">3 Jul 2009</div></div></div>
           <div class="reaction-quote-en">"… a spectacular performer. I grew up on Michael Jackson's music. He was one of the greatest entertainers of our time."</div>
           <div class="reaction-source">AP · 3 Jul 2009 · vz.ru/news/2009/7/3/303664</div>
         </div>
 
         <div class="reaction-card" data-country="usa">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Arnold Schwarzenegger</div><div class="reaction-role">Governor of California</div><div class="reaction-date">25 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Arnold Schwarzenegger</div><div class="reaction-role">Governor of California</div><div class="reaction-date">25 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"a great artist who never stopped pushing the boundaries of creativity"</div>
           <div class="reaction-source">Rolling Stone, 25 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Gordon Brown</div><div class="reaction-role">Prime Minister of the United Kingdom</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Gordon Brown</div><div class="reaction-role">Prime Minister of the United Kingdom</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"This is very sad news for the millions of Michael Jackson fans in Britain and around the world. The prime minister's thoughts are with Michael Jackson's family at this time."</div>
           <div class="reaction-source">Reuters · Guardian · BBC, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Paul McCartney</div><div class="reaction-role">Musician · Beatles</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Paul McCartney</div><div class="reaction-role">Musician · Beatles</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"It's so sad and shocking. I feel privileged to have hung out and worked with Michael. He was a massively talented boy man with a gentle soul."</div>
           <div class="reaction-source">beatlesbible.com, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="uk">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Elton John</div><div class="reaction-role">Musician</div><div class="reaction-date">25 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Elton John</div><div class="reaction-role">Musician</div><div class="reaction-date">25 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">At a charity ball, dedicated "Candle In The Wind" and "Don't Let The Sun Go Down On Me" to Jackson</div>
           <div class="reaction-source">mjworld.net, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="il">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Uri Geller</div><div class="reaction-role">Friend of Jackson</div><div class="reaction-date">25 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Uri Geller</div><div class="reaction-role">Friend of Jackson</div><div class="reaction-date">25 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"I am absolutely devastated, very very sad. I am praying that his soul is now in heaven."</div>
           <div class="reaction-source">BBC, 25 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="fr">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Nicolas Sarkozy</div><div class="reaction-role">President of France</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Nicolas Sarkozy</div><div class="reaction-role">President of France</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">Learned of the death "with great emotion". Called him "a man who gave much to music and dance" and noted the artist's "universality"</div>
           <div class="reaction-source">French press, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="va">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">L'Osservatore Romano</div><div class="reaction-role">Official newspaper of the Vatican</div><div class="reaction-date">26–27 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">L'Osservatore Romano</div><div class="reaction-role">Official newspaper of the Vatican</div><div class="reaction-date">26–27 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"Ma sarà morto davvero?"</div>
           <div class="reaction-quote-ru">"But is he really dead?" — the obituary's headline. Treated him as a pop icon, drawing comparisons with the Elvis myth.</div>
           <div class="reaction-source">L'Osservatore Romano, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="jp">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Yoichi Masuzoe</div><div class="reaction-role">Minister of Health of Japan</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Yoichi Masuzoe</div><div class="reaction-role">Minister of Health of Japan</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"He was a superstar. It is an extremely tragic loss. He gave people around the world dreams and hope."</div>
           <div class="reaction-source">Japanese press, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="br">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Gilberto Gil</div><div class="reaction-role">Musician · former Minister of Culture of Brazil</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Gilberto Gil</div><div class="reaction-role">Musician · former Minister of Culture of Brazil</div><div class="reaction-date">25–26 Jun 2009</div></div></div>
           <div class="reaction-quote-en">"It makes me very sad to see such a great and incredible talent leave us so soon. I'll miss the King of Pop."</div>
           <div class="reaction-source">Brazilian press, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Alla Pugacheva</div><div class="reaction-role">Singer · concert in Los Angeles</div><div class="reaction-date">28 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Alla Pugacheva</div><div class="reaction-role">Singer · concert in Los Angeles</div><div class="reaction-date">28 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"He left without living to see his farewell tour. He laid all his health, his personal life, on the altar of the stage. Let us stand up, stand in silence, and remember him…"</div>
           <div class="reaction-source">VTT subtitles of the Los Angeles concert video, 28 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Maxim Galkin</div><div class="reaction-role">Entertainer (on his and Pugacheva's reaction)</div><div class="reaction-date">26–27 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Maxim Galkin</div><div class="reaction-role">Entertainer (on his and Pugacheva's reaction)</div><div class="reaction-date">26–27 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"For Alla and me this is shocking, tragic news. Michael Jackson was an absolutely brilliant man. A 50-year-old man who remained a child at heart — that is evidence of something not of this world."</div>
           <div class="reaction-source">Komsomolskaya Pravda, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Philipp Kirkorov</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Philipp Kirkorov</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"Society did everything to destroy him. This is a wake-up call that should make us think about how people are destroyed undeservedly."</div>
           <div class="reaction-source">RIA Novosti, 26 Jun 2009 · ria.ru/20090626/175515607</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Dima Bilan</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Dima Bilan</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"People like him are born once in a century, if not more rarely. He is inimitable."</div>
           <div class="reaction-source">Komsomolskaya Pravda, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="ru">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Grigory Leps</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Grigory Leps</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"For popular music at large this is a gigantic loss. You could dislike him, you could even hate him, but it was impossible not to acknowledge his outstanding talent."</div>
           <div class="reaction-source">Russkoye Radio · station.ru, 26 Jun 2009</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Vasyl Vovkun</div><div class="reaction-role">Minister of Culture and Tourism of Ukraine</div><div class="reaction-date">26 Jun 2009 · 18:42</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Vasyl Vovkun</div><div class="reaction-role">Minister of Culture and Tourism of Ukraine</div><div class="reaction-date">26 Jun 2009 · 18:42</div></div></div>
           <div class="reaction-quote-ru">"With Michael Jackson's death, an entire era of modern music has passed. I believe the name of Michael Jackson, like the Beatles, will always remain on high. Ukraine joins in condolence with all who knew, loved, and respected him."</div>
           <div class="reaction-source">UNIAN, 26 Jun 2009, 18:42 · Primary source · Author: Ksenya Lesiv</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Nina Matviyenko</div><div class="reaction-role">People's Artist of Ukraine</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Nina Matviyenko</div><div class="reaction-role">People's Artist of Ukraine</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"Michael Jackson was a unique singer. A deeply tormented soul has left this life. Tonight I will light a little candle for him."</div>
           <div class="reaction-source">UNIAN, 26 Jun 2009 · Primary source</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Yuri Rybchinsky</div><div class="reaction-role">Ukrainian songwriter and lyricist</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Yuri Rybchinsky</div><div class="reaction-role">Ukrainian songwriter and lyricist</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"Michael Jackson was a man born for song. He remained a big child until his death. In a word — an era."</div>
           <div class="reaction-source">UNIAN, 26 Jun 2009 · Primary source</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Andriy Kuzmenko (Kuzma Skryabin)</div><div class="reaction-role">Musician · Skryabin · †2 Feb 2015</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Andriy Kuzmenko (Kuzma Skryabin)</div><div class="reaction-role">Musician · Skryabin · †2 Feb 2015</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"Whatever people thought of him, Michael Jackson was a mega-figure. An enormous number of new currents in music began with him. We were all planning to go to London too. For me this is a shock!"</div>
           <div class="reaction-source">UNIAN, 26 Jun 2009 · Primary source</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Oleg Skrypka</div><div class="reaction-role">Frontman of Vopli Vidopliassova (VV)</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Oleg Skrypka</div><div class="reaction-role">Frontman of Vopli Vidopliassova (VV)</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"In pop music there is always a balance between talent and marketing. In Michael Jackson's case, a large part of his success was talent. For me, pop music has ended."</div>
           <div class="reaction-source">UNIAN, 26 Jun 2009 · Primary source</div>
         </div>
 
         <div class="reaction-card" data-country="ua">
-          <div class="reaction-meta"><div class="reaction-avatar">photo</div><div class="reaction-info"><div class="reaction-name">Ani Lorak</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
+          <div class="reaction-meta"><div class="reaction-avatar" aria-hidden="true">photo</div><div class="reaction-info"><div class="reaction-name">Ani Lorak</div><div class="reaction-role">Singer</div><div class="reaction-date">26 Jun 2009</div></div></div>
           <div class="reaction-quote-ru">"This truly is a great loss. Even after his death he will live on in his music. We all mourn him."</div>
           <div class="reaction-source">UNIAN, 26 Jun 2009 · Primary source</div>
         </div>
@@ -1674,7 +1674,7 @@
 
 
 <!-- TAB 5: ACCUSATIONS AND ACQUITTAL -->
-<section class="tab-section" id="tab5">
+<section class="tab-section" id="tab5" role="tabpanel" aria-labelledby="navtab-tab5">
   <div class="section">
     <div class="container">
       <div class="hero hero--appendix" style="padding:60px 0 42px;border:none;">
@@ -1696,14 +1696,14 @@
         <p>This block is presented as a supplementary investigation and reputational context, not as part of the reconstruction of the 2009 death.</p>
       </div>
 
-      <div class="case-tabs">
-        <button class="case-tab active" onclick="showCase('case1993',this)">1993 · civil settlement</button>
-        <button class="case-tab" onclick="showCase('case2005',this)">2005 · criminal trial</button>
-        <button class="case-tab" onclick="showCase('case2019',this)">2019 · media accusations</button>
+      <div class="case-tabs" role="tablist">
+        <button class="case-tab active" id="casetab-case1993" role="tab" aria-selected="true" aria-controls="case1993" onclick="showCase('case1993',this)">1993 · civil settlement</button>
+        <button class="case-tab" id="casetab-case2005" role="tab" aria-selected="false" aria-controls="case2005" onclick="showCase('case2005',this)">2005 · criminal trial</button>
+        <button class="case-tab" id="casetab-case2019" role="tab" aria-selected="false" aria-controls="case2019" onclick="showCase('case2019',this)">2019 · media accusations</button>
       </div>
 
       <!-- CASE 1993 -->
-      <div class="case-panel active" id="case1993">
+      <div class="case-panel active" id="case1993" role="tabpanel" aria-labelledby="casetab-case1993">
         <div class="cards-grid" style="margin-bottom:28px;">
           <div class="card"><div class="card-label">Case type</div><div class="card-title">Civil (criminal case closed)</div><div class="card-body">No criminal charges were filed. Settlement of ~$23 million, January 1994. Initiated by Jackson's team.</div></div>
           <div class="card"><div class="card-label">Accuser</div><div class="card-title">Jordan Chandler, age 13</div><div class="card-body">Never testified in criminal court. Further details of his private life are not included in the project's verified corpus.</div></div>
@@ -1718,7 +1718,7 @@
       </div>
 
       <!-- CASE 2005 -->
-      <div class="case-panel" id="case2005">
+      <div class="case-panel" id="case2005" role="tabpanel" aria-labelledby="casetab-case2005">
         <div class="cards-grid" style="margin-bottom:28px;">
           <div class="card"><div class="card-label">Case</div><div class="card-title">People v. Jackson No. 1133603</div><div class="card-body">Acquitted on all 14 counts. June 13, 2005.</div></div>
           <div class="card"><div class="card-label">Systemic link 1993–2005</div><div class="card-title">One attorney · one psychologist · one prosecutor</div><div class="card-body">Feldman (contingency fee), Katz (double conflict of interest), Sneddon (both cases). Feldman admitted: a guilty verdict would automatically have won the civil suit.</div></div>
@@ -1732,7 +1732,7 @@
       </div>
 
       <!-- CASE 2019 -->
-      <div class="case-panel" id="case2019">
+      <div class="case-panel" id="case2019" role="tabpanel" aria-labelledby="casetab-case2019">
         <div class="cards-grid" style="margin-bottom:28px;">
           <div class="card"><div class="card-label">Film</div><div class="card-title">Leaving Neverland (2019, HBO)</div><div class="card-body">Accusations by Wade Robson and James Safechuck. Directed by Dan Reed.</div></div>
           <div class="card"><div class="card-label">Civil suit</div><div class="card-title">$400M · MJJ Productions and MJJ Ventures</div><div class="card-body">Not against Jackson personally. Postponed to February 14, 2028.</div></div>
@@ -1786,7 +1786,7 @@
 </section><!-- /tab5 -->
 
 <!-- TAB 6: LEGACY IN NUMBERS -->
-<section class="tab-section" id="tab6">
+<section class="tab-section" id="tab6" role="tabpanel" aria-labelledby="navtab-tab6">
   <div class="section">
     <div class="container">
       <div class="hero hero--metrics" style="padding:60px 0 42px;border:none;">
@@ -2182,7 +2182,7 @@
 
 
 <!-- TAB 7: SOURCE CORPUS -->
-<section class="tab-section" id="tab7">
+<section class="tab-section" id="tab7" role="tabpanel" aria-labelledby="navtab-tab7">
   <div class="section">
     <div class="container">
       <div class="hero hero--corpus" style="padding:60px 0 42px;border:none;">
@@ -2211,7 +2211,7 @@
       <div>
         <div class="footer-col-title">Project</div>
         <p class="footer-text">An independent reconstruction of Michael Jackson’s final day, the first investigative steps, and the world’s reaction to his death.</p>
-        <a href="#" id="openPolicyBtn" onclick="openPolicy();return false;" style="display:block;margin-top:12px;color:var(--text-dim);text-decoration:underline;font-size:.8rem;">Privacy &amp; Cookie Policy</a>
+        <button type="button" id="openPolicyBtn" onclick="openPolicy()" style="display:block;margin-top:12px;color:var(--text-dim);text-decoration:underline;font-size:.8rem;background:none;border:none;padding:0;font-family:inherit;cursor:pointer;text-align:left;">Privacy &amp; Cookie Policy</button>
       </div>
       <div>
         <div class="footer-col-title">Materials</div>
@@ -2251,7 +2251,7 @@
 
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
-  <p>This memorial project uses cookies and Yandex Metrica to collect anonymized visit statistics. By continuing to use the site, you agree to our <a id="openPolicyBannerBtn" tabindex="0">Privacy Policy</a>.</p>
+  <p>This memorial project uses cookies and Yandex Metrica to collect anonymized visit statistics. By continuing to use the site, you agree to our <button type="button" id="openPolicyBannerBtn">Privacy Policy</button>.</p>
   <button class="cookie-btn" id="cookieAcceptBtn" type="button">Got it</button>
 </div>
 
@@ -2338,8 +2338,10 @@
     document.querySelectorAll('.nav-tabs a').forEach(a => a.classList.remove('active'));
     const activeLink = el || document.querySelector(`.nav-tabs a[data-tab="${tabId}"]`);
     if (activeLink) activeLink.classList.add('active');
-    const nav = document.getElementById('navTabs');
-    if (nav) nav.classList.remove('open');
+    document.querySelectorAll('.nav-tabs a[role="tab"]').forEach(a => {
+      a.setAttribute('aria-selected', a.dataset.tab === tabId ? 'true' : 'false');
+    });
+    closeMenu();
     window.scrollTo({top:0,behavior:'smooth'});
     document.body.classList.remove('death-focus'); // immediate clear; scroll listener recalculates
     if (typeof updateDeathFocus === 'function') updateDeathFocus();
@@ -2349,6 +2351,13 @@
     if (tabId === 'tab7') renderCorpus();
     var hash = TAB_HASHES[tabId];
     history.pushState(null, '', hash ? '#' + hash : location.pathname + location.search);
+    if (target) {
+      var heading = target.querySelector('h1');
+      if (heading) {
+        heading.setAttribute('tabindex', '-1');
+        heading.focus({preventScroll: true});
+      }
+    }
   }
 
   function scrollActiveTop() {
@@ -2360,11 +2369,22 @@
 
 
   function toggleMenu() {
-    document.getElementById('navTabs').classList.toggle('open');
+    var nav = document.getElementById('navTabs');
+    var open = nav.classList.toggle('open');
+    var burger = document.getElementById('burger');
+    if (burger) {
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
   }
 
   function closeMenu() {
     document.getElementById('navTabs').classList.remove('open');
+    var burger = document.getElementById('burger');
+    if (burger) {
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    }
   }
 
   function showCase(id, el) {
@@ -2372,11 +2392,18 @@
     document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     if (el) el.classList.add('active');
+    document.querySelectorAll('.case-tab[role="tab"]').forEach(t => {
+      t.setAttribute('aria-selected', t.getAttribute('aria-controls') === id ? 'true' : 'false');
+    });
   }
 
   function filterReactions(country, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
     document.querySelectorAll('.reaction-card').forEach(c => {
       c.style.display = (country === 'all' || c.dataset.country === country) ? '' : 'none';
     });
@@ -2505,6 +2532,7 @@
       var initials = (words[0] ? words[0][0] : '').toUpperCase();
       if (words.length > 1) initials += (words[words.length - 1][0] || '').toUpperCase();
       avatar.textContent = initials;
+      avatar.setAttribute('aria-hidden', 'true');
     });
   }
 
@@ -2542,20 +2570,33 @@
       var bannerPolicyLink = document.getElementById('openPolicyBannerBtn');
       if (bannerPolicyLink) {
         bannerPolicyLink.addEventListener('click', openPolicy);
-        bannerPolicyLink.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') openPolicy();
-        });
       }
     }
   });
 
   /* POLICY MODAL */
+  var policyTriggerEl = null;
+
+  function setBackgroundInert(state) {
+    var modal = document.getElementById('policyModal');
+    Array.prototype.forEach.call(document.body.children, function(el) {
+      if (el === modal || el.tagName === 'SCRIPT') return;
+      if ('inert' in el) { el.inert = state; }
+      else if (state) { el.setAttribute('aria-hidden', 'true'); }
+      else { el.removeAttribute('aria-hidden'); }
+    });
+  }
+
   function openPolicy() {
     var modal = document.getElementById('policyModal');
     if (!modal) return;
+    policyTriggerEl = document.activeElement;
+    setBackgroundInert(true);
     modal.style.display = 'flex';
     requestAnimationFrame(function() { modal.style.opacity = '1'; });
     document.body.style.overflow = 'hidden';
+    var firstFocusable = modal.querySelector('button, a[href], [tabindex]');
+    if (firstFocusable) firstFocusable.focus();
   }
 
   function closePolicy() {
@@ -2564,6 +2605,11 @@
     modal.style.opacity = '0';
     setTimeout(function() { modal.style.display = 'none'; }, 260);
     document.body.style.overflow = '';
+    setBackgroundInert(false);
+    if (policyTriggerEl && typeof policyTriggerEl.focus === 'function') {
+      policyTriggerEl.focus();
+    }
+    policyTriggerEl = null;
   }
 
   document.addEventListener('DOMContentLoaded', function() {
